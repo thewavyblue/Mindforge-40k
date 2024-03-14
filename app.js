@@ -9,24 +9,28 @@ const btnSubmit = document.getElementById("btnSubmit");
 const btnSkip = document.getElementById("btnSkip");
 
 // Create an array based on the armyStats number of entries
-let statsArr = Object.entries(armyStats);
+let statsArr1 = Object.entries(armyStats);
+let statsArr2 = 7; // the length of the stats object
 
 // Create a random number to select a unit to query
-let unitRandomNum = 1+ Math.floor(Math.random() * statsArr.length);
-console.log(unitRandomNum);
-console.log(`Unit name: ${statsArr[unitRandomNum][1]}`);
+let unitRandomNum = 1 + Math.floor(Math.random() * statsArr1.length);
 
-console.log(Object.entries(armyStats.unit0));
+// Create a random number to select a stat to query
+let statRandomNum = Math.floor(Math.random() * statsArr2);
+console.log(statRandomNum);
+
+console.log(statsArr1.unitRandomNum.statRandomNum);
+console.log(statsArr1);
 // Create a random number based on the length of the stats array
-let randomNum = Math.floor(Math.random() * statsArr.length);
+let randomNum = Math.floor(Math.random() * statsArr1.length);
 
 // Keep track of the index of the current question
 let questionIndex = randomNum;
 
 // Function to generate a new question
 function generateNewQuestion() {
-    // Generate a random number between 0 and statsArr.length
-    let randomNum = Math.floor(Math.random() * statsArr.length);
+    // Generate a random number between 0 and statsArr1.length
+    let randomNum = Math.floor(Math.random() * statsArr1.length);
     // Update the question index
     questionIndex = randomNum;
     // Get the question text from the questions array
