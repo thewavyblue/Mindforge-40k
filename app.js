@@ -8,55 +8,58 @@ let answerInput = document.getElementById("answerInput");
 const btnSubmit = document.getElementById("btnSubmit");
 const btnSkip = document.getElementById("btnSkip");
 
-// Create an array from armyStats
-let statsArr = Object.values(armyStats);
-console.log(`The armyStats array of entries: ${statsArr}`);
+// Function to randomly select a unit and its stats
+function selectRandomUnit(armyStats) {
+    // Get keys of the units
+    const unitKeys = Object.keys(armyStats).filter(key => key.startsWith('unit'));
+    // Randomly select a unit key
+    const randomUnitKey = unitKeys[Math.floor(Math.random() * unitKeys.length)];
+    // Get the selected unit object
+    const selectedUnit = armyStats[randomUnitKey];
+    // Return the selected unit and its stats
+    return {
+        unitName: selectedUnit.unitName,
+        stats: selectedUnit.stats
+    };
+}
 
-// Create an array from unit1
-let unit1StatsArr = Object.values(armyStats.unit1.stats);
-console.log(`The armyStats array of entries: ${unit1StatsArr}`);
-
-
-// Create a random number to select a unit to query
-let unitRandomNum = 1+ Math.floor(Math.random() * statsArr.length);
-console.log(unitRandomNum);
-//console.log(`Unit name: ${statsArr[unitRandomNum][1]}`);
-console.log(armyStats[1]);
+// Example usage
+const randomUnit = selectRandomUnit(armyStats);
+console.log("Randomly selected unit:", randomUnit.unitName);
+console.log("Corresponding stats:", randomUnit.stats);
 
 // Create a random number based on the length of the stats array
-let randomNum = Math.floor(Math.random() * statsArr.length);
+let randomNum = Math.floor(Math.random() * 7);
 
 // Keep track of the index of the current question
 let questionIndex = randomNum;
 
 // Function to generate a new question
 function generateNewQuestion() {
-    // Generate a random number between 0 and statsArr.length
-    let randomNum = Math.floor(Math.random() * statsArr.length);
-    // Update the question index
-    questionIndex = randomNum;
     // Get the question text from the questions array
     const question = Object.values(questions)[questionIndex];
+    // Generate a random number between 0 and 7
+    let randomNum = Math.floor(Math.random() * 7);
+    // Update the question index
+    questionIndex = randomNum;
     // Display the new question
-    questionLabel.innerHTML = question;
+    questionLabel.innerHTML = `${randomUnit.unitName} <br/>${question}`;
+    // console.log(randomNum);
 }
 
 // Function to handle answer submission
 function submitAnswer() {
-    
     // Get the answer corresponding to the current question index
-    const answer = Object.values(armyStats.unit.stats)[questionIndex];
+    const answer = Object.values(randomUnit.stats)[questionIndex];
     console.log(answer);
-    
     // Check if the submitted answer matches the correct answer
-    if (answerInput.value == answer) {
+    if (answerInput.value == answer - 1) {
         console.log(`${answerInput.value} is correct!`);
     } else {
         console.log(`${answerInput.value} is incorrect`);
     }
-
     // Generate a new question
-    generateNewQuestion();
+    // generateNewQuestion();
 }
 
 // Function to handle skipping a question
