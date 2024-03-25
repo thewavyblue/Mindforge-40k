@@ -8,15 +8,21 @@ let answerInput = document.getElementById("answerInput");
 const btnSubmit = document.getElementById("btnSubmit");
 const btnSkip = document.getElementById("btnSkip");
 
-// Create an array based on the armyStats number of entries
-let statsArr = Object.entries(armyStats);
+// Create an array from armyStats
+let statsArr = Object.values(armyStats);
+console.log(`The armyStats array of entries: ${statsArr}`);
+
+// Create an array from unit1
+let unit1StatsArr = Object.values(armyStats.unit1.stats);
+console.log(`The armyStats array of entries: ${unit1StatsArr}`);
+
 
 // Create a random number to select a unit to query
 let unitRandomNum = 1+ Math.floor(Math.random() * statsArr.length);
 console.log(unitRandomNum);
-console.log(`Unit name: ${statsArr[unitRandomNum][1]}`);
+//console.log(`Unit name: ${statsArr[unitRandomNum][1]}`);
+console.log(armyStats[1]);
 
-console.log(Object.entries(armyStats.unit0));
 // Create a random number based on the length of the stats array
 let randomNum = Math.floor(Math.random() * statsArr.length);
 
