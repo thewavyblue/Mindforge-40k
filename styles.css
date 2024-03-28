@@ -17,6 +17,10 @@ html {
     background-color: #eee;
 }
 
+header {
+    padding: 1rem 2rem;
+}
+
 p {
     margin: 0;
 }
@@ -27,8 +31,16 @@ body {
 }
 
 .container {
-    padding: 4rem;
+    padding: 2rem 0;
+    min-width: 320px;
+}
 
+.full-width {
+    width: 100%;
+}
+
+#score-message {
+    margin: auto;
 }
 
 h1 {
@@ -37,12 +49,16 @@ h1 {
     font-size: 2rem;
     font-family: Teko, Arial, Helvetica, sans-serif;
     font-weight: 600;
-    
 }
 
 h2 {
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 2rem;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 1.25rem;
 }
 
 #header {
@@ -71,19 +87,20 @@ img {
     justify-content: center;
 }
 
-input {
-    border: none;
+#output-question {
+    width: 100%;
+    padding: 0 2rem;
+    height: 6rem;
 }
 
-#stats {
+#input-container {
     border-top: 1px solid var(--white, #FFF);
     background: var(--dark-grey-1, #333);
     display: flex;
-    height: 84px;
-    padding: 12px 32px;
+    width: 100%;
+    padding: 2rem;
     justify-content: center;
     align-items: flex-start;
-    gap: 23px;
     position: relative;
 }
 
@@ -98,19 +115,20 @@ input {
 }
 
 input {
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 900;
     line-height: normal;
     color: var(--black, #000);
     position: absolute;
     margin: auto;    
     text-align: center;
-    margin-top: 6px;
-    width: 36px;
-    height: 36px;
+    margin-top: 0.75rem;
+    width: 3rem;
+    height: 3rem;
+    border: none;
 }
 
-.section-label {
+.score-container {
     display: flex;
     height: 50px;
     padding: 0px 22px;

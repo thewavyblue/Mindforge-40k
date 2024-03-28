@@ -3,10 +3,12 @@ import { armyStats } from "./armyStats.js";
 import { questions } from "./questions.js";
 
 // Get DOM elements
-const questionLabel = document.getElementById("questionLabel");
-let answerInput = document.getElementById("answerInput");
+const questionLabel = document.getElementById("question-label");
+const unitName = document.getElementById("unit-name");
+let answerInput = document.getElementById("input-answer");
 const btnSubmit = document.getElementById("btnSubmit");
 const btnSkip = document.getElementById("btnSkip");
+let scoreMessage = document.getElementById("score-message")
 
 // Function to randomly select a unit and its stats
 function selectRandomUnit(unit) {
@@ -45,8 +47,9 @@ function generateNewQuestion() {
     // Get the question text from the questions array
     const question = Object.values(questions)[questionIndex];
     // Display the new question
-    questionLabel.innerHTML = `${randomUnit.unitName} <br/>${question}`;
-    // console.log(randomNum);
+    questionLabel.innerHTML = `${question}`;
+    // Display the unit name
+    unitName.innerHTML = `${randomUnit.unitName}`;
 }
 
 // Function to handle answer submission
@@ -56,10 +59,18 @@ function submitAnswer() {
     console.log(answer);
     // Check if the submitted answer matches the correct answer
     if (answerInput.value == answer) {
-        console.log(`${answerInput.value} is correct!`);
+        scoreMessage.innerHTML = `${answerInput.value} is correct!`;
+        setTimeout(() => {
+            clearScoreMessage();
+        }, 1500);        
     } else {
-        console.log(`${answerInput.value} is incorrect`);
+        scoreMessage.innerHTML = `Incorrect. The answer is ${answer}.`;
+        setTimeout(() => {
+            clearScoreMessage();
+        }, 1500);  
     }
+    // CLear score message and input value
+    clearScoreValue();
     // Generate a new question
     generateNewQuestion();
 }
@@ -67,8 +78,19 @@ function submitAnswer() {
 // Function to handle skipping a question
 function skipQuestion() {
     console.log("Question skipped");
+    // CLear score message and input value
+    clearScoreMessage();
+    clearScoreValue();
     // Generate a new question when skipped
     generateNewQuestion();
+}
+
+function clearScoreMessage() {
+    scoreMessage.innerHTML = "";
+}
+
+function clearScoreValue() {
+    answerInput.value = "";
 }
 
 // Event listener for submit button
