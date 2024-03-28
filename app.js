@@ -8,7 +8,7 @@ const unitName = document.getElementById("unit-name");
 let answerInput = document.getElementById("input-answer");
 const btnSubmit = document.getElementById("btnSubmit");
 const btnSkip = document.getElementById("btnSkip");
-let scoreMessage = document.getElementById("score-message")
+let scoreMessage = document.getElementById("score-message");
 
 // Function to randomly select a unit and its stats
 function selectRandomUnit(unit) {
@@ -25,11 +25,6 @@ function selectRandomUnit(unit) {
     };
 }
 
-// Example usage
-const randomUnit = selectRandomUnit(armyStats);
-console.log("Randomly selected unit:", randomUnit.unitName);
-console.log("Corresponding stats:", randomUnit.stats);
-
 // Set up the question
 // Create a random number based on the length of the stats array
 function randomNum() {
@@ -37,11 +32,12 @@ function randomNum() {
 }
 // Keep track of the index of the current question
 let questionIndex = randomNum();
+let randomUnit;
 
 // Function to generate a new question
 function generateNewQuestion() {
     // Generate a new unit
-    selectRandomUnit(armyStats);
+    randomUnit = selectRandomUnit(armyStats); // Assign the random unit to a global variable
     // Update the question index
     questionIndex = randomNum();
     // Get the question text from the questions array
@@ -50,6 +46,9 @@ function generateNewQuestion() {
     questionLabel.innerHTML = `${question}`;
     // Display the unit name
     unitName.innerHTML = `${randomUnit.unitName}`;
+    
+    console.log("Randomly selected unit:", randomUnit.unitName);
+    console.log("Corresponding stats:", randomUnit.stats);
 }
 
 // Function to handle answer submission
@@ -59,37 +58,39 @@ function submitAnswer() {
     console.log(answer);
     // Check if the submitted answer matches the correct answer
     if (answerInput.value == answer) {
-        scoreMessage.innerHTML = `${answerInput.value} is correct!`;
-        setTimeout(() => {
-            clearScoreMessage();
-        }, 1500);        
+        scoreMessage.innerHTML = `${answerInput.value} is correct!`; 
     } else {
-        scoreMessage.innerHTML = `Incorrect. The answer is ${answer}.`;
-        setTimeout(() => {
-            clearScoreMessage();
-        }, 1500);  
+        scoreMessage.innerHTML = `Incorrect. The answer is ${answer}.`;  
     }
-    // CLear score message and input value
-    clearScoreValue();
+
+    setTimeout(() => {
+        clearScoreMessage();
+        generateNewQuestion();
+    }, 1500);
+
+    // Clear score message and input value
+    clearInputValue();
     // Generate a new question
-    generateNewQuestion();
+    
 }
 
 // Function to handle skipping a question
 function skipQuestion() {
-    console.log("Question skipped");
-    // CLear score message and input value
-    clearScoreMessage();
-    clearScoreValue();
+    scoreMessage.innerHTML = "Question skipped";
+        setTimeout(() => {
+            clearScoreMessage();
+            generateNewQuestion();
+        }, 1000);
+    // Clear input value
+    clearInputValue();
     // Generate a new question when skipped
-    generateNewQuestion();
 }
 
 function clearScoreMessage() {
     scoreMessage.innerHTML = "";
 }
 
-function clearScoreValue() {
+function clearInputValue() {
     answerInput.value = "";
 }
 
