@@ -73,13 +73,14 @@ function submitAnswer() {
     // Check if the submitted answer matches the correct answer
     if (answerInput.value == answer) {
         scoreMessage.innerHTML = `${answerInput.value} is correct!`;
-        updateScore(); 
+        score++;
     } else {
         scoreMessage.innerHTML = `Incorrect. The answer is ${answer}.`;  
     }
 
     setTimeout(() => {
         // Update score
+        updateScore();
         updateQuestionCounter();
         clearScoreMessage();
         generateNewQuestion();
@@ -110,9 +111,7 @@ function updateQuestionCounter() {
 }
 
 function updateScore() {
-    score++;
     scoreTracker.innerHTML = score;
-    console.log(score);
 }
 
 function clearScoreMessage() {
