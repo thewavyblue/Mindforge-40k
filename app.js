@@ -96,6 +96,12 @@ function clearInputValue() {
 
 // Event listener for submit button
 btnSubmit.addEventListener("click", submitAnswer);
+document.addEventListener("keypress", function(KeyboardEvent) {
+    if (KeyboardEvent.keyCode == 13) {
+        submitAnswer();
+    }
+});
+
 
 // Event listener for skip button
 btnSkip.addEventListener("click", skipQuestion);
