@@ -13,42 +13,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800;900&family=Teko:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="justify-content-center">
-        <img class="logo" src="" alt="Mindforge 40k logo">
+
+    <!-- Header, incl logo -->
+    <header class="justify-content-center bg-dark">
+        <img class="logo" src="/imgs/mindforge40k-logo-white.svg" alt="Mindforge 40k logo">
     </header>
-<div class="container align-items-center">
-    <!-- Unit name and question renders here -->
-    <section id="output-question">
+
+    <section class="steel-grey-container space-between">
+        <p id="loaded-army"></p>
+        <p>Score: <span id="score-tracker">X</span> / <span id="questions-total">Y</span></p>
+    </section>
+
+    <!-- Question render section -->
+    <section class="px-4 py-8" id="output-question">
         <div class="question-label" id="">
             <h3 id="unit-name">No unit to show</h3>
             <p class="" id="question-label">No questions to show</p>
         </div>
     </section>
+    <div class="container align-items-center">
+        <!-- Unit name and question renders here -->
 
-    <section class="full-width">
-        <!-- Input value here -->
-        <div id="input-container">
-            <div class="justify-content-center">
-                <input class="" type="number" id="input-answer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 35" fill="none"><path d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="white" stroke="#4D778C"/>
-                </svg>
+        <section class="full-width">
+            <!-- Input value here -->
+            <div id="input-container">
+                <div class="justify-content-center">
+                    <input class="" type="number" id="input-answer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 35" fill="none"><path d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="white" stroke="#4D778C"/>
+                    </svg>
+                </div>
             </div>
-        </div>
-        <!-- Answer message renders here -->
-        <div class="score-container">
-            <h3 id="score-message"></h3>
-        </div>
-    </section>
+            <!-- Answer message renders here -->
+            <div class="score-container">
+                <h3 id="score-message"></h3>
+            </div>
+        </section>
 
-    <!-- Buttons here -->
-    <div class="buttons col mt-4 justify-content-center">
-        <button class="button btn-steel-grey" id="btnSubmit">SUBMIT</button>
-        <button class="button" id="btnSkip">SKIP</button>
+        <!-- Buttons here -->
+        <div class="buttons col mt-4 mb-4 justify-content-center">
+            <button class="button btn-steel-grey" id="btnSubmit">SUBMIT</button>
+            <button class="button" id="btnSkip">SKIP</button>
+        </div>
     </div>
-</div>
+    <footer class="justify-content-center bg-dark">
+        <p class="dark-grey-2">Coded by <a href="https://benhoath.com" target="_blank" rel="noreferrer noopener">Ben Hoath</a>, developed with <span class="red">♥</span></p>
+    </footer>
+    <script src="app.js" type="module"></script>
+    <script src="armyStats.js" type="module"></script>
+    <script src="questions.js" type="module"></script>
 
-<script src="app.js" type="module"></script>
-<script src="armyStats.js" type="module"></script>
-<script src="questions.js" type="module"></script>
 </body>
 </html>

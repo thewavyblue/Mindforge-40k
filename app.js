@@ -9,6 +9,21 @@ let answerInput = document.getElementById("input-answer");
 const btnSubmit = document.getElementById("btnSubmit");
 const btnSkip = document.getElementById("btnSkip");
 let scoreMessage = document.getElementById("score-message");
+let loadedArmy = document.getElementById("loaded-army");
+let scoreTracker = document.getElementById("score-tracker");
+let questionsTotal = document.getElementById("questions-total");
+let questionCounter;
+let score;
+
+function init() {
+    loadedArmy.innerHTML = `Current army: <strong>${armyStats.armyName}</strong>`;
+    questionCounter = 0;
+    questionsTotal.innerHTML = questionCounter;
+    score = 0;
+    scoreTracker.innerHTML = score;
+}
+
+init();
 
 // Function to randomly select a unit and its stats
 function selectRandomUnit(unit) {
@@ -55,15 +70,17 @@ function generateNewQuestion() {
 function submitAnswer() {
     // Get the answer corresponding to the current question index
     const answer = Object.values(randomUnit.stats)[questionIndex];
-    console.log(answer);
     // Check if the submitted answer matches the correct answer
     if (answerInput.value == answer) {
-        scoreMessage.innerHTML = `${answerInput.value} is correct!`; 
+        scoreMessage.innerHTML = `${answerInput.value} is correct!`;
+        updateScore(); 
     } else {
         scoreMessage.innerHTML = `Incorrect. The answer is ${answer}.`;  
     }
 
     setTimeout(() => {
+        // Update score
+        updateQuestionCounter();
         clearScoreMessage();
         generateNewQuestion();
     }, 1500);
@@ -83,7 +100,19 @@ function skipQuestion() {
         }, 1000);
     // Clear input value
     clearInputValue();
-    // Generate a new question when skipped
+    // Update question counter
+    updateQuestionCounter();
+}
+
+function updateQuestionCounter() {
+    questionCounter++;
+    questionsTotal.innerHTML = questionCounter; 
+}
+
+function updateScore() {
+    score++;
+    scoreTracker.innerHTML = score;
+    console.log(score);
 }
 
 function clearScoreMessage() {
