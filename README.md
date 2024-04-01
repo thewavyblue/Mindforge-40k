@@ -6,4 +6,4 @@ It uses JavaScript logic, with vanilla HTML and CSS for the frontend UI. The vis
 
 With new functionalities comes more relationships and design decisions, so future design development in Figma will need to come before code development.
 
-I plan to consistently test the app with a small focus group and take on board feedback to eventually create an app with a conplete set of feautres.
+I plan to consistently test the app with a small focus group and take on board feedback to eventually create an app with a complete set of feautres.
