@@ -21,32 +21,47 @@
     <!-- Header, incl logo -->
     <header class="row justify-content-center bg-dark">
         <div class="col align-items-center px-8 border-bottom">
-            <img class="logo-main-menu" src="/imgs/mindforge40k-logo-white.svg" alt="Mindforge 40k logo">
-            <p class="p-sm white">A Warhammer 40k mind-training app</p>
+            <img class="logo" src="/imgs/mindforge40k-logo-white.svg" alt="Mindforge 40k logo">
         </div>
     </header>
 
-    <section class="row justify-content-center bg-dark">
-        <div class="col align-items-center px-8 border-bottom">
-            <img src="imgs/icon-free-play.svg" type="svg" alt="Free Play icon">
-            <p class="white menu-desc">How many can you correctly guess?</p>
-            <button button class="button btn-steel-grey" id="btnStartFreePlay">FREE PLAY</button>
-        </div>
+    <section class="row steel-grey-container space-between">
+        <p id="loaded-army"></p>
+        <p>Score: <span id="score-tracker">X</span> / <span id="questions-total">Y</span></p>
     </section>
 
-    <section class="row justify-content-center bg-dark">
-        <div class="col align-items-center px-8 border-bottom">
-            <img src="imgs/icon-timed-mode.svg" type="svg" alt="Timed Mode icon">
-            <p class="white menu-desc">Guess as many correct answers within the time limit!</p>
-            <button button class="button btn-steel-grey" id="btnStartFreePlay">TIMED MODE</button>
+    <!-- Question render section -->
+    <section class="row px-4 py-8" id="output-question">
+        <div class="col" id="">
+            <h3 id="unit-name">No unit to show</h3>
+            <p id="question-label">No questions to show</p>
         </div>
     </section>
-
-    <section class="row justify-content-center bg-dark">
-        <div class="col align-items-center px-8 border-bottom">
-            <img src="imgs/icon-sudden-death.svg" type="svg" alt="Sudden Death icon">
-            <p class="white menu-desc">Guess incorrectly and end the game. How many can you score?</p>
-            <button button class="button btn-steel-grey" id="btnStartFreePlay">SUDDEN DEATH</button>
+    
+    <section class="row align-items-center">
+        <div class="col full-width">
+            <!-- Input value here -->
+            <div class="col justify-content-center bg-dark px-8 py-8" id="input-container">
+                <div class="justify-content-center">
+                    <input class="" type="number" id="input-answer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 35" fill="none"><path d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="white" stroke="#4D778C"/>
+                    </svg>
+                </div>
+            </div>
+            <!-- Answer message renders here -->
+            <div class="score-container">
+                <h3 id="score-message"></h3>
+            </div>
+        </div>
+    </section>
+        
+    <!-- Buttons here -->
+    <section class="row gap-4 justify-content-center px-4 py-8">
+        <div class="col">
+            <button class="button btn-steel-grey" id="btnSubmit">SUBMIT</button>
+        </div>
+        <div class="col">
+            <button class="button" id="btnSkip">SKIP</button>
         </div>
     </section>
 
@@ -56,6 +71,5 @@
     <script src="app.js" type="module"></script>
     <script src="armyStats.js" type="module"></script>
     <script src="questions.js" type="module"></script>
-
 </body>
 </html>
