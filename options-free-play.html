@@ -24,51 +24,55 @@
             <img class="logo" src="/imgs/mindforge40k-logo-white.svg" alt="Mindforge 40k logo">
         </div>
     </header>
-
     <section class="row">
-        <div class="col pb-4">
             <a class="row gap-2 px-4" href="">
                 <img class="inline-block" src="/imgs/arrow-back.svg" alt="">
                 <p class="dark-grey-2 p-sm inline-block">Go back</p>
             </a>
+    </section>
+    <section class="row py-8">
+        <div class="col align-items-center">
+            <h1 class="white">
+                FREE PLAY
+            </h1>
         </div>
     </section>
-
-    <section class="row steel-grey-container space-between">
-        <p id="loaded-army"></p>
-        <p>Score: <span id="score-tracker">X</span> / <span id="questions-total">Y</span></p>
-    </section>
-
-    <!-- Question render section -->
-    <section class="row bg-white" id="output-question">
-        <div class="col px-8 py-8" id="">
-            <h3 id="unit-name">No unit to show</h3>
-            <p id="question-label">No questions to show</p>
+    <section class="row">
+        <div class="col px-8">
+            <form class="col" action="">
+                <label class="white pb-2" for="army-select">
+                    Select army
+                </label>
+                <select id="army-select" name="army-select">
+                    <option>Select...</option>
+                    <option>Adepta Sororitas</option>
+                    <option>Astra Militarum</option>
+                    <option>Adeptas Astartes</option>
+                    <option>Adeptas Mechanicus</option>
+                </select>
+                <div class="col py-4"></div>
+                <label class="white pb-2" for="army-select">
+                    Select a category
+                </label>
+                <select id="army-select" name="army-select">
+                    <option>Select...</option>
+                    <option>Units</option>
+                    <option>Weapons</option>
+                </select>
+                <div class="col py-4"></div>
+                <button class="button btn-steel-grey justify-content-center">START</button>
+            </form>
         </div>
     </section>
-    
-    <section class="row align-items-center">
-        <div class="col full-width">
-            <!-- Input value here -->
-            <div class="col px-8 py-8" id="input-container">
-                <div class="m-auto">
-                    <input class="" type="number" id="input-answer">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 35" fill="none"><path d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="white" stroke="#4D778C"/>
-                    </svg>
-                </div>
-            </div>
-            <!-- Answer message renders here -->
-            <div class="score-container place-content-center text-align-center">
-                <h3 class="" id="score-message"></h3>
-            </div>
+    <section class="row">
+        <div class="col py-8 px-8 justify-content-center h-200px">
+            <p class="white p-sm text-align-center pb-4">
+                “A randomly generated medium length quote from the grimdark future by some Primarch or other character here”
+            </p>
+            <p class="white p-sm text-align-right">
+                – Quote Credit
+            </p>
         </div>
-    </section>
-        
-    <!-- Buttons here -->
-    <section class="row gap-4 justify-content-center px-4 py-8 bg-white h-100pc">
-            <button class="button place-content-center btn-steel-grey" id="btnSubmit">SUBMIT</button>
-            <button class="button place-content-center" id="btnSkip">SKIP</button>
-        
     </section>
 
     <footer class="justify-content-center bg-dark">
@@ -77,5 +81,6 @@
     <script src="app.js" type="module"></script>
     <script src="armyStats.js" type="module"></script>
     <script src="questions.js" type="module"></script>
+
 </body>
 </html>
