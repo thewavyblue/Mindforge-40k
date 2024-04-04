@@ -246,10 +246,6 @@ input {
     gap: 15px;
 }
 
-.rule-profile {
-    gap: 5px;
-}
-
 .button {
     display: flex;
     height: 45px;
