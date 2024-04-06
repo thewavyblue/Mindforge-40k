@@ -1,139 +1,82 @@
-//import objects from external 
-import { armyStats } from "./armyStats.js";
-import { questions } from "./questions.js";
+document.addEventListener("DOMContentLoaded", function () {
+    const sliderWrapper = document.querySelector(".slider-wrapper");
+    const slides = document.querySelectorAll(".game-option-card");
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    let touchStartX = 0;
+    const width = innerWidth;
+    const sliderMove = innerWidth / totalSlides;
 
-// Get DOM elements
-const questionLabel = document.getElementById("question-label");
-const unitName = document.getElementById("unit-name");
-let answerInput = document.getElementById("input-answer");
-const btnSubmit = document.getElementById("btnSubmit");
-const btnSkip = document.getElementById("btnSkip");
-let scoreMessage = document.getElementById("score-message");
-let loadedArmy = document.getElementById("loaded-army");
-let scoreTracker = document.getElementById("score-tracker");
-let questionsTotal = document.getElementById("questions-total");
-let questionCounter;
-let score;
-
-function init() {
-    loadedArmy.innerHTML = `Current army: <strong>${armyStats.armyName}</strong>`;
-    questionCounter = 0;
-    questionsTotal.innerHTML = questionCounter;
-    score = 0;
-    scoreTracker.innerHTML = score;
-}
-
-init();
-
-// Function to randomly select a unit and its stats
-function selectRandomUnit(unit) {
-    // Get keys of the units
-    const unitKeys = Object.keys(unit).filter(key => key.startsWith('unit'));
-    // Randomly select a unit key
-    const randomUnitKey = unitKeys[Math.floor(Math.random() * unitKeys.length)];
-    // Get the selected unit object
-    const selectedUnit = unit[randomUnitKey];
-    // Return the selected unit and its stats
-    return {
-        unitName: selectedUnit.unitName,
-        stats: selectedUnit.stats
-    };
-}
-
-// Set up the question
-// Create a random number based on the length of the stats array
-function randomNum() {
-    return Math.floor(Math.random() * 7);
-}
-// Keep track of the index of the current question
-let questionIndex = randomNum();
-let randomUnit;
-
-// Function to generate a new question
-function generateNewQuestion() {
-    // Generate a new unit
-    randomUnit = selectRandomUnit(armyStats); // Assign the random unit to a global variable
-    // Update the question index
-    questionIndex = randomNum();
-    // Get the question text from the questions array
-    const question = Object.values(questions)[questionIndex];
-    // Display the new question
-    questionLabel.innerHTML = `${question}`;
-    // Display the unit name
-    unitName.innerHTML = `${randomUnit.unitName}`;
-    
-    console.log("Randomly selected unit:", randomUnit.unitName);
-    console.log("Corresponding stats:", randomUnit.stats);
-}
-
-// Function to handle answer submission
-function submitAnswer() {
-    // Get the answer corresponding to the current question index
-    const answer = Object.values(randomUnit.stats)[questionIndex];
-    // Check if the submitted answer matches the correct answer
-    if (answerInput.value == answer) {
-        scoreMessage.innerHTML = `${answerInput.value} is correct!`;
-        score++;
-    } else {
-        scoreMessage.innerHTML = `Incorrect. The answer is ${answer}.`;  
+    // Function to move slider to a specific slide
+    function moveSlider(direction) {
+        currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+        const newPosition = currentIndex * (-100 / totalSlides);
+        sliderWrapper.style.transform = `translateX(${newPosition}%)`;
     }
 
-    setTimeout(() => {
-        // Update score
-        updateScore();
-        updateQuestionCounter();
-        clearScoreMessage();
-        generateNewQuestion();
-    }, 1500);
+    // Touch event handling for swipe navigation
+    sliderWrapper.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX;
+    });
 
-    // Clear score message and input value
-    clearInputValue();
-    // Generate a new question
-    
-}
+    sliderWrapper.addEventListener('touchmove', (event) => {
+        if (!touchStartX) {
+            return;
+        }
 
-// Function to handle skipping a question
-function skipQuestion() {
-    scoreMessage.innerHTML = "Question skipped";
-        setTimeout(() => {
-            clearScoreMessage();
-            generateNewQuestion();
-        }, 1000);
-    // Clear input value
-    clearInputValue();
-    // Update question counter
-    updateQuestionCounter();
-}
+        const touchCurrentX = event.touches[0].clientX;
+        const diffX = touchStartX - touchCurrentX;
 
-function updateQuestionCounter() {
-    questionCounter++;
-    questionsTotal.innerHTML = questionCounter; 
-}
+        const gamePag1 = document.getElementById("game-pag1");
+        const gamePag2 = document.getElementById("game-pag2");
+        const gamePag3 = document.getElementById("game-pag3");
 
-function updateScore() {
-    scoreTracker.innerHTML = score;
-}
+        if (diffX > 50) {
+            // Swiped left (next)
+            moveSlider(1);
+            touchStartX = 0; // Reset touch start position
+            if (gamePag1.classList.contains("active")) {
+                gamePag1.classList.remove("active");
+                gamePag2.classList.add("active");
+            } else if (gamePag2.classList.contains("active")) {
+                gamePag2.classList.remove("active");
+                gamePag3.classList.add("active");
+            } else {
+                gamePag3.classList.remove("active");
+                gamePag1.classList.add("active");
+            }
+        } else if (diffX < -50) {
+            // Swiped right (previous)
+            moveSlider(-1);
+            touchStartX = 0; // Reset touch start position
+            if (gamePag1.classList.contains("active")) {
+                gamePag1.classList.remove("active");
+                gamePag3.classList.add("active");
+            } else if (gamePag3.classList.contains("active")) {
+                gamePag3.classList.remove("active");
+                gamePag2.classList.add("active");
+            } else {
+                gamePag2.classList.remove("active");
+                gamePag1.classList.add("active");
+            }
+        }
+    });
 
-function clearScoreMessage() {
-    scoreMessage.innerHTML = "";
-}
+    // Button loader icon
 
-function clearInputValue() {
-    answerInput.value = "";
-}
+    const btnSetupFreePlay = document.getElementById("btn-setup-free-play");
+    const btnSetupTimedMode = document.getElementById("btn-setup-timed-mode");
+    const btnSetupSuddenDeath = document.getElementById(
+        "btn-setup-sudden-death"
+    );
 
-// Event listener for submit button
-btnSubmit.addEventListener("click", submitAnswer);
-document.addEventListener("keypress", function(KeyboardEvent) {
-    if (KeyboardEvent.keyCode == 13) {
-        submitAnswer();
+    if (btnSetupFreePlay) {
+        btnSetupFreePlay.addEventListener("click", () => {
+            btnSetupFreePlay.innerHTML += ` <img class="load-animation" src="/imgs/Spinner@2x-1.0s-200px-200px-white.svg">`;
+            console.log("clicked!");
+        });
     }
+
+
+
 });
-
-
-// Event listener for skip button
-btnSkip.addEventListener("click", skipQuestion);
-
-// Generate initial question when the page loads
-generateNewQuestion();
-

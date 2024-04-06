@@ -20,49 +20,56 @@
 
     <!-- Header, incl logo -->
     <header class="row justify-content-center">
-        <div class="col place-content-center navbar">
+        <a href="/index.html" class="col place-content-center navbar">
             <img class="logo" src="/imgs/mindforge40k-logo-white.svg" alt="Mindforge 40k logo">
-        </div>
+        </a>
     </header>
+
+    <!-- Back button -->
     <section class="row">
-            <a class="row gap-2 px-4" href="">
+        <div class="col pb-4">
+            <a class="row gap-2 px-4" href="/index.html">
                 <img class="inline-block" src="/imgs/arrow-back.svg" alt="">
                 <p class="dark-grey-2 p-sm inline-block">Go back</p>
             </a>
+        </div>
     </section>
-    <section class="row py-8">
+
+    <!-- Main -->
+    <!-- Page Title -->
+    <section class="row justify-content-center">
         <div class="col align-items-center">
             <h1 class="white">
                 FREE PLAY
             </h1>
         </div>
     </section>
-    <section class="row">
-        <div class="col px-8">
-            <form class="col" action="">
-                <label class="white pb-2" for="army-select">
-                    Select army
-                </label>
-                <select id="army-select" name="army-select">
-                    <option>Select...</option>
-                    <option>Adepta Sororitas</option>
-                    <option>Astra Militarum</option>
-                    <option>Adeptas Astartes</option>
-                    <option>Adeptas Mechanicus</option>
-                </select>
-                <div class="col py-4"></div>
-                <label class="white pb-2" for="army-select">
-                    Select a category
-                </label>
-                <select id="army-select" name="army-select">
-                    <option>Select...</option>
-                    <option>Units</option>
-                    <option>Weapons</option>
-                </select>
-                <div class="col py-4"></div>
-                <button class="button btn-steel-grey justify-content-center">START</button>
-            </form>
-        </div>
+
+    <!-- Form -->
+    <section class="row justify-content-center">
+        <form class="col px-8 py-8" action="">
+            <label class="white pb-2" for="army-select">
+                Select army
+            </label>
+            <select id="army-select" name="army-select">
+                <option>Select...</option>
+                <option>Adepta Sororitas</option>
+                <option>Astra Militarum</option>
+                <option>Adeptas Astartes</option>
+                <option>Adeptas Mechanicus</option>
+            </select>
+            <div class="col py-4"></div>
+            <label class="white pb-2" for="army-select">
+                Select a category
+            </label>
+            <select id="army-select" name="army-select">
+                <option>Select...</option>
+                <option>Units</option>
+                <option>Weapons</option>
+            </select>
+            <div class="col py-4"></div>
+            <a href="/quiz-free-play.html" class="button btn-steel-grey justify-content-center">START</a>
+        </form>
     </section>
     <section class="row">
         <div class="col py-8 px-8 justify-content-center h-200px">
@@ -78,9 +85,6 @@
     <footer class="justify-content-center bg-dark">
         <p class="dark-grey-2 p-sm">Coded by <a href="https://benhoath.com" target="_blank" rel="noreferrer noopener">Ben Hoath</a>, developed with <span class="red">♥</span></p>
     </footer>
-    <script src="app.js" type="module"></script>
-    <script src="armyStats.js" type="module"></script>
-    <script src="questions.js" type="module"></script>
-
+    <script src="app.js"></script>
 </body>
 </html>

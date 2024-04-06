@@ -19,43 +19,121 @@
 <body>
 
     <!-- Header, incl logo -->
-    <header class="row justify-content-center bg-dark">
-        <div class="col align-items-center py-8 border-bottom gap-4">
+    <header class="row justify-content-center">
+        <div class="col align-items-center py-8 gap-4">
             <img class="logo-main-menu" src="/imgs/mindforge40k-logo-white.svg" alt="Mindforge 40k logo">
             <p class="p-sm white">A Warhammer 40k mind-training app</p>
         </div>
     </header>
 
-    <section class="row justify-content-center bg-dark">
-        <div class="col align-items-center py-8 border-bottom gap-4">
-            <img src="imgs/icon-free-play.svg" type="svg" alt="Free Play icon">
-            <p class="white menu-desc">How many can you correctly guess?</p>
-            <button button class="button btn-steel-grey" id="btnStartFreePlay">FREE PLAY</button>
+    <!-- game selection v2 -->
+    <section class="overflow">
+        <div class="row slider-wrapper" id="game-option-wrapper">
+            
+            <div class="col game-option-card align-items-center pt-8 px-8 gap-4 full-width">
+                <img src="imgs/icon-free-play-white.svg" type="svg" alt="Free Play icon">
+                <p class="white menu-desc">How many can you correctly guess?</p>
+                <a href="/setup-free-play.html" class="button btn-steel-grey" id="btn-setup-free-play">FREE PLAY</a>
+            </div>
+
+            <div class="col game-option-card align-items-center pt-8 px-8 gap-4 full-width">
+                <img src="imgs/icon-timed-mode-white.svg" type="svg" alt="Timed Mode icon">
+                <p class="white menu-desc">Guess as many correct answers within the time limit!</p>
+                <a href="#" class="button btn-disabled" id="btn-setup-timed-mode">TIMED MODE</a>
+            </div>
+
+            <div class="col game-option-card align-items-center pt-8 px-8 gap-4 full-width">
+                <img src="imgs/icon-sudden-death-white.svg" type="svg" alt="Sudden Death icon">
+                <p class="white menu-desc">Guess incorrectly and end the game. How many can you score?</p>
+                <a href="#" class="button btn-disabled" id="btn-setup-sudden-death">SUDDEN DEATH</a>
+            </div>
+
+        </div>
+        <div class="row justify-content-center pt-4 pb-8">
+            <div class="slider-pagination row justify-content-center">
+                <span class="pagination-dot active" id="game-pag1"></span>
+                <span class="pagination-dot" id="game-pag2"></span>
+                <span class="pagination-dot" id="game-pag3"></span>
+            </div>
         </div>
     </section>
 
-    <section class="row justify-content-center bg-dark">
-        <div class="col align-items-center py-8 border-bottom gap-4">
-            <img src="imgs/icon-timed-mode.svg" type="svg" alt="Timed Mode icon">
-            <p class="white menu-desc">Guess as many correct answers within the time limit!</p>
-            <button button class="button btn-steel-grey" id="btnStartFreePlay">TIMED MODE</button>
-        </div>
-    </section>
+    <!-- High score -->
+    <section class="justify-content-center overflow">
+        <div class="row slider-wrapper" id="highscores-wrapper">
 
-    <section class="row justify-content-center bg-dark ">
-        <div class="col align-items-center py-8 border-bottom gap-4">
-            <img src="imgs/icon-sudden-death.svg" type="svg" alt="Sudden Death icon">
-            <p class="white menu-desc">Guess incorrectly and end the game. How many can you score?</p>
-            <button button class="button btn-steel-grey" id="btnStartFreePlay">SUDDEN DEATH</button>
+            <div class="col px-8 py-8 gap-4 full-width highscores-slide" id="highscores-free-play">
+                <h3 class="white text-center pb-4 border-bottom">
+                    High scores: Free Play
+                </h3>
+                <div class="col gap-4">
+                    <div class="row white space-between border-bottom pb-4 px-4">
+                        <p id="highscore-date">01.04.2024</p>
+                        <p id="highscore-score">100</p>
+                    </div>
+                    <div class="row white space-between border-bottom pb-4 px-4">
+                        <p id="highscore-date">01.04.2024</p>
+                        <p id="highscore-score">100</p>
+                    </div>
+                    <div class="row white space-between border-bottom pb-4 px-4">
+                        <p id="highscore-date">01.04.2024</p>
+                        <p id="highscore-score">100</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col px-8 py-8 gap-4 full-width highscores-slide" id="highscores-timed-mode">
+                <h3 class="white text-center pb-4 border-bottom">
+                    High scores: Free Play
+                </h3>
+                <div class="col gap-4">
+                    <div class="row white space-between border-bottom pb-4 px-4">
+                        <p id="highscore-date">01.04.2024</p>
+                        <p id="highscore-score">100</p>
+                    </div>
+                    <div class="row white space-between border-bottom pb-4 px-4">
+                        <p id="highscore-date">01.04.2024</p>
+                        <p id="highscore-score">100</p>
+                    </div>
+                    <div class="row white space-between border-bottom pb-4 px-4">
+                        <p id="highscore-date">01.04.2024</p>
+                        <p id="highscore-score">100</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col px-8 py-8 gap-4 full-width highscores-slide" id="highscores-sudden-death">
+                <h3 class="white text-center pb-4 border-bottom">
+                    High scores: Free Play
+                </h3>
+                <div class="col gap-4">
+                    <div class="row white space-between border-bottom pb-4 px-4">
+                        <p id="highscore-date">01.04.2024</p>
+                        <p id="highscore-score">100</p>
+                    </div>
+                    <div class="row white space-between border-bottom pb-4 px-4">
+                        <p id="highscore-date">01.04.2024</p>
+                        <p id="highscore-score">100</p>
+                    </div>
+                    <div class="row white space-between border-bottom pb-4 px-4">
+                        <p id="highscore-date">01.04.2024</p>
+                        <p id="highscore-score">100</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center pt-4 pb-8">
+            <div class="slider-pagination row justify-content-center">
+                <span class="pagination-dot active" id="highscore-pag1"></span>
+                <span class="pagination-dot" id="highscore-pag2"></span>
+                <span class="pagination-dot" id="highscore-pag3"></span>
+            </div>
         </div>
     </section>
 
     <footer class="justify-content-center bg-dark">
         <p class="dark-grey-2 p-sm">Coded by <a href="https://benhoath.com" target="_blank" rel="noreferrer noopener">Ben Hoath</a>, developed with <span class="red">♥</span></p>
     </footer>
-    <script src="app.js" type="module"></script>
-    <script src="armyStats.js" type="module"></script>
-    <script src="questions.js" type="module"></script>
-
+    <script src="/app.js"></script>
 </body>
 </html>

@@ -5,6 +5,8 @@
     --grey: #ccc;
     --white: #fff;
     --steel-grey: #4D778C;
+    --steel-grey-2: #6493aa;
+    --steel-grey-3: #3c5c6d;
 }
 
 html {
@@ -65,6 +67,7 @@ h2 {
 h3 {
     font-weight: 700;
     font-size: 1.25rem;
+    text-transform: uppercase;
 }
 
 .p-sm {
@@ -97,6 +100,11 @@ header {
     width: 16rem;
 }
 
+.load-animation {
+    height: 32px;
+    width: 32px;
+}
+
 .red {
     color: rgb(215, 33, 94);
 }
@@ -124,7 +132,7 @@ img {
 }
 
 img[type="svg"] {
-    width: 1.5rem;
+    /* width: 1.5rem; */
 }
 
 .justify-content-center {
@@ -252,16 +260,34 @@ input {
     padding: 0 12px;
     align-items: center;
     border-radius: 5px;
-    background: var(--dark-grey-1, #333);
+    border: none;
     color: var(--white);
     font-weight: 700;
     letter-spacing: 1px;
     font-size: 0.9rem;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .btn-steel-grey {
     background: var(--steel-grey);
+}
+
+.btn-dark-grey {
+    background: var(--dark-grey-1, #333);
+}
+
+.button:hover {
+    filter: brightness(120%);
+}
+
+.button:active {
+    filter: brightness(80%);
+}
+
+.btn-disabled {
+    background: var(--grey);
+    cursor: not-allowed;
 }
 
 .row {
@@ -272,18 +298,45 @@ input {
 .col {
     display: flex;
     flex-direction: column;
+    /* width: 100%; */
+}
+
+.w-100 {
     width: 100%;
 }
 
+.slider-wrapper {
+    width: 300%;
+    transform: translateX(0%);
+    transition: transform 0.5s ease 0s;
+}
+
+.pagination-dot {
+    display: inline-block;
+    height: 0.75rem;
+    width: 0.75rem;
+    margin: 0.35rem;
+    border-radius: 1rem;
+    background: var(--grey);
+    cursor: pointer;
+    transition: 0.5s ease 0s;
+}
+
+.active {
+    width: 1.5rem;
+    background: var(--steel-grey);
+}
+
 .align-items-center {
-    /* display: flex;
-    flex-direction: column; */
-    /* gap: 1rem; */
     align-items: center;
 }
 
 .place-content-center {
     place-content: center;
+}
+
+.overflow {
+    overflow: hidden;
 }
 
 .gap-2 {
@@ -302,12 +355,20 @@ input {
     padding-bottom: 1rem;
 }
 
+.pb-8 {
+    padding-bottom: 2rem;
+}
+
 .pt-2 {
     padding-top: 0.5rem;
 }
 
 .pt-4 {
     padding-top: 1rem;
+}
+
+.pt-8 {
+    padding-top: 2rem;
 }
 
 .m-auto{
@@ -322,6 +383,11 @@ input {
     margin-bottom: 1rem;
 }
 
+.mx-8 {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
 .py-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -330,6 +396,14 @@ input {
 .py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.p-8 {
+    padding: 2rem;
 }
 
 .px-4 {
@@ -352,7 +426,6 @@ select {
 }
 
 .menu-desc {
-    width: 256px;
     text-align: center;
 }
 
@@ -431,3 +504,6 @@ footer > p > a:visited {
     width: 100%;
 }
 
+.text-center {
+    text-align: center;
+}
