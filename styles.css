@@ -114,7 +114,7 @@ header {
 }
 
 .dark-grey-2 {
-    color: var(--dark-grey-2)
+    color: var(--dark-grey-2);
 }
 
 .bg-dark {
@@ -137,6 +137,10 @@ img[type="svg"] {
 
 .justify-content-center {
     justify-content: center;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
 }
 
 /* .inline-block {
@@ -168,6 +172,10 @@ img[type="svg"] {
     font-weight: bold;
 }
 
+.uc {
+    text-transform: uppercase;
+}
+
 #input-container {
     border-top: 1px solid var(--white, #FFF);
     /* width: 100%; */
@@ -192,14 +200,18 @@ input {
     border: none;
 }
 
-.score-container,
-.steel-grey-container {
+.score-container {
     height: 3rem;
     padding: 0px 2rem;
     justify-content: space-between;
     align-items: center;
     background-color: var(--steel-grey);
     color: var(--white);
+    border-top: 1px solid var(--white);
+}
+
+.cont-steel-grey {
+    background-color: var(--steel-grey);
     border-top: 1px solid var(--white);
 }
 
@@ -223,6 +235,11 @@ input {
     font-weight: 700;
     top: 16%;
     left: 25%;
+}
+
+.icon-sm {
+    height: 1rem;
+    width: 1rem;
 }
 
 .weapon-stat-labels {
@@ -261,7 +278,6 @@ input {
     align-items: center;
     border-radius: 5px;
     border: none;
-    color: var(--white);
     font-weight: 700;
     letter-spacing: 1px;
     font-size: 0.9rem;
@@ -271,10 +287,12 @@ input {
 
 .btn-steel-grey {
     background: var(--steel-grey);
+    color: var(--white);
 }
 
 .btn-dark-grey {
     background: var(--dark-grey-1, #333);
+    color: var(--white);
 }
 
 .button:hover {
@@ -283,6 +301,11 @@ input {
 
 .button:active {
     filter: brightness(80%);
+}
+
+.go-back-link {
+    text-decoration: none;
+    color: var(--dark-grey-2);
 }
 
 .btn-disabled {
@@ -295,7 +318,8 @@ input {
     flex-direction: row;
 }
 
-.col {
+.col,
+.container {
     display: flex;
     flex-direction: column;
     /* width: 100%; */
@@ -506,4 +530,8 @@ footer > p > a:visited {
 
 .text-center {
     text-align: center;
+}
+
+.strong {
+    font-weight: bold;
 }
