@@ -35,9 +35,21 @@
         </div>
     </section>
 
-    <section class="row steel-grey-container space-between">
-        <p id="loaded-army"></p>
-        <p>Score: <span id="score-tracker">X</span> / <span id="questions-total">Y</span></p>
+    <!-- Title and scoring -->
+    <section class="container gap-2 cont-steel-grey white py-4">
+        <div class="row justify-content-center">
+            <div class="col px-8">
+                <h3 class="" id="loaded-army">Adepta Sororitas</h3>
+            </div>
+        </div>
+        <div class="row space-between">
+            <div class="col px-8">
+                <p class="uc" id="game-mode">Game mode</p>
+            </div>
+            <div class="row gap-2 px-8 align-items-center">
+                <img src="/imgs/icon-timer.svg" alt="timer icon" class="icon-sm inline-block"><p class="inline-block" id="timer">1:00</p>
+            </div>
+        </div>
     </section>
 
     <!-- Question render section -->
@@ -48,9 +60,13 @@
         </div>
     </section>
     
+    <section class="row gap-4 justify-content-end px-8 py-4 bg-white">
+        <button class="button row gap-2" id="btn-skip">SKIP<img src="/imgs/icon-skip.svg" alt="" class="icon-sm"></button>
+    </section>
+
+    <!-- Input answer + output section -->
     <section class="row align-items-center">
         <div class="col full-width">
-            <!-- Input value here -->
             <div class="col px-8 py-8" id="input-container">
                 <div class="m-auto">
                     <input class="" type="number" id="input-answer">
@@ -58,18 +74,15 @@
                     </svg>
                 </div>
             </div>
+            <section class="row gap-4 justify-content-center px-4 py-8 bg-white h-100pc">
+                <button class="button btn-steel-grey" id="btn-submit">SUBMIT</button>
+        </section>
+        
             <!-- Answer message renders here -->
             <div class="score-container place-content-center text-align-center">
                 <h3 class="" id="score-message"></h3>
             </div>
         </div>
-    </section>
-        
-    <!-- Buttons here -->
-    <section class="row gap-4 justify-content-center px-4 py-8 bg-white h-100pc">
-            <button class="button btn-steel-grey" id="btn-submit">SUBMIT</button>
-            <button class="button btn-dark-grey" id="btn-skip">SKIP</button>
-        
     </section>
 
     <footer class="justify-content-center bg-dark">
