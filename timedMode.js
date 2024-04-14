@@ -1,19 +1,24 @@
 //import objects from external 
 import { armyStats } from "./armyStats.js";
 import { questions } from "./questions.js";
+import { timerTick } from "./timer.js";
 
 // Get DOM elements
 const questionLabel = document.getElementById("question-label");
 const unitName = document.getElementById("unit-name");
-let answerInput = document.getElementById("input-answer");
+const answerInput = document.getElementById("input-answer");
 const btnSubmit = document.getElementById("btn-submit");
 const btnSkip = document.getElementById("btn-skip");
-let scoreMessage = document.getElementById("score-message");
-let loadedArmy = document.getElementById("loaded-army");
+const scoreMessage = document.getElementById("score-message");
+const loadedArmy = document.getElementById("loaded-army");
 let scoreTracker = document.getElementById("score-tracker");
 let questionsTotal = document.getElementById("questions-total");
+let timerDisplay = document.getElementById("timer");
+
 let questionCounter;
 let score;
+let timeCountDown = setInterval(timerTick, 1000);
+timerDisplay.innerText = timeCountDown;
 
 // Event listener for submit button
 btnSubmit.addEventListener("click", submitAnswer);
@@ -29,9 +34,9 @@ btnSkip.addEventListener("click", skipQuestion);
 function init() {
     loadedArmy.innerHTML = `Current army: <strong>${armyStats.armyName}</strong>`;
     questionCounter = 0;
-    questionsTotal.innerHTML = questionCounter;
+    questionsTotal = questionCounter;
     score = 0;
-    scoreTracker.innerHTML = score;
+    scoreTracker = score;
 }
 
 // Function to randomly select a unit and its stats

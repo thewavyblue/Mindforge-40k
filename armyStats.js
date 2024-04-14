@@ -1,5 +1,5 @@
 export const armyStats = {
-    armyName: "Sisters of Battle",
+    armyName: "Adepta Sororitas",
     unit1: {
         unitName: "Aestred Thurga",
         stats: {

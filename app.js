@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const width = innerWidth;
     const sliderMove = innerWidth / totalSlides;
 
-    // Function to move slider to a specific slide
+    // Function to move slider to a specific card
     function moveSlider(direction) {
         currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
         const newPosition = currentIndex * (-100 / totalSlides);
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (btnSetupFreePlay) {
         btnSetupFreePlay.addEventListener("click", () => {
-            btnSetupFreePlay.innerHTML += ` <img class="load-animation" src="/imgs/Spinner@2x-1.0s-200px-200px-white.svg">`;
+            btnSetupFreePlay.innerHTML = `Loading <img class="load-animation" src="/imgs/Spinner@2x-1.0s-200px-200px-white.svg">`;
             console.log("clicked!");
         });
     }

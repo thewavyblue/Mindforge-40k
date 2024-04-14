@@ -17,7 +17,6 @@
     <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
-
     <!-- Header, incl logo -->
     <header class="row justify-content-center">
         <a href="/index.html" class="col place-content-center navbar">
@@ -30,46 +29,78 @@
         <div class="col pb-4">
             <a class="row gap-2 px-4" href="/setup-free-play.html">
                 <img class="inline-block" src="/imgs/arrow-back.svg" alt="">
-                <p class="dark-grey-2 p-sm inline-block">Go back</p>
+                <p class="dark-grey-2 p-sm inline-block">
+                    Go back
+                </p>
             </a>
         </div>
     </section>
 
-    <section class="row steel-grey-container space-between">
-        <p id="loaded-army"></p>
-        <p>Score: <span id="score-tracker">X</span> / <span id="questions-total">Y</span></p>
+    <!-- Title and scoring -->
+    <section class="container gap-2 cont-steel-grey white py-4">
+        <div class="row justify-content-center">
+            <div class="col px-8">
+                <h4 class="" id="loaded-army">
+                    Adepta Sororitas
+                </h4>
+            </div>
+        </div>
+        <div class="row space-between">
+            <div class="col px-8">
+                <p class="uc" id="game-mode">
+                    Game mode
+                </p>
+            </div>
+            <div class="row gap-2 px-8 align-items-center">
+                <img src="/imgs/icon-free-play.svg" alt="timer icon" class="icon-sm inline-block">
+                <p class="inline-block" id="">
+                    Score:
+                    <span id="score-tracker">X</span> / <span id="questions-total">Y</span>
+                </p>
+            </div>
+        </div>
     </section>
 
     <!-- Question render section -->
     <section class="row bg-white" id="output-question">
         <div class="col px-8 py-8" id="">
-            <h3 id="unit-name">No unit to show</h3>
-            <p id="question-label">No questions to show</p>
+            <h3 id="unit-name">
+                No unit to show
+            </h3>
+            <p id="question-label">
+                No questions to show
+            </p>
         </div>
     </section>
     
+    <section class="row gap-4 justify-content-end px-8 py-4 bg-white">
+        <button class="button row gap-2" id="btn-skip">
+            SKIP
+            <img src="/imgs/icon-skip.svg" alt="" class="icon-sm">
+        </button>
+    </section>
+    
+    <!-- Input answer + output section -->
     <section class="row align-items-center">
-        <div class="col full-width">
-            <!-- Input value here -->
-            <div class="col px-8 py-8" id="input-container">
+        <div class="col px-8 py-8 gap-4 full-width">
+            <div class="col " id="input-container">
                 <div class="m-auto">
                     <input class="" type="number" id="input-answer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 35" fill="none"><path d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="white" stroke="#4D778C"/>
                     </svg>
                 </div>
             </div>
-            <!-- Answer message renders here -->
-            <div class="score-container place-content-center text-align-center">
-                <h3 class="" id="score-message"></h3>
+            <div class="row gap-4 justify-content-center px-4 h-100pc">
+                <button class="button btn-steel-grey" id="btn-submit">
+                    SUBMIT
+                </button>
             </div>
         </div>
     </section>
         
-    <!-- Buttons here -->
-    <section class="row gap-4 justify-content-center px-4 py-8 bg-white h-100pc">
-            <button class="button btn-steel-grey" id="btn-submit">SUBMIT</button>
-            <button class="button btn-dark-grey" id="btn-skip">SKIP</button>
-        
+    <!-- Answer message renders here -->
+    <section class="score-container place-content-center text-align-center">
+        <h3 class="" id="score-message"></h3>
     </section>
 
     <footer class="justify-content-center bg-dark">
