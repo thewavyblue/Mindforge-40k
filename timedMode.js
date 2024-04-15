@@ -1,7 +1,7 @@
 //import objects from external 
 import { armyStats } from "./armyStats.js";
 import { questions } from "./questions.js";
-import { timerTick } from "./timer.js";
+import { timerTick, interval, timerCount } from "./timer.js";
 
 // Get DOM elements
 const questionLabel = document.getElementById("question-label");
@@ -11,14 +11,13 @@ const btnSubmit = document.getElementById("btn-submit");
 const btnSkip = document.getElementById("btn-skip");
 const scoreMessage = document.getElementById("score-message");
 const loadedArmy = document.getElementById("loaded-army");
-let scoreTracker = document.getElementById("score-tracker");
+let scoreDisplay = document.getElementById("score-tracker");
 let questionsTotal = document.getElementById("questions-total");
-let timerDisplay = document.getElementById("timer");
-
-let questionCounter;
-let score;
-let timeCountDown = setInterval(timerTick, 1000);
-timerDisplay.innerText = timeCountDown;
+export let questionCounter;
+export let score;
+export let timerDisplay = document.getElementById("timer");
+export let timerInterval;
+timerDisplay.innerText = timerCount;
 
 // Event listener for submit button
 btnSubmit.addEventListener("click", submitAnswer);
@@ -36,7 +35,11 @@ function init() {
     questionCounter = 0;
     questionsTotal = questionCounter;
     score = 0;
-    scoreTracker = score;
+    scoreDisplay = score;
+
+    // timer conditions
+    timerInterval = setInterval(timerTick, interval); // Start the timer
+    generateNewQuestion(); // Generate initial question when the page loads
 }
 
 // Function to randomly select a unit and its stats
@@ -98,7 +101,7 @@ function submitAnswer() {
         updateQuestionCounter();
         clearScoreMessage();
         generateNewQuestion();
-    }, 1500);
+    }, 1000);
 
     // Clear score message and input value
     clearInputValue();
@@ -121,11 +124,11 @@ function skipQuestion() {
 
 function updateQuestionCounter() {
     questionCounter++;
-    questionsTotal.innerHTML = questionCounter; 
+    // questionsTotal.innerHTML = questionCounter; 
 }
 
 function updateScore() {
-    scoreTracker.innerHTML = score;
+    // scoreDisplay.innerHTML = score;
 }
 
 function clearScoreMessage() {
@@ -136,10 +139,4 @@ function clearInputValue() {
     answerInput.value = "";
 }
 
-
-
 init();
-
-// Generate initial question when the page loads
-generateNewQuestion();
-
