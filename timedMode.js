@@ -7,17 +7,23 @@ import { timerTick, interval, timerCount } from "./timer.js";
 const questionLabel = document.getElementById("question-label");
 const unitName = document.getElementById("unit-name");
 const answerInput = document.getElementById("input-answer");
+const answerOutput = document.getElementById("output-answer");
 const btnSubmit = document.getElementById("btn-submit");
 const btnSkip = document.getElementById("btn-skip");
 const scoreMessage = document.getElementById("score-message");
 const loadedArmy = document.getElementById("loaded-army");
 let scoreDisplay = document.getElementById("score-tracker");
 let questionsTotal = document.getElementById("questions-total");
+const answerInputPath = document.getElementById("input-answer-path");
+const inputSection = document.getElementById("input-section");
 export let questionCounter;
 export let score;
 export let timerDisplay = document.getElementById("timer");
 export let timerInterval;
 timerDisplay.innerText = timerCount;
+let questionIndex = randomNum();
+let randomUnit;
+let answer;
 
 // Event listener for submit button
 btnSubmit.addEventListener("click", submitAnswer);
@@ -62,9 +68,6 @@ function selectRandomUnit(unit) {
 function randomNum() {
     return Math.floor(Math.random() * 7);
 }
-// Keep track of the index of the current question
-let questionIndex = randomNum();
-let randomUnit;
 
 // Function to generate a new question
 function generateNewQuestion() {
@@ -85,13 +88,19 @@ function generateNewQuestion() {
 
 // Function to handle answer submission
 function submitAnswer() {
+    // Default colour
+    defaultColour();
     // Get the answer corresponding to the current question index
-    const answer = Object.values(randomUnit.stats)[questionIndex];
+    answer = Object.values(randomUnit.stats)[questionIndex];
     // Check if the submitted answer matches the correct answer
     if (answerInput.value == answer) {
         scoreMessage.innerHTML = `${answerInput.value} is correct!`;
+        setGreen();
+        updateAnswerOutput();
         score++;
     } else {
+        setRed();
+        updateAnswerOutput();
         scoreMessage.innerHTML = `Incorrect. The answer is ${answer}.`;  
     }
 
@@ -101,12 +110,9 @@ function submitAnswer() {
         updateQuestionCounter();
         clearScoreMessage();
         generateNewQuestion();
+        clearInputValue();
+        clearAnswerOutput();
     }, 1000);
-
-    // Clear score message and input value
-    clearInputValue();
-    // Generate a new question
-    
 }
 
 // Function to handle skipping a question
@@ -120,6 +126,11 @@ function skipQuestion() {
     clearInputValue();
     // Update question counter
     updateQuestionCounter();
+}
+
+function updateAnswerOutput() {
+    console.log("wrong answer!")
+    answerOutput.innerText = answer;
 }
 
 function updateQuestionCounter() {
@@ -137,6 +148,35 @@ function clearScoreMessage() {
 
 function clearInputValue() {
     answerInput.value = "";
+}
+
+function clearAnswerOutput() {
+    answerOutput.innerText = "";
+}
+
+function setGreen() {
+    // New colours
+    answerInputPath.style.stroke = "#45B11F";
+    inputSection.style.background = "#245B10";
+    setTimeout(() => {
+        // Default colours after 1sec
+        defaultColour();
+    }, 1000); 
+}
+
+function setRed() {
+    // New colours
+    answerInputPath.style.stroke = "#B11F1F";
+    inputSection.style.background = "#5B1010";
+    setTimeout(() => {
+        // Default colours after 1sec
+        defaultColour();
+    }, 1000);
+}
+
+function defaultColour() {
+    answerInputPath.style.stroke = "#4D778C";
+    inputSection.style.background = "#333";
 }
 
 init();
