@@ -106,6 +106,10 @@ header {
     background-color: #4D778C;
 }
 
+::placeholder {
+    color: #cccccc;
+}
+
 .navbar {
     height: 3rem;
 }
@@ -311,6 +315,11 @@ input,
 
 .btn-dark-grey {
     background: var(--dark-grey-1, #333);
+    color: var(--white);
+}
+
+.btn-grey {
+    background: var(--dark-grey-2);
     color: var(--white);
 }
 
