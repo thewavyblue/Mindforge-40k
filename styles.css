@@ -35,6 +35,23 @@ p {
 body {
     width: 100%;
     background-color: var(--dark-grey-1);
+    height: 100svh;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.position-absolute {
+    position: absolute;
+    bottom: 0;
+}
+
+.fixed {
+    position: fixed;
+    bottom: 0;
 }
 
 .container {

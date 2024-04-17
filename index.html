@@ -19,7 +19,7 @@
 <body>
 
     <!-- Header, incl logo -->
-    <header class="row justify-content-center">
+    <header class="row justify-content-center sticky bg-dark">
         <div class="col align-items-center py-8 gap-4">
             <img class="logo-main-menu" src="/imgs/mindforge40k-logo-white.svg" alt="Mindforge 40k logo">
             <p class="p-sm white">A Warhammer 40k mind-training app</p>
@@ -30,6 +30,7 @@
     <section class="overflow">
         <div class="row slider-wrapper" id="game-option-wrapper">
             
+            <!-- FREE PLAY -->
             <div class="col game-option-card align-items-center pt-8 px-8 gap-4 full-width">
                 <img src="imgs/icon-free-play-white.svg" type="svg" alt="Free Play icon">
                 <h1>Free Play</h1>
@@ -37,14 +38,16 @@
                 <a href="/setup-free-play.html" class="button btn-steel-grey" id="btn-setup-free-play">PLAY</a>
             </div>
 
+            <!-- TIMED MODE -->
             <div class="col game-option-card align-items-center pt-8 px-8 gap-4 full-width">
                 <img src="imgs/icon-timed-mode-white.svg" type="svg" alt="Timed Mode icon">
                 <h1>Timed Mode</h1>
                 <p class="white menu-desc">Guess as many correct answers
                     <br>within the time limit!</p>
-                <a href="/game-setup.html" class="button btn-steel-grey" id="btn-setup-timed-mode">PLAY</a>
+                <a href="/setup-timed-mode.html" class="button btn-steel-grey" id="btn-setup-timed-mode">PLAY</a>
             </div>
 
+            <!-- SUDDEN DEATH -->
             <div class="col game-option-card align-items-center pt-8 px-8 gap-4 full-width">
                 <img src="imgs/icon-sudden-death-white.svg" type="svg" alt="Sudden Death icon">
                 <h1>Sudden Death</h1>
