@@ -48,7 +48,7 @@
         <div class="row space-between">
             <div class="col px-8">
                 <p class="uc" id="game-mode">
-                    Game mode
+                    FREE PLAY
                 </p>
             </div>
             <div class="row gap-2 px-8 align-items-center">
@@ -81,23 +81,31 @@
     </section>
     
     <!-- Input answer + output section -->
-    <section class="row align-items-center">
-        <div class="col px-8 py-8 gap-4 full-width">
-            <div class="col " id="input-container">
-                <div class="m-auto">
-                    <input class="" type="number" id="input-answer">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 35" fill="none"><path d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="white" stroke="#4D778C"/>
-                    </svg>
-                </div>
-            </div>
-            <div class="row gap-4 justify-content-center px-4 h-100pc">
-                <button class="button btn-steel-grey" id="btn-submit">
-                    SUBMIT
-                </button>
+    <section class="row px-8 py-8 gap-4 full-width justify-content-center align-items-center" id="input-section">
+        
+        <div class="col" id="input-container">
+            <div class="m-auto">
+                <input class="" type="number" placeholder="#" id="input-answer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 36" fill="none"><path id="input-answer-path" d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="white" stroke="#4D778C"/>
+                </svg>
             </div>
         </div>
-    </section>
+        <div class="row gap-4 justify-content-center px-4 h-100pc">
+            <button class="button btn-steel-grey" id="btn-submit">
+                SUBMIT
+            </button>
+        </div>
+        <div class="col" id="input-container">
+            <div class="m-auto">
+                <div class="" id="output-answer">
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 36" fill="none"><path id="output-answer-path" d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="#DDD" stroke="#4D778C"/>
+                </svg>
+            </div>
+        </div>
         
+    </section>
+    
     <!-- Answer message renders here -->
     <section class="score-container place-content-center text-align-center">
         <h3 class="" id="score-message"></h3>
@@ -109,5 +117,6 @@
     <script src="freePlay.js" type="module"></script>
     <script src="armyStats.js" type="module"></script>
     <script src="questions.js" type="module"></script>
+    <!-- <script src="/src/components.js" type="module"></script> -->
 </body>
 </html>

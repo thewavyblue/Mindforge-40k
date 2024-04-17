@@ -1,109 +1,130 @@
-export const quotes = [
+const quotes = [
     {
-        quote: "It’s amazing how much paperwork an act of heroism requires.",
+        text: "It’s amazing how much paperwork an act of heroism requires.",
         credit: "Ciaphas Cain"
     },
     {
-        quote: "No pity! No remorse! No fear!",
+        text: "No pity! No remorse! No fear!",
         credit: "Chaplain Grimaldus"
     },
     {
-        quote: "Let the galaxy burn!",
+        text: "Let the galaxy burn!",
         credit: "Abaddon the Despoiler"
     },
     {
-        quote: "Kill! Maim! Burn!",
+        text: "Kill! Maim! Burn!",
         credit: "Khârn the Betrayer"
     },
     {
-        quote: "The most dangerous weapon is the one no one expects.",
+        text: "The most dangerous weapon is the one no one expects.",
         credit: "Inquisitor Gregor Eisenhorn"
     },
     {
-        quote: "There is no art more beautiful and diverse as the art of death.",
+        text: "There is no art more beautiful and diverse as the art of death.",
         credit: "Farseer Macha"
     },
     {
-        quote: "To be a man in such times is to be one amongst untold billions. It is to live in the cruellest and most bloody regime imaginable.",
+        text: "To be a man in such times is to be one amongst untold billions. It is to live in the cruellest and most bloody regime imaginable.",
         credit: "Narrator"
     },
     {
-        quote: "I’m da hand of Gork and Mork, dey sent me to make war!",
+        text: "I’m da hand of Gork and Mork, dey sent me to make war!",
         credit: "Ghazghkull Mag Uruk Thraka"
     },
     {
-        quote: "A mind without purpose will wander in dark places.",
+        text: "A mind without purpose will wander in dark places.",
         credit: "Ravenor"
     },
     {
-        quote: "Victory is achieved through mettle. Glory is achieved through metal.",
+        text: "Victory is achieved through mettle. Glory is achieved through metal.",
         credit: "Iron Hands Maxim"
     },
     {
-        quote: "A hero is no braver than an ordinary man, but he is brave five minutes longer.",
+        text: "A hero is no braver than an ordinary man, but he is brave five minutes longer.",
         credit: "Rogal Dorn"
     },
     {
-        quote: "",
-        credit: ""
+        text: "They shall be my finest warriors, these men who give of themselves to me.",
+        credit: "The Emperor of Mankind"
     },
     {
-        quote: "",
-        credit: ""
+        text: "I have dug my grave in this place and I will either triumph or I will die!",
+        credit: "Commissar Yarrick"
     },
     {
-        quote: "",
-        credit: ""
+        text: "We do not fight for victory, but for the survival of our species.",
+        credit: "Farseer Eldrad Ulthran"
     },
     {
-        quote: "",
-        credit: ""
+        text: "Ruthlessness is the kindness of the wise.",
+        credit: "Lord Solar Macharius"
     },
     {
-        quote: "",
-        credit: ""
+        text: "A small mind is easily filled with faith.",
+        credit: "Inquisitor Gideon Ravenor"
     },
     {
-        quote: "",
-        credit: ""
+        text: "Only the insane have strength enough to prosper. Only those who prosper may truly judge what is sane.",
+        credit: "Night Lords"
     },
     {
-        quote: "",
-        credit: ""
+        text: "For those who seek perfection, there can be no rest on this side of the grave.",
+        credit: "Adeptus Mechanicus Belief"
     },
-] 
+    {
+        text: "Beginning reform is beginning a revolution.",
+        credit: "Inquisition Teaching"
+    },
+    {
+        text: "Success is measured in blood, yours or your enemy´s.",
+        credit: "Khorne Worshipper Saying"
+    },
+    {
+        text: "The blood of martyrs is the seed of the Imperium.",
+        credit: "Ecclesiarchy Saying"
+    },
+    {
+        text: "Truth is Subjective.",
+        credit: "Inquisition Maxim"
+    },
+    {
+        text: "We are the Emperor’s angels of death, not his angels of mercy.",
+        credit: "Blood Ravens Devastator Sergeant Avitus"
+    },
+    {
+        text: "What I cannot crush with words, I will crush with the tanks of the Imperial Guard!",
+        credit: "Lord Commander Solar Macharius"
+    },
+    {
+        text: "I fear no evil, for I am fear incarnate!",
+        credit: "Chaos Space Marines"
+    },
+    {
+        text: "Embrace the Immaterium.",
+        credit: "Chaos Sorcerer"
+    },
+    {
+        text: "Victory is but a prelude to the next battle.",
+        credit: "Space Marine Commander"
+    },
+    {
+        text: "The enemy of my enemy is still my enemy.",
+        credit: "Ork Units"
+    },
+    {
+        text: "Flesh is weak!",
+        credit: "Techmarine"
+    },
+];
 
- – 
- – 
- – 
- – 
- – 
- – 
- – 
- – 
- – 
+const quote = document.getElementById("quote");
+let randomNum = Math.floor(Math.random() * quotes.length);
 
- – 
- – 
-They shall be my finest warriors, these men who give of themselves to me. – The Emperor of Mankind
-Suffer not the unclean to live. – Puritan Inquisitor
-I have dug my grave in this place and I will either triumph or I will die! – Commissar Yarrick
-We do not fight for victory, but for the survival of our species. – Farseer Eldrad Ulthran
-By His will alone is Terra kept safe. – Adeptus Custodes Creed
-Ruthlessness is the kindness of the wise. – Lord Solar Macharius
-A small mind is easily filled with faith. – Inquisitor Gideon Ravenor
-
-Only the insane have strength enough to prosper. Only those who prosper may truly judge what is sane. – Night Lords
-For those who seek perfection, there can be no rest on this side of the grave. – Adeptus Mechanicus Belief
-Beginning reform is beginning a revolution. – Inquisition Teaching
-Success is measured in blood, yours or your enemy´s. – Khorne Worshipper Saying
-The blood of martyrs is the seed of the Imperium. – Ecclesiarchy Saying
-Truth is Subjective. – Inquisition Maxim
-We are the Emperor’s angels of death, not his angels of mercy. – Blood Ravens Devastator Sergeant Avitus
-
-What I cannot crush with words, I will crush with the tanks of the Imperial Guard! – Lord Commander Solar Macharius
-I fear no evil, for I am fear incarnate! – Chaos Space Marines
-Embrace the Immaterium. – Chaos Sorcerer
-Victory is but a prelude to the next battle. – Space Marine Commander
-The enemy of my enemy is still my enemy. – Ork Units
-Flesh is weak! – Techmarine
+quote.innerHTML = `
+    <p class="white p-sm text-align-center pb-4">
+        "${quotes[randomNum].text}"
+    </p>
+    <p class="white p-sm text-align-right italic">
+        – ${quotes[randomNum].credit}
+    </p>
+`
