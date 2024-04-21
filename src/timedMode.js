@@ -1,7 +1,7 @@
 //import objects from external 
-import { armyStats } from "./src/armyStats.js";
-import { questions } from "./src/questions.js";
-import { timerTick, interval, timerCount } from "./src/timer.js";
+import { armyStats } from "./armyStats.js";
+import { questions } from "./questions.js";
+import { timerTick, interval, timerCount } from "./timer.js";
 
 // Get DOM elements
 const questionLabel = document.getElementById("question-label");
@@ -20,7 +20,7 @@ export let questionCounter;
 export let score = 0;
 export let timerDisplay = document.getElementById("timer");
 export let timerInterval;
-export let finalScore = document.getElementById("final-score");
+// export let finalScore = document.getElementById("final-score");
 timerDisplay.innerText = timerCount;
 let questionIndex = randomNum();
 let randomUnit;
@@ -37,8 +37,13 @@ document.addEventListener("keypress", function(KeyboardEvent) {
 // Event listener for skip button
 btnSkip.addEventListener("click", skipQuestion);
 
+
+const armySelectorValue = 0;
+let selectedArmy;
+
 function init() {
-    loadedArmy.innerHTML = `Current army: <strong>${armyStats.armyName}</strong>`;
+    selectedArmy = armyStats[selectedArmy];
+    loadedArmy.innerHTML = `Current army: <strong>${armyStats[armySelectorValue].armyName}</strong>`;
     questionCounter = 0;
     questionsTotal = questionCounter;
     score = 0;
@@ -59,8 +64,8 @@ function selectRandomUnit(unit) {
     const selectedUnit = unit[randomUnitKey];
     // Return the selected unit and its stats
     return {
-        unitName: selectedUnit.unitName,
-        stats: selectedUnit.stats
+        unitName: selectedArmy.selectedUnit.unitName,
+        stats: selectedArmy.selectedUnit.stats
     };
 }
 
@@ -130,7 +135,6 @@ function skipQuestion() {
 }
 
 function updateAnswerOutput() {
-    console.log("wrong answer!")
     answerOutput.innerText = answer;
 }
 
@@ -178,6 +182,10 @@ function setRed() {
 function defaultColour() {
     answerInputPath.style.stroke = "#4D778C";
     inputSection.style.background = "#333";
+}
+
+export function playAgain() {
+    location.reload();
 }
 
 init();
