@@ -1,7 +1,7 @@
 //import objects from external 
-import { armyStats } from "./armyStats.js";
-import { questions } from "./questions.js";
-import { timerTick, interval, timerCount } from "./timer.js";
+import { armyStats } from "./src/armyStats.js";
+import { questions } from "./src/questions.js";
+import { timerTick, interval, timerCount } from "./src/timer.js";
 
 // Get DOM elements
 const questionLabel = document.getElementById("question-label");

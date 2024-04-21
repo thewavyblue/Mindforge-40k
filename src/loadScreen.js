@@ -1,4 +1,4 @@
-// import { displayFinalScore } from "./timer.js";
+// import { displayFinalScore } from "./src/timer.js";
 
 export function loadScreen(screenId) {
     let xhttp = new XMLHttpRequest();

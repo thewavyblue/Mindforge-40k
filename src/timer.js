@@ -1,6 +1,6 @@
 import { loadScreen } from "./src/loadScreen.js"
 // Timer is used to count down from X
-import { timerDisplay, score, questionCounter, timerInterval, finalScore } from "./timedMode.js";
+import { timerDisplay, score, questionCounter, timerInterval, finalScore } from "./src/timedMode.js";
 
 // Set the interval for the timer in milliseconds
 export let interval = 1000; // 1000 milliseconds = 1 second
