@@ -7,7 +7,7 @@ import { displayFinalScore } from "./gameOver.js";
 export let interval = 1000; // 1000 milliseconds = 1 second
 
 // Initialize a counter
-export let timerCount = 7;
+export let timerCount = 60;
 
 // Function to be executed at each interval
 export function timerTick() {

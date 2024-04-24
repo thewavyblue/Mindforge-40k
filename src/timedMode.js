@@ -41,6 +41,11 @@ btnSkip.addEventListener("click", skipQuestion);
 const armySelectorValue = 0;
 let selectedArmy;
 
+// function selectedArmy(army) {
+//      load in the army ready to read the armyStats
+//      return armyStats
+// }
+
 function init() {
     selectedArmy = armyStats[selectedArmy];
     loadedArmy.innerHTML = `Current army: <strong>${armyStats[armySelectorValue].armyName}</strong>`;
