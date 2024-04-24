@@ -53,22 +53,16 @@
             </label>
             <select id="army-select" name="army-select">
                 <option>Select...</option>
-                <option>Adepta Sororitas</option>
-                <option>Astra Militarum</option>
-                <option>Adeptas Astartes</option>
-                <option>Adeptas Mechanicus</option>
             </select>
             <div class="col py-4"></div>
             <label class="white pb-2" for="army-select">
                 Select a category
             </label>
-            <select id="army-select" name="army-select">
+            <select id="category-select" name="army-select">
                 <option>Select...</option>
-                <option>Units</option>
-                <option>Weapons</option>
             </select>
             <div class="col py-4"></div>
-            <a href="/quiz-timed-mode.html" class="button btn-steel-grey justify-content-center">START</a>
+            <a href="/quiz-timed-mode.html" class="button btn-steel-grey justify-content-center" id="btn-start" type="button">START</a>
         </form>
     </section>
 
@@ -83,7 +77,8 @@
     <footer class="justify-content-center bg-dark fixed">
         <p class="dark-grey-2 p-sm">Coded by <a href="https://benhoath.com" target="_blank" rel="noreferrer noopener">Ben Hoath</a>, developed with <span class="red">♥</span></p>
     </footer>
-    <script src="/src/app.js"></script>
+    <!-- <script src="/src/app.js"></script> -->
     <script src="/src/quotes.js"></script>
+    <script src="/src/gameSetup.js" type="module"></script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+{
+    "armyFaction" : [
+        "Imperium",
+        "Chaos",
+        "Aeldari",
+        "Forces of the Hive Mind",
+        "Xenos"
+    ],
+
+    "armyName" : [
+        "Adeptas Sororitas",
+        "Leagues of Votann"
+    ]
+}

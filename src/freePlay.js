@@ -1,6 +1,6 @@
 //import objects from external 
-import { armyStats } from "./src/armyStats.js";
-import { questions } from "./src/questions.js";
+import { armyStats } from "./armyStats.js";
+import { questions } from "./questions.js";
 
 // Get DOM elements
 const questionLabel = document.getElementById("question-label");

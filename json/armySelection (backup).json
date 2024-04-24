@@ -1,0 +1,38 @@
+{
+    "armyFaction" : [
+        "Imperium",
+        "Chaos",
+        "Aeldari",
+        "Forces of the Hive Mind",
+        "Xenos"
+    ],
+
+    "armyName" : [
+        "Adeptas Sororitas",
+        "Adeptus Custodes",
+        "Adeptus Mechanicus",
+        "Astra Militarum",
+        "Black Templars",
+        "Blood Angels",
+        "Dark Angels",
+        "Deathwatch",
+        "Grey Knights",
+        "Imperial Knights",
+        "Space Marines",
+        "Space Wolves",
+        "Chaos Daemons",
+        "Chaos Knights",
+        "Chaos Space Marines",
+        "World Eaters",
+        "Death Guard",
+        "Thousand Sons",
+        "Aeldari",
+        "Drukhari",
+        "Genestealer Cults",
+        "Tyranids",
+        "Necrons",
+        "Orks",
+        "T'au",
+        "Leagues of Votann"
+    ]
+}

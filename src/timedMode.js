@@ -1,7 +1,8 @@
 //import objects from external 
-import { armyStats } from "./src/armyStats.js";
-import { questions } from "./src/questions.js";
-import { timerTick, interval, timerCount } from "./src/timer.js";
+import { armyStats } from "./armyStats.js";
+import { questions } from "./questions.js";
+import { timerTick, interval, timerCount } from "./timer.js";
+// import { selectedArmy } from "./gameSetup.js";
 
 // Get DOM elements
 const questionLabel = document.getElementById("question-label");
@@ -20,13 +21,13 @@ export let questionCounter;
 export let score = 0;
 export let timerDisplay = document.getElementById("timer");
 export let timerInterval;
-export let finalScore = document.getElementById("final-score");
+// export let finalScore = document.getElementById("final-score");
 timerDisplay.innerText = timerCount;
 let questionIndex = randomNum();
 let randomUnit;
 let answer;
 
-// Event listener for submit button
+// BUTTONS //
 btnSubmit.addEventListener("click", submitAnswer);
 document.addEventListener("keypress", function(KeyboardEvent) {
     if (KeyboardEvent.keyCode == 13) {
@@ -34,10 +35,15 @@ document.addEventListener("keypress", function(KeyboardEvent) {
     }
 });
 
-// Event listener for skip button
 btnSkip.addEventListener("click", skipQuestion);
 
+// import selectedArmy value
+// console.log(selectedArmy + " @ timedMode.js");
+const armySelectorValue = 0;
+
+
 function init() {
+    // selectedArmy = armyStats[selectedArmy];
     loadedArmy.innerHTML = `Current army: <strong>${armyStats.armyName}</strong>`;
     questionCounter = 0;
     questionsTotal = questionCounter;
@@ -130,7 +136,6 @@ function skipQuestion() {
 }
 
 function updateAnswerOutput() {
-    console.log("wrong answer!")
     answerOutput.innerText = answer;
 }
 
@@ -141,6 +146,8 @@ function updateQuestionCounter() {
 
 function updateScore() {
     // scoreDisplay.innerHTML = score;
+    localStorage.setItem("finalScore", score);
+    // console.log(localStorage.finalScore);
 }
 
 function clearScoreMessage() {
@@ -178,6 +185,10 @@ function setRed() {
 function defaultColour() {
     answerInputPath.style.stroke = "#4D778C";
     inputSection.style.background = "#333";
+}
+
+export function playAgain() {
+    location.reload();
 }
 
 init();
