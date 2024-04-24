@@ -1,7 +1,7 @@
 import { loadScreen } from "./loadScreen.js"
 // Timer is used to count down from X
 import { timerDisplay, score, questionCounter, timerInterval } from "./timedMode.js";
-import { displayFinalScore } from "./gameOver.js";
+// import { displayFinalScore } from "./gameOver.js";
 
 // Set the interval for the timer in milliseconds
 export let interval = 1000; // 1000 milliseconds = 1 second

@@ -2,6 +2,7 @@
 import { armyStats } from "./armyStats.js";
 import { questions } from "./questions.js";
 import { timerTick, interval, timerCount } from "./timer.js";
+// import { selectedArmy } from "./gameSetup.js";
 
 // Get DOM elements
 const questionLabel = document.getElementById("question-label");
@@ -26,7 +27,7 @@ let questionIndex = randomNum();
 let randomUnit;
 let answer;
 
-// Event listener for submit button
+// BUTTONS //
 btnSubmit.addEventListener("click", submitAnswer);
 document.addEventListener("keypress", function(KeyboardEvent) {
     if (KeyboardEvent.keyCode == 13) {
@@ -34,21 +35,16 @@ document.addEventListener("keypress", function(KeyboardEvent) {
     }
 });
 
-// Event listener for skip button
 btnSkip.addEventListener("click", skipQuestion);
 
-
+// import selectedArmy value
+// console.log(selectedArmy + " @ timedMode.js");
 const armySelectorValue = 0;
-let selectedArmy;
 
-// function selectedArmy(army) {
-//      load in the army ready to read the armyStats
-//      return armyStats
-// }
 
 function init() {
-    selectedArmy = armyStats[selectedArmy];
-    loadedArmy.innerHTML = `Current army: <strong>${armyStats[armySelectorValue].armyName}</strong>`;
+    // selectedArmy = armyStats[selectedArmy];
+    loadedArmy.innerHTML = `Current army: <strong>${armyStats.armyName}</strong>`;
     questionCounter = 0;
     questionsTotal = questionCounter;
     score = 0;
@@ -69,8 +65,8 @@ function selectRandomUnit(unit) {
     const selectedUnit = unit[randomUnitKey];
     // Return the selected unit and its stats
     return {
-        unitName: selectedArmy.selectedUnit.unitName,
-        stats: selectedArmy.selectedUnit.stats
+        unitName: selectedUnit.unitName,
+        stats: selectedUnit.stats
     };
 }
 
@@ -150,6 +146,8 @@ function updateQuestionCounter() {
 
 function updateScore() {
     // scoreDisplay.innerHTML = score;
+    localStorage.setItem("finalScore", score);
+    // console.log(localStorage.finalScore);
 }
 
 function clearScoreMessage() {

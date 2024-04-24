@@ -1,5 +1,4 @@
-export const armyStats = [
-    {
+export const armyStats = {
     armyName: "Adepta Sororitas",
     unit1: {
         unitName: "Aestred Thurga",
@@ -445,44 +444,4 @@ export const armyStats = [
             invulnSave: 5
         }
     },
-},
-{
-    armyName: "Leagues of Votann",
-    unit1: {
-        unitName: "Brôkhyr Iron Master",
-        stats: {
-            move:       5,
-            toughness:  5,
-            save:       4,
-            wounds:     4,
-            leadership: 7,
-            oc:         1,
-            invulnSave: 0
-        }
-    },
-    unit2: {
-        unitName: "Ironkin Assisstant",
-        stats: {
-            move:       5,
-            toughness:  5,
-            save:       4,
-            wounds:     2,
-            leadership: 7,
-            oc:         1,
-            invulnSave: 0
-        }
-    },
-    unit3: {
-        unitName: "E-COG",
-        stats: {
-            move:       5,
-            toughness:  5,
-            save:       4,
-            wounds:     1,
-            leadership: 7,
-            oc:         1,
-            invulnSave: 0
-        }
-    },
-}
-];
+};

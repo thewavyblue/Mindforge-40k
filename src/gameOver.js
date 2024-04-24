@@ -5,7 +5,8 @@ let btnPlayAgain = document.getElementById("btn-play-again");
 
 export function displayFinalScore() {
         console.log(`Times up! Your final score: ${score} out of ${questionCounter} questions answered correctly!`);
-        // finalScore.innerText = score;
+        finalScore.innerText = localStorage.getItem("finalScore");
+
 }
 
 // btnPlayAgain.addEventListener("click", () => {
