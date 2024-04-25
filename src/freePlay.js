@@ -1,5 +1,5 @@
 //import objects from external 
-import { armyStats } from "./armyStats.js";
+import { armyStats } from "./armyStatsTau.js";
 import { questions } from "./questions.js";
 
 // Get DOM elements
