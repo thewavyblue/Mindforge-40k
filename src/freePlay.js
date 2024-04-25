@@ -5,17 +5,22 @@ import { questions } from "./questions.js";
 // Get DOM elements
 const questionLabel = document.getElementById("question-label");
 const unitName = document.getElementById("unit-name");
-let answerInput = document.getElementById("input-answer");
+const answerInput = document.getElementById("input-answer");
+const answerOutput = document.getElementById("output-answer");
 const btnSubmit = document.getElementById("btn-submit");
 const btnSkip = document.getElementById("btn-skip");
-let scoreMessage = document.getElementById("score-message");
-let loadedArmy = document.getElementById("loaded-army");
-let scoreTracker = document.getElementById("score-tracker");
+const scoreMessage = document.getElementById("score-message");
+const loadedArmy = document.getElementById("loaded-army");
+let scoreDisplay = document.getElementById("score-tracker");
 let questionsTotal = document.getElementById("questions-total");
-let questionCounter;
-let score;
+const answerInputPath = document.getElementById("input-answer-path");
+const inputSection = document.getElementById("input-section");
+export let questionCounter;
+export let score = 0;
 
-// Event listener for submit button
+let questionIndex = randomNum();
+let randomUnit;
+let answer;
 btnSubmit.addEventListener("click", submitAnswer);
 document.addEventListener("keypress", function(KeyboardEvent) {
     if (KeyboardEvent.keyCode == 13) {
@@ -29,9 +34,9 @@ btnSkip.addEventListener("click", skipQuestion);
 function init() {
     loadedArmy.innerHTML = `Current army: <strong>${armyStats.armyName}</strong>`;
     questionCounter = 0;
-    questionsTotal.innerHTML = questionCounter;
+    questionsTotal.innerText = questionCounter;
     score = 0;
-    scoreTracker.innerHTML = score;
+    scoreDisplay.innerText = score;
 }
 
 // Function to randomly select a unit and its stats
@@ -54,9 +59,6 @@ function selectRandomUnit(unit) {
 function randomNum() {
     return Math.floor(Math.random() * 7);
 }
-// Keep track of the index of the current question
-let questionIndex = randomNum();
-let randomUnit;
 
 // Function to generate a new question
 function generateNewQuestion() {
@@ -77,13 +79,19 @@ function generateNewQuestion() {
 
 // Function to handle answer submission
 function submitAnswer() {
+        // Default colour
+        defaultColour();
     // Get the answer corresponding to the current question index
-    const answer = Object.values(randomUnit.stats)[questionIndex];
+    answer = Object.values(randomUnit.stats)[questionIndex];
     // Check if the submitted answer matches the correct answer
     if (answerInput.value == answer) {
         scoreMessage.innerHTML = `${answerInput.value} is correct!`;
+        setGreen();
+        updateAnswerOutput();
         score++;
     } else {
+        setRed();
+        updateAnswerOutput();
         scoreMessage.innerHTML = `Incorrect. The answer is ${answer}.`;  
     }
 
@@ -93,12 +101,9 @@ function submitAnswer() {
         updateQuestionCounter();
         clearScoreMessage();
         generateNewQuestion();
-    }, 1500);
-
-    // Clear score message and input value
-    clearInputValue();
-    // Generate a new question
-    
+        clearInputValue();
+        clearAnswerOutput();
+    }, 1000);
 }
 
 // Function to handle skipping a question
@@ -114,13 +119,17 @@ function skipQuestion() {
     updateQuestionCounter();
 }
 
+function updateAnswerOutput() {
+    answerOutput.innerText = answer;
+}
+
 function updateQuestionCounter() {
     questionCounter++;
-    questionsTotal.innerHTML = questionCounter; 
+    questionsTotal.innerText = questionCounter; 
 }
 
 function updateScore() {
-    scoreTracker.innerHTML = score;
+    scoreDisplay.innerText = score;
 }
 
 function clearScoreMessage() {
@@ -131,7 +140,38 @@ function clearInputValue() {
     answerInput.value = "";
 }
 
+function clearAnswerOutput() {
+    answerOutput.innerText = "";
+}
 
+function setGreen() {
+    // New colours
+    answerInputPath.style.stroke = "#45B11F";
+    inputSection.style.background = "#245B10";
+    setTimeout(() => {
+        // Default colours after 1sec
+        defaultColour();
+    }, 1000); 
+}
+
+function setRed() {
+    // New colours
+    answerInputPath.style.stroke = "#B11F1F";
+    inputSection.style.background = "#5B1010";
+    setTimeout(() => {
+        // Default colours after 1sec
+        defaultColour();
+    }, 1000);
+}
+
+function defaultColour() {
+    answerInputPath.style.stroke = "#4D778C";
+    inputSection.style.background = "#333";
+}
+
+export function playAgain() {
+    location.reload();
+}
 
 init();
 
