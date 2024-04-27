@@ -1,27 +1,24 @@
-import { loadScreen } from "./loadScreen.js"
 // Timer is used to count down from X
-import { timerDisplay, score, questionCounter, timerInterval } from "./timedMode.js";
-// import { displayFinalScore } from "./gameOver.js";
+import { timerDisplay, timerInterval } from "./timedMode.js";
+
+// inport final score display on end of game
+
+// import loadPage fro gameOver so when the game is over, it handles its own page
+import { loadPage } from "./gameOver.js";
 
 // Set the interval for the timer in milliseconds
 export let interval = 1000; // 1000 milliseconds = 1 second
 
 // Initialize a counter
-export let timerCount = 60;
+export let timerCount = 20;
 
 // Function to be executed at each interval
 export function timerTick() {
     timerCount--;
     if (timerCount <= 0) {
-        // popup to show times up and final score.
-        loadScreen("game-over");
+        loadPage("/game-over.html");
         clearInterval(timerInterval);
     }
     timerDisplay.innerText = timerCount;
     console.log(`Timer tick ${timerCount}`);
-    // You can add any other actions here that should happen on each tick
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Your code here
-});
