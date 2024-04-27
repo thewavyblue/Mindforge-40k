@@ -1,12 +1,4 @@
 {
-    "armyFaction" : [
-        "Imperium",
-        "Chaos",
-        "Aeldari",
-        "Forces of the Hive Mind",
-        "Xenos"
-    ],
-
     "armyName" : {
         "adeptas-sororitas" : "Adeptas Sororitas",
         "adeptus-custodes" : "Adeptus Custodes", 

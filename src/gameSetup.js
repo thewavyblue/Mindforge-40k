@@ -13,55 +13,48 @@ export let armySelectionKey;
 // Fetch and process army data
 
 function loadCategorySelectorOptions(){
-    
+
     fetch("/json/categorySelection.json")
     .then(response => response.json())
-    .then(categoryData => {
+    .then(categorySelection => {
         
-        console.log(categoryData);
+        // console.log(categoryData);
+        let categorySelectionData = categorySelection.category;
         
-        let categorySelectionData = categoryData;
-        let categories = categorySelectionData.category;
-        
-        categories.forEach((category) => {
-            const option = document.createElement("option");
-            // option.value = category.value;
-            option.text = category;
-            categorySelector.appendChild(option);
-        });
+        for (const key in categorySelectionData) {
+            if (categorySelectionData.hasOwnProperty(key)) {
+                const category = categorySelectionData[key];
+                const option = document.createElement("option");
+                option.text = category;
+                option.value = key; // Set the key to the key
+                categorySelector.appendChild(option);
+                
+                if (key !== "units" ){
+                    option.disabled = "true";
+                }
+            }
+        }
     });
 }
 
-// function loadArmySelectorOptions(){
-    
-//     fetch("./json/armySelection.json")
-//     .then(response => response.json())
-//     .then(armySelection => {
-        
-//         // console.log(armySelection);
-//         let armySelectionData = Object.values(armySelection.armyName);
-        
-//         armySelectionData.forEach((army) => {
-//             const option = document.createElement("option");
-//             option.text = army;
-//             armySelector.appendChild(option);
-//         });
-//     });
-// }
-
 function loadArmySelectorOptions(){
+
     fetch("./json/armySelection.json")
     .then(response => response.json())
     .then(armySelection => {
+        
         let armySelectionData = armySelection.armyName;
         
-        for (const value in armySelectionData) {
-            if (armySelectionData.hasOwnProperty(value)) {
-                const army = armySelectionData[value];
+        for (const key in armySelectionData) {
+            if (armySelectionData.hasOwnProperty(key)) {
+                const army = armySelectionData[key];
                 const option = document.createElement("option");
                 option.text = army;
-                option.value = value; // Set the value to the key
+                option.value = key; // Set the key to the key
                 armySelector.appendChild(option);
+                if (key !== "adeptas-sororitas"){
+                    option.disabled = "true";
+                }
             }
         }
     });

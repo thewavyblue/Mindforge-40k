@@ -1,8 +1,8 @@
 {
-    "category" : [
-        "Units",
-        "Weapons",
-        "Special Rules",
-        "Points"
-    ]
+    "category" : {
+        "units" : "Units",
+        "weapons" : "Weapons",
+        "special-rules" : "Special Rules",
+        "points" : "Points"
+    }
 }
