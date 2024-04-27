@@ -20,11 +20,6 @@ export function loadPage(pageUrl) {
         //     console.log("no score!");
         //     localStorage.setItem("finalScore", score);
         // }
-
-        // on click, clear localStorage for next game
-        // btnPlayAgain.addEventListener("click", () => {
-            
-        // });
     })
     .catch(error => console.error('Error loading page:', error));
 }

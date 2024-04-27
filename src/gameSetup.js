@@ -6,6 +6,7 @@ const btnStart = document.getElementById("btn-start");
 
 export let armySelectionValue;
 export let categorySelectionValue;
+export let armySelectionKey;
 
 //import functions
 
@@ -31,23 +32,38 @@ function loadCategorySelectorOptions(){
     });
 }
 
-function loadArmySelectorOptions(){
+// function loadArmySelectorOptions(){
     
-    fetch("/json/armySelection.json")
+//     fetch("./json/armySelection.json")
+//     .then(response => response.json())
+//     .then(armySelection => {
+        
+//         // console.log(armySelection);
+//         let armySelectionData = Object.values(armySelection.armyName);
+        
+//         armySelectionData.forEach((army) => {
+//             const option = document.createElement("option");
+//             option.text = army;
+//             armySelector.appendChild(option);
+//         });
+//     });
+// }
+
+function loadArmySelectorOptions(){
+    fetch("./json/armySelection.json")
     .then(response => response.json())
-    .then(armyData => {
+    .then(armySelection => {
+        let armySelectionData = armySelection.armyName;
         
-        console.log(armyData);
-        
-        let armySelectionData = armyData;
-        let armies = armySelectionData.armyName;
-        
-        armies.forEach((army) => {
-            const option = document.createElement("option");
-            // option.value = army.value;
-            option.text = army;
-            armySelector.appendChild(option);
-        });
+        for (const value in armySelectionData) {
+            if (armySelectionData.hasOwnProperty(value)) {
+                const army = armySelectionData[value];
+                const option = document.createElement("option");
+                option.text = army;
+                option.value = value; // Set the value to the key
+                armySelector.appendChild(option);
+            }
+        }
     });
 }
 
@@ -56,12 +72,23 @@ loadArmySelectorOptions();
 loadCategorySelectorOptions();
 
 btnStart.addEventListener("click", function(e) {
-    // e.preventDefault();
-    armySelectionValue = armySelector.value;
+    e.preventDefault();
+    armySelectionKey = armySelector.options[armySelector.selectedIndex].value; // Get the value of the selected option
     categorySelectionValue = categorySelector.value;
-    localStorage.setItem("selectedArmy", armySelectionValue);
-    btnStart.removeEventListener();
+    console.log(`Chosen army: ${armySelectionKey}\nChosen category: ${categorySelectionValue}`);
+    // localStorage.setItem("selectedArmy", armySelectionValue);
+    // btnStart.removeEventListener();
 });
+
+// btnStart.addEventListener("click", function(e) {
+//     e.preventDefault();
+//     armySelectionValue = armySelector.value;
+//     armySelectionKey = 
+//     categorySelectionValue = categorySelector.value;
+//     console.log(`Chosen army: ${armySelectionValue}\nArmy key: ${armySelectionKey}\nChosen category: ${categorySelectionValue}`);
+//     // localStorage.setItem("selectedArmy", armySelectionValue);
+//     // btnStart.removeEventListener();
+// });
 
 export function selectedArmy(army) {
     console.log(army);

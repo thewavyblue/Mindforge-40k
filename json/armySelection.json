@@ -7,8 +7,32 @@
         "Xenos"
     ],
 
-    "armyName" : [
-        "Adeptas Sororitas",
-        "Leagues of Votann"
-    ]
+    "armyName" : {
+        "adeptas-sororitas" : "Adeptas Sororitas",
+        "adeptus-custodes" : "Adeptus Custodes", 
+        "adeptus-mechanicus" : "Adeptus Mechanicus",
+        "astra-militarum" : "Astra Militarum",
+        "black-templars" : "Black Templars",
+        "blood-angels" : "Blood Angels",
+        "dark-angels" : "Dark Angels",
+        "deathwatch" : "Deathwatch",
+        "grey-knights" : "Grey Knights",
+        "imperial-knights" : "Imperial Knights",
+        "space-marines" : "Space Marines",
+        "space-wolves" : "Space Wolves",
+        "chaos-daemons": "Chaos Daemons",
+        "chaos-knights" : "Chaos Knights",
+        "chaos-space-marines" : "Chaos Space Marines",
+        "world-eaters" : "World Eaters",
+        "death-guard" : "Death Guard",
+        "thousand-sons" : "Thousand Sons",
+        "aeldari" : "Aeldari",
+        "drukhari" : "Drukhari",
+        "genestealer-cults" : "Genestealer Cults",
+        "tyranids" : "Tyranids",
+        "necrons" : "Necrons",
+        "orks" : "Orks",
+        "tau" : "T'au",
+        "leagues-of-votann" : "Leagues of Votann"
+    }
 }
