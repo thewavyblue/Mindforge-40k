@@ -10,7 +10,7 @@ I plan to consistently test the app with a small focus group and take on board f
 
 ### DEVELOPER DIARY ###
 
-Developer Diary #1 – Introduction to me, MindForge 40k app development
-[link here!]
+Developer Diary #3 – MindForge 40k app development
+https://www.loom.com/share/4abf9b1f9847426eafab8cee9f9cd554?sid=b2411f11-214c-4c77-8bfd-5f6fa3d04dc6
 
 #######################
