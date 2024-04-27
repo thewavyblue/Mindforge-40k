@@ -1,82 +1,34 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const sliderWrapper = document.querySelector(".slider-wrapper");
-    const slides = document.querySelectorAll(".game-option-card");
-    const totalSlides = slides.length;
-    let currentIndex = 0;
-    let touchStartX = 0;
-    const width = innerWidth;
-    const sliderMove = innerWidth / totalSlides;
+// this app.js handles the loading of other screens, centralised within the app.html file
+// import { gameModeRequest } from "./index.js";
 
-    // Function to move slider to a specific card
-    function moveSlider(direction) {
-        currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-        const newPosition = currentIndex * (-100 / totalSlides);
-        sliderWrapper.style.transform = `translateX(${newPosition}%)`;
-    }
+export function loadPage(pageUrl) {
+    fetch(pageUrl)
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById("main").innerHTML = html;
+    })
+    .catch(error => console.error('Error loading page:', error));
+        
+}
 
-    // Touch event handling for swipe navigation
-    sliderWrapper.addEventListener('touchstart', (event) => {
-        touchStartX = event.touches[0].clientX;
-    });
+// loadPage("setup-timed-mode.html");
 
-    sliderWrapper.addEventListener('touchmove', (event) => {
-        if (!touchStartX) {
-            return;
-        }
+// let finalScore = document.getElementById("final-score");
 
-        const touchCurrentX = event.touches[0].clientX;
-        const diffX = touchStartX - touchCurrentX;
+// // Display final score
+// finalScore.innerText = score;
+// console.log(`Times up! Your final score: ${score} out of ${questionCounter} questions answered correctly!`);
 
-        const gamePag1 = document.getElementById("game-pag1");
-        const gamePag2 = document.getElementById("game-pag2");
-        const gamePag3 = document.getElementById("game-pag3");
+// High scores:
+// finalScore.innerText = localStorage.getItem("finalScore");
+// if (!localStorage.getItem("finalScore") > 0) {
+//     console.log("no score!");
+//     localStorage.setItem("finalScore", score);
+// }
 
-        if (diffX > 50) {
-            // Swiped left (next)
-            moveSlider(1);
-            touchStartX = 0; // Reset touch start position
-            if (gamePag1.classList.contains("active")) {
-                gamePag1.classList.remove("active");
-                gamePag2.classList.add("active");
-            } else if (gamePag2.classList.contains("active")) {
-                gamePag2.classList.remove("active");
-                gamePag3.classList.add("active");
-            } else {
-                gamePag3.classList.remove("active");
-                gamePag1.classList.add("active");
-            }
-        } else if (diffX < -50) {
-            // Swiped right (previous)
-            moveSlider(-1);
-            touchStartX = 0; // Reset touch start position
-            if (gamePag1.classList.contains("active")) {
-                gamePag1.classList.remove("active");
-                gamePag3.classList.add("active");
-            } else if (gamePag3.classList.contains("active")) {
-                gamePag3.classList.remove("active");
-                gamePag2.classList.add("active");
-            } else {
-                gamePag2.classList.remove("active");
-                gamePag1.classList.add("active");
-            }
-        }
-    });
+// document.addEventListener("DOMContentLoaded", loadPagePlease); 
 
-    // Button loader icon
-
-    const btnSetupFreePlay = document.getElementById("btn-setup-free-play");
-    const btnSetupTimedMode = document.getElementById("btn-setup-timed-mode");
-    const btnSetupSuddenDeath = document.getElementById(
-        "btn-setup-sudden-death"
-    );
-
-    if (btnSetupFreePlay) {
-        btnSetupFreePlay.addEventListener("click", () => {
-            btnSetupFreePlay.innerHTML = `Loading <img class="load-animation" src="/imgs/Spinner@2x-1.0s-200px-200px-white.svg">`;
-            console.log("clicked!");
-        });
-    }
-
-
-
-});
+// export function loadPagePlease() {
+    //     console.log("app page loaded");
+//     return true;
+// };

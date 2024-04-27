@@ -4,7 +4,7 @@ import { timerDisplay, timerInterval } from "./timedMode.js";
 // inport final score display on end of game
 
 // import loadPage fro gameOver so when the game is over, it handles its own page
-import { loadPage } from "./gameOver.js";
+import { loadPage } from "./loader.js";
 
 // Set the interval for the timer in milliseconds
 export let interval = 1000; // 1000 milliseconds = 1 second
