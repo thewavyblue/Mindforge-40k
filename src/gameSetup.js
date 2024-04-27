@@ -1,4 +1,3 @@
-
 //define selectors
 const armySelector = document.getElementById("army-select");
 const categorySelector = document.getElementById("category-select");
@@ -7,10 +6,6 @@ const btnStart = document.getElementById("btn-start");
 export let armySelectionValue;
 export let categorySelectionValue;
 export let armySelectionKey;
-
-//import functions
-
-// Fetch and process army data
 
 function loadCategorySelectorOptions(){
 
@@ -65,23 +60,13 @@ loadArmySelectorOptions();
 loadCategorySelectorOptions();
 
 btnStart.addEventListener("click", function(e) {
-    e.preventDefault();
+    // e.preventDefault();
     armySelectionKey = armySelector.options[armySelector.selectedIndex].value; // Get the value of the selected option
     categorySelectionValue = categorySelector.value;
     console.log(`Chosen army: ${armySelectionKey}\nChosen category: ${categorySelectionValue}`);
     // localStorage.setItem("selectedArmy", armySelectionValue);
     // btnStart.removeEventListener();
 });
-
-// btnStart.addEventListener("click", function(e) {
-//     e.preventDefault();
-//     armySelectionValue = armySelector.value;
-//     armySelectionKey = 
-//     categorySelectionValue = categorySelector.value;
-//     console.log(`Chosen army: ${armySelectionValue}\nArmy key: ${armySelectionKey}\nChosen category: ${categorySelectionValue}`);
-//     // localStorage.setItem("selectedArmy", armySelectionValue);
-//     // btnStart.removeEventListener();
-// });
 
 export function selectedArmy(army) {
     console.log(army);
