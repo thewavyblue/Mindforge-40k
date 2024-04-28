@@ -1,10 +1,5 @@
 // Timer is used to count down from X
-import { timerDisplay, timerInterval } from "./timedMode.js";
-
-// inport final score display on end of game
-
-// import loadPage fro gameOver so when the game is over, it handles its own page
-import { loadPage } from "./loader.js";
+import { timerDisplay, timerInterval, score } from "./timedMode.js";
 
 // Set the interval for the timer in milliseconds
 export let interval = 1000; // 1000 milliseconds = 1 second
@@ -21,4 +16,14 @@ export function timerTick() {
     }
     timerDisplay.innerText = timerCount;
     console.log(`Timer tick ${timerCount}`);
+}
+
+function loadPage(pageUrl) {
+    fetch(pageUrl)
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById("main").innerHTML = html;
+        document.getElementById("final-score").innerHTML = score;
+    })
+    .catch(error => console.error('Error loading page:', error));
 }

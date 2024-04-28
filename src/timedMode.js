@@ -1,4 +1,3 @@
-
 //import objects from external 
 // import { armyStats } from "./armyStats.js";
 import { questions } from "./questions.js";
@@ -54,13 +53,6 @@ function init() {
             // Handle error loading data
             console.error('Error initializing:', error);
         });
-
-    
-    // selectedArmy = armyStats[selectedArmy];
-    // const getArmyName = sessionStorage.getItem("armyName");
-    // const getCategory = sessionStorage.getItem("category");
-    
-    // console.log("loaded data: " + getArmyName + " " + getCategory);
     
     questionCounter = 0;
     questionsTotal = questionCounter;
@@ -120,8 +112,8 @@ function generateNewQuestion(data) {
         return;
     }
     
-    // Generate a new unit
-    // Assign the random unit to a global variable
+    // Generate a new unit by assigning the random unit to a global variable
+    
     // randomUnitArray = selectRandomUnit(data);
 
     // Update the question index

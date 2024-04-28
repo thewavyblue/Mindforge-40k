@@ -47,7 +47,7 @@ function loadArmySelectorOptions(){
                 option.text = army;
                 option.value = key; // Set the key to the key
                 armySelector.appendChild(option);
-                if (key !== "adeptas-sororitas"){
+                if (key !== "tau" && key !== "adeptas-sororitas"){
                     option.disabled = "true";
                 }
             }
