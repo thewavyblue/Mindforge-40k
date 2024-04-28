@@ -38,6 +38,10 @@ body {
     min-height: 100vh;
 }
 
+#main {
+    padding-bottom: 6rem;
+}
+
 .sticky {
     position: sticky;
     top: 0;

@@ -43,24 +43,24 @@ btnSkip.addEventListener("click", skipQuestion);
 const armySelectorValue = 0;
 
 function init() {
+    // From sessionStorage:
     console.log(`${selectedArmy} ${selectedCategory}`);
+    
     fetchArmyStats(selectedArmy)
-        .then(data => {
-            generateNewQuestion(data);
-            // Other initialization code...
-        })
-        .catch(error => {
-            // Handle error loading data
-            console.error('Error initializing:', error);
-        });
-    
-    questionCounter = 0;
-    questionsTotal = questionCounter;
-    score = 0;
-    scoreDisplay = score;
-    
-    // timer conditions
-    timerInterval = setInterval(timerTick, interval); // Start the timer
+    .then(data => {
+        generateNewQuestion(data);
+        questionCounter = 0;
+        questionsTotal = questionCounter;
+        score = 0;
+        scoreDisplay = score;
+        
+        // Start the timer
+        timerInterval = setInterval(timerTick, interval); 
+    })
+    .catch(error => {
+        // Handle error loading data
+        console.error('Error initializing:', error);
+    });
 }
 
 function fetchArmyStats(selectedArmy) {
@@ -76,10 +76,9 @@ function fetchArmyStats(selectedArmy) {
         .catch(error => {
             console.error('Error loading data:', error);
             throw error; // Rethrow the error to be caught by the caller
-        });
+        }
+    );
 }
-
-// console.log(randomUnitArray);
 
 // Function to randomly select a unit and its stats
 function selectRandomUnit(data) {
@@ -113,7 +112,7 @@ function generateNewQuestion(data) {
     }
     
     // Generate a new unit by assigning the random unit to a global variable
-    
+
     // randomUnitArray = selectRandomUnit(data);
 
     // Update the question index
