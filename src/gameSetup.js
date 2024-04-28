@@ -3,9 +3,9 @@ const armySelector = document.getElementById("army-select");
 const categorySelector = document.getElementById("category-select");
 const btnStart = document.getElementById("btn-start");
 
-export let armySelectionValue;
-export let categorySelectionValue;
-export let armySelectionKey;
+let armySelectionValue;
+let categorySelectionValue;
+let armySelectionKey;
 
 function loadCategorySelectorOptions(){
 
@@ -55,19 +55,52 @@ function loadArmySelectorOptions(){
     });
 }
 
-loadArmySelectorOptions();
-
-loadCategorySelectorOptions();
-
 btnStart.addEventListener("click", function(e) {
     // e.preventDefault();
     armySelectionKey = armySelector.options[armySelector.selectedIndex].value; // Get the value of the selected option
     categorySelectionValue = categorySelector.value;
     console.log(`Chosen army: ${armySelectionKey}\nChosen category: ${categorySelectionValue}`);
-    // localStorage.setItem("selectedArmy", armySelectionValue);
-    // btnStart.removeEventListener();
+
+    sessionStorage.setItem("armyName", armySelectionKey);
+    sessionStorage.setItem("category", categorySelectionValue);
+
+    // const pageURL = e.target.dataset.button + ".html";
 });
 
-export function selectedArmy(army) {
-    console.log(army);
-}
+loadArmySelectorOptions();
+
+loadCategorySelectorOptions();
+
+// const gameOptions = document.getElementById('game-options');
+
+// gameOptions.addEventListener('submit', function(e){
+//     // e.preventDefault();
+//     const gameOptionsData = new FormData(gameOptions);
+    
+//     const armyName = gameOptionsData.get('army-select');
+//     const category = gameOptionsData.get('category-select');
+
+//     console.log(localStorage);
+
+// })
+
+
+// function loadPage(pageUrl) {
+//     fetch(pageUrl)
+//     .then(response => response.text())
+//     .then(html => {
+//         document.getElementById("main").innerHTML = html;
+//     })
+//     .catch(error => console.error('Error loading page:', error));
+
+//     // let scripts = document.querySelector("scripts");
+//     const jsURLArray = ["/src/timer.js", "/src/timedMode.js"];
+
+//     jsURLArray.forEach(jsScript => {
+//         jsScript = document.createElement("script");
+//         jsScript.src = jsScript;
+//         jsScript.type = "module";
+//         console.log(jsScript);
+//         document.body.appendChild(jsScript);
+//     });
+// }

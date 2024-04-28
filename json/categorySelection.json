@@ -1,5 +1,6 @@
 {
     "category" : {
+        "select" : "Select...",
         "units" : "Units",
         "weapons" : "Weapons",
         "special-rules" : "Special Rules",

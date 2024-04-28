@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD from components.js -->
+<head>
+</head>
+<body>
+
+    <!-- MASTHEAD from components.js -->
+    <header class="row justify-content-center" id="masthead">
+    </header>
+
+    <!-- BACK BUTTON from components.js -->
+    <section class="row" id="back-button">
+    </section>
+    
+    <!-- MAIN -->
+    <section id="main">
+        
+        <!-- PAGE TITLE -->
+        <section class="row justify-content-center">
+            <div class="col align-items-center">
+                <h1 class="white">
+                    TIMED MODE
+                </h1>
+            </div>
+        </section>
+        <!-- FORM -->
+        <section class="row justify-content-center">
+            <form class="col px-8 py-8" id="game-options" action="/quiz-timed-mode.html">
+                <label class="white pb-2" for="army-select">
+                    Select army
+                </label>
+                <select id="army-select" name="army-select">
+                </select>
+                <div class="col py-4"></div>
+                <label class="white pb-2" for="category-select">
+                    Select a category
+                </label>
+                <select id="category-select" name="category-select">
+                </select>
+                <div class="col py-4"></div>
+                <button class="button btn-steel-grey" id="btn-start" data-load="app" data-button="quiz-timed-mode">START</button>
+            </form>
+        </section>
+
+        <!-- QUOTES -->
+        <section class="row justify-content-center" id="quotes">
+            <div class="col py-8 px-8 justify-content-center h-200px white p-sm" id="quote">
+                <p class="text-align-center pb-4">"Let the galaxy burn!"</p>
+                <p class="text-align-right italic">– Abaddon the Despoiler</p>
+            </div>
+        </section>
+    </section>
+
+    <!-- FOOTER from components.js -->
+    <footer class="justify-content-center bg-dark fixed">
+    </footer>
+    <!-- <script src="/src/app.js"></script> -->
+    <script src="/src/quotes.js"></script>
+    <script src="/src/components.js"></script>
+    <script src="/src/gameSetup.js" type="module"></script>
+</body>
+</html>

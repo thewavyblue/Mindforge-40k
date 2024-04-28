@@ -1,7 +1,7 @@
 // this app.js handles the loading of other screens, centralised within the app.html file
 // import { gameModeRequest } from "./index.js";
 
-export function loadPage(pageUrl) {
+function loadPage(pageUrl) {
     fetch(pageUrl)
     .then(response => response.text())
     .then(html => {

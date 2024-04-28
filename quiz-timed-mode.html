@@ -1,33 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- HEAD from components.js -->
 <head>
 </head>
 <body>
-    <!-- Header, incl logo -->
-    <header class="row justify-content-center bg-dark sticky">
-        <a href="/index.html" class="col place-content-center navbar">
-            <img class="logo" src="/imgs/mindforge40k-logo-white.svg" alt="Mindforge 40k logo">
-        </a>
-    </header>
 
-    <!-- Back button -->
-    <section class="row">
-        <div class="col pb-4">
-            <a class="row gap-2 px-4" href="/setup-free-play.html">
-                <img class="inline-block" src="/imgs/arrow-back.svg" alt="">
-                <p class="dark-grey-2 p-sm inline-block">
-                    Go back
-                </p>
-            </a>
-        </div>
-    </section>
+    <!-- MASTHEAD from components.js -->
+    <header class="row justify-content-center" id="masthead">
+    </header>
 
     <!-- Title and scoring -->
     <section class="container gap-2 cont-steel-grey white py-4">
         <div class="row justify-content-center">
             <div class="col px-8">
-                <h4 class="" id="loaded-army">
-                    Adepta Sororitas
+                <h4 id="loaded-army">
+                    Error: No army loaded
                 </h4>
             </div>
         </div>
@@ -96,21 +83,14 @@
         <h3 class="" id="score-message"></h3>
     </section>
 
+    <!-- FOOTER from components.js -->
     <footer class="justify-content-center bg-dark fixed">
-        <p class="dark-grey-2 p-sm">
-            Coded by 
-            <a href="https://benhoath.com" target="_blank" rel="noreferrer noopener">
-                Ben Hoath
-            </a>
-            , developed with
-            <span class="red">
-                ♥
-            </span>
-        </p>
     </footer>
+
     <script src="/src/head.js"></script>
     <script src="/src/timedMode.js" type="module"></script>
     <script src="/src/timer.js" type="module"></script>
+    <script src="/src/components.js" type="module"></script>
     <!-- <script src="/src/score.js" type="module"></script> -->
 </body>
 </html>

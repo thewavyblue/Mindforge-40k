@@ -1,8 +1,8 @@
+
 //import objects from external 
-import { armyStats } from "./armyStats.js";
+// import { armyStats } from "./armyStats.js";
 import { questions } from "./questions.js";
 import { timerTick, interval, timerCount } from "./timer.js";
-// import { selectedArmy } from "./gameSetup.js";
 
 // Get DOM elements
 const questionLabel = document.getElementById("question-label");
@@ -17,6 +17,8 @@ let scoreDisplay = document.getElementById("score-tracker");
 let questionsTotal = document.getElementById("questions-total");
 const answerInputPath = document.getElementById("input-answer-path");
 const inputSection = document.getElementById("input-section");
+const selectedArmy = sessionStorage.getItem("armyName");
+const selectedCategory = sessionStorage.getItem("category");
 export let questionCounter;
 export let score = 0;
 export let timerDisplay = document.getElementById("timer");
@@ -24,7 +26,7 @@ export let timerInterval;
 // export let finalScore = document.getElementById("final-score");
 timerDisplay.innerText = timerCount;
 let questionIndex = randomNum();
-let randomUnit;
+let randomUnitArray;
 let answer;
 
 // BUTTONS //
@@ -41,29 +43,63 @@ btnSkip.addEventListener("click", skipQuestion);
 // console.log(selectedArmy + " @ timedMode.js");
 const armySelectorValue = 0;
 
-
 function init() {
+    console.log(`${selectedArmy} ${selectedCategory}`);
+    fetchArmyStats(selectedArmy)
+        .then(data => {
+            generateNewQuestion(data);
+            // Other initialization code...
+        })
+        .catch(error => {
+            // Handle error loading data
+            console.error('Error initializing:', error);
+        });
+
+    
     // selectedArmy = armyStats[selectedArmy];
-    loadedArmy.innerHTML = `Current army: <strong>${armyStats.armyName}</strong>`;
+    // const getArmyName = sessionStorage.getItem("armyName");
+    // const getCategory = sessionStorage.getItem("category");
+    
+    // console.log("loaded data: " + getArmyName + " " + getCategory);
+    
     questionCounter = 0;
     questionsTotal = questionCounter;
     score = 0;
     scoreDisplay = score;
-
+    
     // timer conditions
     timerInterval = setInterval(timerTick, interval); // Start the timer
-    generateNewQuestion(); // Generate initial question when the page loads
 }
 
+function fetchArmyStats(selectedArmy) {
+    const selectedArmyAddr = "/json/" + selectedArmy + ".json";
+    return fetch(selectedArmyAddr)
+        .then(response => response.json())
+        .then(data => {
+            loadedArmy.innerHTML = `Current army: <strong>${data.armyName}</strong>`;
+            // Assign the random unit array to the global variable
+            randomUnitArray = selectRandomUnit(data);
+            return data;
+        })
+        .catch(error => {
+            console.error('Error loading data:', error);
+            throw error; // Rethrow the error to be caught by the caller
+        });
+}
+
+// console.log(randomUnitArray);
+
 // Function to randomly select a unit and its stats
-function selectRandomUnit(unit) {
+function selectRandomUnit(data) {
     // Get keys of the units
-    const unitKeys = Object.keys(unit).filter(key => key.startsWith('unit'));
+    const unitKeys = Object.keys(data).filter(key => key.startsWith('unit'));
     // Randomly select a unit key
     const randomUnitKey = unitKeys[Math.floor(Math.random() * unitKeys.length)];
+    console.log(randomUnitKey);
     // Get the selected unit object
-    const selectedUnit = unit[randomUnitKey];
+    const selectedUnit = data[randomUnitKey];
     // Return the selected unit and its stats
+    console.log(selectedUnit.unitName);
     return {
         unitName: selectedUnit.unitName,
         stats: selectedUnit.stats
@@ -77,9 +113,17 @@ function randomNum() {
 }
 
 // Function to generate a new question
-function generateNewQuestion() {
+function generateNewQuestion(data) {
+    // Check if randomUnitArray is defined
+    if (!randomUnitArray) {
+        console.error('randomUnitArray is not defined');
+        return;
+    }
+    
     // Generate a new unit
-    randomUnit = selectRandomUnit(armyStats); // Assign the random unit to a global variable
+    // Assign the random unit to a global variable
+    // randomUnitArray = selectRandomUnit(data);
+
     // Update the question index
     questionIndex = randomNum();
     // Get the question text from the questions array
@@ -87,18 +131,23 @@ function generateNewQuestion() {
     // Display the new question
     questionLabel.innerHTML = `${question}`;
     // Display the unit name
-    unitName.innerHTML = `${randomUnit.unitName}`;
+    unitName.innerHTML = `${randomUnitArray.unitName}`;
     
-    console.log("Randomly selected unit:", randomUnit.unitName);
-    console.log("Corresponding stats:", randomUnit.stats);
+    console.log("Randomly selected unit:", randomUnitArray.unitName);
+    console.log("Corresponding stats:", randomUnitArray.stats);
 }
 
 // Function to handle answer submission
 function submitAnswer() {
+    // Check if randomUnitArray is defined
+    if (!randomUnitArray) {
+        console.error('randomUnitArray is not defined');
+        return;
+    }
     // Default colour
     defaultColour();
     // Get the answer corresponding to the current question index
-    answer = Object.values(randomUnit.stats)[questionIndex];
+    answer = Object.values(randomUnitArray.stats)[questionIndex];
     // Check if the submitted answer matches the correct answer
     if (answerInput.value == answer) {
         scoreMessage.innerHTML = `${answerInput.value} is correct!`;
@@ -124,6 +173,11 @@ function submitAnswer() {
 
 // Function to handle skipping a question
 function skipQuestion() {
+    // Check if randomUnitArray is defined
+    if (!randomUnitArray) {
+        console.error('randomUnitArray is not defined');
+        return;
+    }
     scoreMessage.innerHTML = "Question skipped";
         setTimeout(() => {
             clearScoreMessage();
