@@ -77,7 +77,7 @@ function fetchArmyStats(selectedArmy) {
     );
 }
 
-// Function to randomly select a unit and its stats
+//! Function to randomly select a unit and its stats
 function selectRandomUnit(data) {
     // Get keys of the units
     const unitKeys = Object.keys(data).filter(key => key.startsWith('unit'));
@@ -86,6 +86,7 @@ function selectRandomUnit(data) {
     console.log(randomUnitKey);
     // Get the selected unit object
     const selectedUnit = data[randomUnitKey];
+    randomUnitArray = selectedUnit;
     // Return the selected unit and its stats
     console.log(selectedUnit.unitName);
     return {
@@ -95,22 +96,22 @@ function selectRandomUnit(data) {
 }
 
 // Set up the question
-// Create a random number based on the length of the stats array
+//! Create a random number based on the length of the stats array to choose the question
 function randomNum() {
     return Math.floor(Math.random() * 7);
 }
 
-// Function to generate a new question
+//! Function to generate a new question
 function generateNewQuestion(data) {
     // Check if randomUnitArray is defined
     if (!randomUnitArray) {
         console.error('randomUnitArray is not defined');
         return;
     }
-    
+    console.log(randomUnitArray);
     // Generate a new unit by assigning the random unit to a global variable
 
-    // randomUnitArray = selectRandomUnit(data); // TODO it feels like some important code is missing here, because on v1.0 this code function worked!
+    selectRandomUnit(data); // TODO it feels like some important code is missing here, because on v1.0 this code function worked!
 
     // Update the question index
     questionIndex = randomNum();
