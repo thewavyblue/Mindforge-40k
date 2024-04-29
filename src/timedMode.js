@@ -1,5 +1,4 @@
-//import objects from external 
-// import { armyStats } from "./armyStats.js";
+//import objects from external
 import { questions } from "./questions.js";
 import { timerTick, interval, timerCount } from "./timer.js";
 
@@ -22,7 +21,6 @@ export let questionCounter;
 export let score = 0;
 export let timerDisplay = document.getElementById("timer");
 export let timerInterval;
-// export let finalScore = document.getElementById("final-score");
 timerDisplay.innerText = timerCount;
 let questionIndex = randomNum();
 let randomUnitArray;
@@ -39,7 +37,6 @@ document.addEventListener("keypress", function(KeyboardEvent) {
 btnSkip.addEventListener("click", skipQuestion);
 
 // import selectedArmy value
-// console.log(selectedArmy + " @ timedMode.js");
 const armySelectorValue = 0;
 
 function init() {
@@ -113,7 +110,7 @@ function generateNewQuestion(data) {
     
     // Generate a new unit by assigning the random unit to a global variable
 
-    // randomUnitArray = selectRandomUnit(data);
+    // randomUnitArray = selectRandomUnit(data); // TODO it feels like some important code is missing here, because on v1.0 this code function worked!
 
     // Update the question index
     questionIndex = randomNum();
@@ -186,13 +183,10 @@ function updateAnswerOutput() {
 
 function updateQuestionCounter() {
     questionCounter++;
-    // questionsTotal.innerHTML = questionCounter; 
 }
 
 function updateScore() {
-    // scoreDisplay.innerHTML = score;
     localStorage.setItem("finalScore", score);
-    // console.log(localStorage.finalScore);
 }
 
 function clearScoreMessage() {
