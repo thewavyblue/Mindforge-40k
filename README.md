@@ -13,4 +13,7 @@ I plan to consistently test the app with a small focus group and take on board f
 Developer Diary #3 – MindForge 40k app development
 https://www.loom.com/share/4abf9b1f9847426eafab8cee9f9cd554?sid=b2411f11-214c-4c77-8bfd-5f6fa3d04dc6
 
+Developer Diary #4 – Troubleshooting Randomisation Issue in MindForge40k v1.3
+https://www.loom.com/share/76256ed8e7ae481f93ab2a256d7ab09c?sid=9b690270-a455-4b3b-80b6-3844d68001f2
+
 #######################
