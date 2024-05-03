@@ -66,7 +66,7 @@ function fetchArmyStats(selectedArmy) {
         .then(data => {
             document.getElementById("loaded-army").innerHTML = `Current army: <strong>${data.armyName}</strong>`;
             // Assign the random unit array to the global variable
-            randomUnitArray = selectRandomUnit(data);
+            randomUnitArray = data;
             return data;
         })
         .catch(error => {
@@ -79,7 +79,9 @@ function fetchArmyStats(selectedArmy) {
 //! Function to randomly select a unit and its stats
 function selectRandomUnit(data) {
     // Get keys of the units
-    const unitKeys = Object.keys(data).filter(key => key.startsWith('unit'));
+    const unitKeys = Object.keys(data)
+        .filter(key => key.startsWith('unit'))
+        .map((key) => key);
     // Randomly select a unit key
     const randomUnitKey = unitKeys[Math.floor(Math.random() * unitKeys.length)];
     console.log(randomUnitKey);  // i.e. unit12

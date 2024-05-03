@@ -15,7 +15,7 @@ export function timerTick() {
         clearInterval(timerInterval);
     }
     timerDisplay.innerText = timerCount;
-    console.log(`Timer tick ${timerCount}`);
+    // console.log(`Timer tick ${timerCount}`);
 }
 
 function loadPage(pageUrl) {
