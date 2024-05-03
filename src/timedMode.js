@@ -3,14 +3,10 @@ import { questions } from "./questions.js";
 import { timerTick, interval, timerCount } from "./timer.js";
 
 // Get DOM elements
-const questionLabel = document.getElementById("question-label");
 const unitName = document.getElementById("unit-name");
 const answerInput = document.getElementById("input-answer");
 const answerOutput = document.getElementById("output-answer");
-const btnSubmit = document.getElementById("btn-submit");
-const btnSkip = document.getElementById("btn-skip");
 const scoreMessage = document.getElementById("score-message");
-const loadedArmy = document.getElementById("loaded-army");
 let scoreDisplay = document.getElementById("score-tracker");
 let questionsTotal = document.getElementById("questions-total");
 const answerInputPath = document.getElementById("input-answer-path");
@@ -27,14 +23,17 @@ let randomUnitArray;
 let answer;
 
 // BUTTONS //
-btnSubmit.addEventListener("click", submitAnswer);
+
+document.getElementById("btn-submit").addEventListener("click", submitAnswer);
+
 document.addEventListener("keypress", function(KeyboardEvent) {
     if (KeyboardEvent.keyCode == 13) {
         submitAnswer();
     }
 });
 
-btnSkip.addEventListener("click", skipQuestion);
+
+document.getElementById("btn-skip").addEventListener("click", skipQuestion);
 
 // import selectedArmy value
 const armySelectorValue = 0;
@@ -65,7 +64,7 @@ function fetchArmyStats(selectedArmy) {
     return fetch(selectedArmyAddr)
         .then(response => response.json())
         .then(data => {
-            loadedArmy.innerHTML = `Current army: <strong>${data.armyName}</strong>`;
+            document.getElementById("loaded-army").innerHTML = `Current army: <strong>${data.armyName}</strong>`;
             // Assign the random unit array to the global variable
             randomUnitArray = selectRandomUnit(data);
             return data;
@@ -83,12 +82,12 @@ function selectRandomUnit(data) {
     const unitKeys = Object.keys(data).filter(key => key.startsWith('unit'));
     // Randomly select a unit key
     const randomUnitKey = unitKeys[Math.floor(Math.random() * unitKeys.length)];
-    console.log(randomUnitKey);
+    console.log(randomUnitKey);  // i.e. unit12
     // Get the selected unit object
     const selectedUnit = data[randomUnitKey];
     randomUnitArray = selectedUnit;
     // Return the selected unit and its stats
-    console.log(selectedUnit.unitName);
+    console.log(selectedUnit.unitName); // i.e. Dialogus
     return {
         unitName: selectedUnit.unitName,
         stats: selectedUnit.stats
@@ -118,7 +117,7 @@ function generateNewQuestion(data) {
     // Get the question text from the questions array
     const question = Object.values(questions)[questionIndex];
     // Display the new question
-    questionLabel.innerHTML = `${question}`;
+    document.getElementById("question-label").innerHTML = question;
     // Display the unit name
     unitName.innerHTML = `${randomUnitArray.unitName}`;
     

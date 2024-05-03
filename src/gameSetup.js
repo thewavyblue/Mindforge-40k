@@ -24,7 +24,7 @@ function loadCategorySelectorOptions(){
                 option.value = key; // Set the key to the key
                 categorySelector.appendChild(option);
                 
-                if (key !== "units" ){
+                if (key !== "units" && key !== "weapons" ){
                     option.disabled = "true";
                 }
             }
