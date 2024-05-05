@@ -1,5 +1,3 @@
-// import { loadPage } from "./app.js";
-
 document.addEventListener("DOMContentLoaded", function () {
     const sliderWrapper = document.querySelector(".slider-wrapper");
     const slides = document.querySelectorAll(".game-option-card");
@@ -66,46 +64,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     };
-
-    // // Load page
-    // document.addEventListener("click", function(e) {
-    //     if (e.target.dataset.button){
-    //         e.target.innerHTML = `Loading <img class="load-animation" src="/imgs/Spinner@2x-1.0s-200px-200px-white.svg">`;
-            
-    //         let appPage = e.target.dataset.load + ".html";
-    //         gameMode = e.target.dataset.button + ".html";
-            
-    //         console.log(`${e.target.dataset.button} clicked!`);
-
-    //         // Load the app page
-    //         window.location.href = appPage;
-
-    //         console.log("loading page")
-    //         // After app page loaded, load in second sub-page (setup game type)
-    //         // window.addEventListener("DOMContentLoaded", function() {
-    //         //     console.log("loading page");
-    //         //     console.log("gameMode");
-    //         //     loadPage(gameMode);
-    //         // })
-            
-    //         // console.log(gameMode);
-            
-    //         // loadDestinationPage(appPage, gameMode);
-    //         // console.log(gameMode);
-    //     }
-    // });
-
-    // function loadDestinationPage(appPage, gameMode) {
-        
-    //     // Specify the URL of the HTML page and the CSS file
-    //     window.location.href = appPage;
-
-    //     loadPage(gameMode);
-
-    // }
-
 });
-
-// export function gameModeRequest() {
-//     return gameMode;
-// }

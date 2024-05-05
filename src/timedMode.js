@@ -1,5 +1,6 @@
 //import objects from external
-import { questions } from "./questions.js";
+import { questions as unitQuestions } from "./unitQuestions.js";
+import { questions as weaponQuestions } from "./weaponQuestions.js";
 import { timerTick, interval, timerCount } from "./timer.js";
 
 // Get DOM elements
@@ -21,6 +22,8 @@ timerDisplay.innerText = timerCount;
 // let questionIndex = randomNum();
 let randomUnitArray;
 let answer;
+const questionsArrayLength = 7;
+
 
 // BUTTONS //
 
@@ -34,13 +37,10 @@ document.addEventListener("keypress", function(KeyboardEvent) {
 
 document.getElementById("btn-skip").addEventListener("click", skipQuestion);
 
-// import selectedArmy value
-const armySelectorValue = 0;
-
 function init() {
     // From sessionStorage:
     console.log(`Selected army: ${selectedArmy}\nSelected category: ${selectedCategory}`);
-    
+
     fetchArmyStats(selectedArmy)
     .then(data => {
         generateNewQuestion(data);
@@ -77,34 +77,12 @@ function fetchArmyStats(selectedArmy) {
     );
 }
 
-// //! Function to randomly select a unit and its stats
-// function selectRandomUnit(data) {
-//     // Get keys of the units
-//     const unitKeys = Object.keys(data)
-//         .filter(key => key.startsWith('unit'))
-//         .map((key) => key);
-//     // Randomly select a unit key
-//     const randomUnitKey = unitKeys[Math.floor(Math.random() * unitKeys.length)];
-//     console.log(`From selectRandomUnit: ${randomUnitKey}`);  // i.e. unit12
-//     // Get the selected unit object
-//     const selectedUnit = data[randomUnitKey];
-//     // randomUnitArray = selectedUnit;
-//     // Return the selected unit and its stats
-//     console.log(`From selectRandomUnit: ${selectedUnit.unitName}`); // i.e. Dialogus
-//     return {
-//         unitName: selectedUnit.unitName,
-//         stats: selectedUnit.stats
-//     };
-// }
-
-
-// Set up the question
-//! Create a random number based on the length of the stats array to choose the question
+// Create a random number based on the length of the stats array to choose the question
 function randomNum() {
-    return Math.floor(Math.random() * 7);
+    return Math.floor(Math.random() * questionsArrayLength);
 }
 
-//! Function to generate a new question
+// Function to generate a new question
 function generateNewQuestion(data) {
 
     const unitKeys = Object.keys(data)
@@ -121,10 +99,10 @@ function generateNewQuestion(data) {
     console.log(`Get and return unit name (from selectRandomUnit):\n${selectedUnit.unitName}`); // i.e. Dialogus
 
     // Update the question index
-    const questionIndex = randomNum(); // i.e. 1 (this is question 1 from questions.js)
+    const questionIndex = randomNum(); // i.e. 1 (this is question 1 from unitQuestions.js)
 
     // Get the question text from the questions array
-    const question = Object.values(questions)[questionIndex];
+    const question = Object.values(unitQuestions)[questionIndex];
     console.log(question); // i.e IndexOf "How far can models in this unit <span class="question-emphasis">Move</span>?" = 1
 
     // Display the new question
@@ -135,13 +113,6 @@ function generateNewQuestion(data) {
 
     // Function to get a random stat value from a random unit
     function getAnswer() {
-        // Get all keys that start with 'unit'
-        const unitKeys = Object.keys(data)
-            .filter(key => key.startsWith('unit'));
-        // Randomly select a unit key
-        const randomUnitKey = unitKeys[questionIndex];
-        // Get the selected unit object
-        const selectedUnit = data[randomUnitKey];
         // Get the keys of the stats object
         const statKeys = Object.keys(selectedUnit.stats);
         // Randomly select a stat key
@@ -150,7 +121,7 @@ function generateNewQuestion(data) {
         return selectedUnit.stats[randomStatKey];
     }
 
-    // the answer:
+    // The answer:
     answer = getAnswer();
     console.log(`the answer is:\n${answer}`);
 }

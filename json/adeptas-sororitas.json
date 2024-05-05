@@ -1,5 +1,6 @@
 {
     "armyName": "Adepta Sororitas",
+    "armyFaction" : "Imperial",
     "unit1": {
         "unitName": "Aestred Thurga",
         "stats": {
