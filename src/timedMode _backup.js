@@ -18,7 +18,7 @@ export let score = 0;
 export let timerDisplay = document.getElementById("timer");
 export let timerInterval;
 timerDisplay.innerText = timerCount;
-// let questionIndex = randomNum();
+let questionIndex = randomNum();
 let randomUnitArray;
 let answer;
 
@@ -28,9 +28,10 @@ document.getElementById("btn-submit").addEventListener("click", submitAnswer);
 
 document.addEventListener("keypress", function(KeyboardEvent) {
     if (KeyboardEvent.keyCode == 13) {
-        submitAnswer(randomUnitArray);
+        submitAnswer();
     }
 });
+
 
 document.getElementById("btn-skip").addEventListener("click", skipQuestion);
 
@@ -39,24 +40,23 @@ const armySelectorValue = 0;
 
 function init() {
     // From sessionStorage:
-    console.log(`Selected army: ${selectedArmy}\nSelected category: ${selectedCategory}`);
+    console.log(`${selectedArmy} ${selectedCategory}`);
     
     fetchArmyStats(selectedArmy)
     .then(data => {
         generateNewQuestion(data);
+        questionCounter = 0;
+        questionsTotal = questionCounter;
+        score = 0;
+        scoreDisplay = score;
+        
+        // Start the timer
+        timerInterval = setInterval(timerTick, interval); 
     })
     .catch(error => {
         // Handle error loading data
         console.error('Error initializing:', error);
     });
-
-    questionCounter = 0;
-    questionsTotal = questionCounter;
-    score = 0;
-    scoreDisplay = score;
-
-    // Start the timer
-    timerInterval = setInterval(timerTick, interval);
 }
 
 function fetchArmyStats(selectedArmy) {
@@ -65,7 +65,6 @@ function fetchArmyStats(selectedArmy) {
         .then(response => response.json())
         .then(data => {
             document.getElementById("loaded-army").innerHTML = `Current army: <strong>${data.armyName}</strong>`;
-            
             // Assign the random unit array to the global variable
             randomUnitArray = data;
             return data;
@@ -77,26 +76,25 @@ function fetchArmyStats(selectedArmy) {
     );
 }
 
-// //! Function to randomly select a unit and its stats
-// function selectRandomUnit(data) {
-//     // Get keys of the units
-//     const unitKeys = Object.keys(data)
-//         .filter(key => key.startsWith('unit'))
-//         .map((key) => key);
-//     // Randomly select a unit key
-//     const randomUnitKey = unitKeys[Math.floor(Math.random() * unitKeys.length)];
-//     console.log(`From selectRandomUnit: ${randomUnitKey}`);  // i.e. unit12
-//     // Get the selected unit object
-//     const selectedUnit = data[randomUnitKey];
-//     // randomUnitArray = selectedUnit;
-//     // Return the selected unit and its stats
-//     console.log(`From selectRandomUnit: ${selectedUnit.unitName}`); // i.e. Dialogus
-//     return {
-//         unitName: selectedUnit.unitName,
-//         stats: selectedUnit.stats
-//     };
-// }
-
+//! Function to randomly select a unit and its stats
+function selectRandomUnit(data) {
+    // Get keys of the units
+    const unitKeys = Object.keys(data)
+        .filter(key => key.startsWith('unit'))
+        .map((key) => key);
+    // Randomly select a unit key
+    const randomUnitKey = unitKeys[Math.floor(Math.random() * unitKeys.length)];
+    console.log(randomUnitKey);  // i.e. unit12
+    // Get the selected unit object
+    const selectedUnit = data[randomUnitKey];
+    randomUnitArray = selectedUnit;
+    // Return the selected unit and its stats
+    console.log(selectedUnit.unitName); // i.e. Dialogus
+    return {
+        unitName: selectedUnit.unitName,
+        stats: selectedUnit.stats
+    };
+}
 
 // Set up the question
 //! Create a random number based on the length of the stats array to choose the question
@@ -106,82 +104,58 @@ function randomNum() {
 
 //! Function to generate a new question
 function generateNewQuestion(data) {
+    // Check if randomUnitArray is defined
+    if (!randomUnitArray) {
+        console.error('randomUnitArray is not defined');
+        return;
+    }
+    console.log(randomUnitArray);
+    // Generate a new unit by assigning the random unit to a global variable
 
-    const unitKeys = Object.keys(data)
-    .filter(key => key.startsWith('unit'))
-    .map((key) => key);
-    // console.log(data);
-    
-    // Randomly select a unit key
-    const randomUnitKey = unitKeys[Math.floor(Math.random() * unitKeys.length)];
-    console.log(`Randomly select a unit key (from selectRandomUnit):\n${randomUnitKey}`);  // i.e. unit12
-
-    // Get the selected unit object. Return the selected unit and its stats
-    const selectedUnit = data[randomUnitKey];
-    console.log(`Get and return unit name (from selectRandomUnit):\n${selectedUnit.unitName}`); // i.e. Dialogus
+    selectRandomUnit(data); // TODO it feels like some important code is missing here, because on v1.0 this code function worked!
 
     // Update the question index
-    const questionIndex = randomNum(); // i.e. 1 (this is question 1 from questions.js)
-
+    questionIndex = randomNum();
     // Get the question text from the questions array
     const question = Object.values(questions)[questionIndex];
-    console.log(question); // i.e IndexOf "How far can models in this unit <span class="question-emphasis">Move</span>?" = 1
-
     // Display the new question
-    document.getElementById("question-label").innerHTML = question; // the above in a div
-
+    document.getElementById("question-label").innerHTML = question;
     // Display the unit name
-    unitName.innerHTML = `${selectedUnit.unitName}`;
-
-    // Function to get a random stat value from a random unit
-    function getAnswer() {
-        // Get all keys that start with 'unit'
-        const unitKeys = Object.keys(data)
-            .filter(key => key.startsWith('unit'));
-        // Randomly select a unit key
-        const randomUnitKey = unitKeys[questionIndex];
-        // Get the selected unit object
-        const selectedUnit = data[randomUnitKey];
-        // Get the keys of the stats object
-        const statKeys = Object.keys(selectedUnit.stats);
-        // Randomly select a stat key
-        const randomStatKey = statKeys[questionIndex];
-        // Return the selected stat value
-        return selectedUnit.stats[randomStatKey];
-    }
-
-    // the answer:
-    answer = getAnswer();
-    console.log(`the answer is:\n${answer}`);
+    unitName.innerHTML = `${randomUnitArray.unitName}`;
+    
+    console.log("Randomly selected unit:", randomUnitArray.unitName);
+    console.log("Corresponding stats:", randomUnitArray.stats);
 }
 
 // Function to handle answer submission
 function submitAnswer() {
-
+    // Check if randomUnitArray is defined
+    if (!randomUnitArray) {
+        console.error('randomUnitArray is not defined');
+        return;
+    }
     // Default colour
     defaultColour();
-
-    //! Get the answer corresponding to the current question index
-    
+    // Get the answer corresponding to the current question index
+    answer = Object.values(randomUnitArray.stats)[questionIndex];
     // Check if the submitted answer matches the correct answer
     if (answerInput.value == answer) {
         scoreMessage.innerHTML = `${answerInput.value} is correct!`;
         setGreen();
-        answerOutput.innerText = answer;
+        updateAnswerOutput();
         score++;
     } else {
         setRed();
-        answerOutput.innerText = answer;
+        updateAnswerOutput();
         scoreMessage.innerHTML = `Incorrect. The answer is ${answer}.`;  
     }
 
     setTimeout(() => {
-
         // Update score
         updateScore();
         updateQuestionCounter();
         clearScoreMessage();
-        generateNewQuestion(randomUnitArray);
+        generateNewQuestion();
         clearInputValue();
         clearAnswerOutput();
     }, 1000);
@@ -189,18 +163,24 @@ function submitAnswer() {
 
 // Function to handle skipping a question
 function skipQuestion() {
-
+    // Check if randomUnitArray is defined
+    if (!randomUnitArray) {
+        console.error('randomUnitArray is not defined');
+        return;
+    }
     scoreMessage.innerHTML = "Question skipped";
         setTimeout(() => {
             clearScoreMessage();
             generateNewQuestion(randomUnitArray);
         }, 1000);
-
     // Clear input value
     clearInputValue();
-
     // Update question counter
     updateQuestionCounter();
+}
+
+function updateAnswerOutput() {
+    answerOutput.innerText = answer;
 }
 
 function updateQuestionCounter() {
@@ -234,13 +214,10 @@ function setGreen() {
 }
 
 function setRed() {
-
     // New colours
     answerInputPath.style.stroke = "#B11F1F";
     inputSection.style.background = "#5B1010";
-
     setTimeout(() => {
-
         // Default colours after 1sec
         defaultColour();
     }, 1000);

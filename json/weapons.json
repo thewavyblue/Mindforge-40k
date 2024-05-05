@@ -1,48 +1,50 @@
-{
-    "weaponName": "Boltgun",
-    "armyFaction" : ["Imperial"],
-    "armySpecialism" : [],
-    "abilities": [
-        "Rapid Fire 1" 
-    ],
-    "stats": {
-        "range":    24,
-        "a":        1,
-        "bs":       3,
-        "s":        4,
-        "ap":       0,
-        "d":        1
+[
+    {
+        "weaponName": "Boltgun",
+        "armyFaction" : ["Imperial"],
+        "armySpecialism" : [],
+        "abilities": [
+            "Rapid Fire 1" 
+        ],
+        "stats": {
+            "range":    24,
+            "a":        1,
+            "bs":       3,
+            "s":        4,
+            "ap":       0,
+            "d":        1
+        }
+    },
+    {
+        "weaponName": "Bolt pistol",
+        "armyFaction" : ["Imperial"],
+        "armySpecialism" : [],
+        "abilities": [
+            "Pistol" 
+        ],
+        "stats": {
+            "range":    12,
+            "a":        1,
+            "bs":       3,
+            "s":        4,
+            "ap":       0,
+            "d":        1
+        }
+    },
+    {
+        "weaponName": "Artificer-crafted storm bolter",
+        "armyFaction" : ["Imperial"],
+        "armySpecialism" : [],
+        "abilities": [
+            "Rapid Fire 2" 
+        ],
+        "stats": {
+            "range":    24,
+            "a":        2,
+            "bs":       3,
+            "s":        4,
+            "ap":       0,
+            "d":        2
+        }
     }
-},
-{
-    "weaponName": "Bolt pistol",
-    "armyFaction" : ["Imperial"],
-    "armySpecialism" : [],
-    "abilities": [
-        "Pistol" 
-    ],
-    "stats": {
-        "range":    12,
-        "a":        1,
-        "bs":       3,
-        "s":        4,
-        "ap":       0,
-        "d":        1
-    }
-},
-{
-    "weaponName": "Artificer-crafted storm bolter",
-    "armyFaction" : ["Imperial"],
-    "armySpecialism" : [],
-    "abilities": [
-        "Rapid Fire 2" 
-    ],
-    "stats": {
-        "range":    24,
-        "a":        2,
-        "bs":       3,
-        "s":        4,
-        "ap":       0,
-        "d":        2
-    }
-},
+]
