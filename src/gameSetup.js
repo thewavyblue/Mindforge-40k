@@ -17,7 +17,7 @@ function loadCategorySelectorOptions(){
         let categorySelectionData = categorySelection.category;
         
         for (const key in categorySelectionData) {
-            if (categorySelectionData.prototype.hasOwnProperty(key)) {
+            if (categorySelectionData.hasOwnProperty(key)) {
                 const category = categorySelectionData[key];
                 const option = document.createElement("option");
                 option.text = category;
@@ -41,7 +41,7 @@ function loadArmySelectorOptions(){
         let armySelectionData = armySelection.armyName;
         
         for (const key in armySelectionData) {
-            if (armySelectionData.prototype.hasOwnProperty(key)) {
+            if (armySelectionData.hasOwnProperty(key)) {
                 const army = armySelectionData[key];
                 const option = document.createElement("option");
                 option.text = army;
