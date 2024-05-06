@@ -3,7 +3,7 @@ const armySelector = document.getElementById("army-select");
 const categorySelector = document.getElementById("category-select");
 const btnStart = document.getElementById("btn-start");
 
-let armySelectionValue;
+// let armySelectionValue;
 let categorySelectionValue;
 let armySelectionKey;
 
@@ -17,7 +17,7 @@ function loadCategorySelectorOptions(){
         let categorySelectionData = categorySelection.category;
         
         for (const key in categorySelectionData) {
-            if (categorySelectionData.hasOwnProperty(key)) {
+            if (categorySelectionData.prototype.hasOwnProperty(key)) {
                 const category = categorySelectionData[key];
                 const option = document.createElement("option");
                 option.text = category;
@@ -41,7 +41,7 @@ function loadArmySelectorOptions(){
         let armySelectionData = armySelection.armyName;
         
         for (const key in armySelectionData) {
-            if (armySelectionData.hasOwnProperty(key)) {
+            if (armySelectionData.prototype.hasOwnProperty(key)) {
                 const army = armySelectionData[key];
                 const option = document.createElement("option");
                 option.text = army;
@@ -63,7 +63,7 @@ document.getElementById("game-options").addEventListener('input', () => {
         btnStart.classList.remove("btn-disabled");
         console.log(armySelector.value);
 
-        btnStart.addEventListener("click", function(e) {
+        btnStart.addEventListener("click", () => {
             // e.preventDefault();
             armySelectionKey = armySelector.options[armySelector.selectedIndex].value; // Get the value of the selected option
             categorySelectionValue = categorySelector.value;

@@ -1,10 +1,10 @@
-let head;
-let indexMasthead;
-let masthead;
-let backButton;
-let footer;
+let head = document.querySelector("head");
+let indexMasthead = document.getElementById("index-masthead");
+let masthead = document.getElementById("masthead");
+let backButton = document.getElementById("back-button");
+let footer = document.querySelector("footer");
 
-if (head = document.querySelector("head")) {
+if (head) {
     head.innerHTML = `
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,7 @@ if (head = document.querySelector("head")) {
     `;
 }
 
-if (indexMasthead = document.getElementById("index-masthead")) {
+if (indexMasthead) {
     indexMasthead.innerHTML = `
         <div class="col align-items-center py-8 gap-4">
             <img class="logo-main-menu" src="/imgs/mindforge40k-logo-white.svg" alt="Mindforge 40k logo">
@@ -34,7 +34,7 @@ if (indexMasthead = document.getElementById("index-masthead")) {
     `;
 }
 
-if (masthead = document.getElementById("masthead")) {
+if (masthead) {
     masthead.innerHTML = `
         <a href="/index.html" class="col place-content-center navbar">
             <img class="logo" src="/imgs/mindforge40k-logo-white.svg" alt="Mindforge 40k logo">
@@ -42,7 +42,7 @@ if (masthead = document.getElementById("masthead")) {
     `;
 }
 
-if (backButton = document.getElementById("back-button")) {
+if (backButton) {
     backButton.innerHTML = `
         <div class="col pb-4">
             <a class="row gap-2 px-4" href="/index.html" id="go-back-link">
@@ -53,7 +53,7 @@ if (backButton = document.getElementById("back-button")) {
     `;
 }
 
-if (footer = document.querySelector("footer")) {
+if (footer) {
     footer.innerHTML = `
         <p class="dark-grey-2 p-sm">Developed with <span class="red">♥</span> by <a href="https://benhoath.com" target="_blank" rel="noreferrer noopener">Ben Hoath</a> • 2024</p>
     `;

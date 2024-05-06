@@ -2,13 +2,9 @@ import { gameOptionsArray } from "./gameOptions.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     const sliderWrapper = document.querySelector(".slider-wrapper");
-    const slides = document.querySelectorAll(".game-option-card");
     const totalSlides = gameOptionsArray.length;
     let currentIndex = 0;
     let touchStartX = 0;
-    const width = innerWidth;
-    const sliderMove = innerWidth / totalSlides;
-    let gameMode;
     
     const gameOptions = gameOptionsArray.map(function(option){
         if(option.title === "Sudden Death") {
@@ -32,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }).join('');
-    const x = document.getElementById("game-option-wrapper").innerHTML = gameOptions;
+    document.getElementById("game-option-wrapper").innerHTML = gameOptions;
 
     // Function to move slider to a specific card
     function moveSlider(direction) {

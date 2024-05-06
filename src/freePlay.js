@@ -1,6 +1,6 @@
 //import objects from external
 import { questions as unitQuestions } from "./unitQuestions.js";
-import { questions as weaponQuestions } from "./weaponQuestions.js";
+// import { questions as weaponQuestions } from "./weaponQuestions.js";
 
 // Get DOM elements
 const unitName = document.getElementById("unit-name");

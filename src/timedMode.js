@@ -1,6 +1,6 @@
 //import objects from external
 import { questions as unitQuestions } from "./unitQuestions.js";
-import { questions as weaponQuestions } from "./weaponQuestions.js";
+// import { questions as weaponQuestions } from "./weaponQuestions.js";
 import { timerTick, interval, timerCount } from "./timer.js";
 
 // Get DOM elements
@@ -8,8 +8,6 @@ const unitName = document.getElementById("unit-name");
 const answerInput = document.getElementById("input-answer");
 const answerOutput = document.getElementById("output-answer");
 const scoreMessage = document.getElementById("score-message");
-let scoreDisplay = document.getElementById("score-tracker");
-let questionsTotal = document.getElementById("questions-total");
 const answerInputPath = document.getElementById("input-answer-path");
 const inputSection = document.getElementById("input-section");
 const selectedArmy = sessionStorage.getItem("armyName");
@@ -51,9 +49,7 @@ function init() {
     });
 
     questionCounter = 0;
-    questionsTotal = questionCounter;
     score = 0;
-    scoreDisplay = score;
 
     // Start the timer
     timerInterval = setInterval(timerTick, interval);
