@@ -1,18 +1,42 @@
 {
     "armyName" : "T'au",
     "unit1": {
-        "unitName":      "Ethereal",
+        "unitName":      "Commander Shadowsun",
         "stats": {
-            "move":       6,
-            "toughness":  3,
-            "save":       5,
-            "wounds":     3,
+            "move":       10,
+            "toughness":  4,
+            "save":       3,
+            "wounds":     6,
             "leadership": 6,
             "oc":         1,
             "invulnSave": 5
         }
     },
     "unit2": {
+        "unitName":      "Commander Farsight",
+        "stats": {
+            "move":       10,
+            "toughness":  5,
+            "save":       2,
+            "wounds":     8,
+            "leadership": 6,
+            "oc":         2,
+            "invulnSave": 4
+        }
+    },
+    "unit3": {
+        "unitName":      "Commander (in Enforcer Battlesuit)",
+        "stats": {
+            "move":       8,
+            "toughness":  5,
+            "save":       2,
+            "wounds":     6,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit4": {
         "unitName":      "Cadre Fireblade",
         "stats": {
             "move":       6,
@@ -24,20 +48,44 @@
             "invulnSave": 0
         }
     },
-    "unit3": {
-        "unitName":      "Flesh Shaper",
+    "unit5": {
+        "unitName":      "Ethereal",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     3,
+            "leadership": 6,
+            "oc":         1,
+            "invulnSave": 5
+        }
+    },
+    "unit6": {
+        "unitName":      "Commander (in Coldstar Battlesuit)",
+        "stats": {
+            "move":       12,
+            "toughness":  5,
+            "save":       3,
+            "wounds":     6,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit7": {
+        "unitName":      "Darkstrider",
         "stats": {
             "move":       7,
             "toughness":  3,
-            "save":       6,
+            "save":       4,
             "wounds":     3,
             "leadership": 7,
             "oc":         1,
             "invulnSave": 0
         }
     },
-    "unit4": {
-        "unitName":      "Breacher",
+    "unit8": {
+        "unitName":      "Strike Team",
         "stats": {
             "move":       6,
             "toughness":  3,
@@ -48,7 +96,19 @@
             "invulnSave": 0
         }
     },
-    "unit5": {
+    "unit9": {
+        "unitName":      "Breacher Team",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       4,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit10": {
         "unitName":      "Crisis Sunforge Battlesuits",
         "stats": {
             "move":       10,
@@ -60,7 +120,91 @@
             "invulnSave": 4
         }
     },
-    "unit6": {
+    "unit11": {
+        "unitName":      "Crisis Fireknife Battlesuits",
+        "stats": {
+            "move":       10,
+            "toughness":  5,
+            "save":       3,
+            "wounds":     4,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit12": {
+        "unitName":      "Crisis Starscythe Battlesuits",
+        "stats": {
+            "move":       10,
+            "toughness":  5,
+            "save":       3,
+            "wounds":     4,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit13": {
+        "unitName":      "Ghostkeel Battlesuit",
+        "stats": {
+            "move":       10,
+            "toughness":  8,
+            "save":       2,
+            "wounds":     12,
+            "leadership": 7,
+            "oc":         3,
+            "invulnSave": 0
+        }
+    },
+    "unit14": {
+        "unitName":      "Kroot Trail Shaper",
+        "stats": {
+            "move":       7,
+            "toughness":  3,
+            "save":       6,
+            "wounds":     3,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit15": {
+        "unitName":      "Kroot War Shaper",
+        "stats": {
+            "move":       7,
+            "toughness":  3,
+            "save":       6,
+            "wounds":     3,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit16": {
+        "unitName":      "Kroot Flesh Shaper",
+        "stats": {
+            "move":       7,
+            "toughness":  3,
+            "save":       6,
+            "wounds":     3,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit17": {
+        "unitName":      "Kroot Lone-Spear",
+        "stats": {
+            "move":       12,
+            "toughness":  5,
+            "save":       5,
+            "wounds":     6,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit18": {
         "unitName":      "Kroot Carnivores",
         "stats": {
             "move":       7,
@@ -72,8 +216,92 @@
             "invulnSave": 0
         }
     },
-    "unit7": {
-        "unitName":      "Riptide",
+    "unit19": {
+        "unitName":      "Krootox Riders",
+        "stats": {
+            "move":       7,
+            "toughness":  6,
+            "save":       5,
+            "wounds":     5,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit20": {
+        "unitName":      "Krootox Rampagers",
+        "stats": {
+            "move":       7,
+            "toughness":  6,
+            "save":       5,
+            "wounds":     5,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit21": {
+        "unitName":      "Kroot Hounds",
+        "stats": {
+            "move":       12,
+            "toughness":  3,
+            "save":       6,
+            "wounds":     1,
+            "leadership": 8,
+            "oc":         0,
+            "invulnSave": 0
+        }
+    },
+    "unit22": {
+        "unitName":      "Kroot Farstalkers & Kill-Broker",
+        "stats": {
+            "move":       7,
+            "toughness":  3,
+            "save":       6,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit23": {
+        "unitName":      "Kroot Farstalkers' Kroot Hounds",
+        "stats": {
+            "move":       12,
+            "toughness":  3,
+            "save":       6,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         0,
+            "invulnSave": 0
+        }
+    },
+    "unit24": {
+        "unitName":      "Piranhas",
+        "stats": {
+            "move":       14,
+            "toughness":  7,
+            "save":       4,
+            "wounds":     7,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit25": {
+        "unitName":      "Broadside Battlesuits",
+        "stats": {
+            "move":       5,
+            "toughness":  6,
+            "save":       2,
+            "wounds":     8,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0 
+        }
+    },
+    "unit26": {
+        "unitName":      "Riptide Battlesuit",
         "stats": {
             "move":       10,
             "toughness":  9,
@@ -84,16 +312,76 @@
             "invulnSave": 4
         }
     },
-    "unit8": {
-        "unitName":      "Broadside Battlesuits",
+    "unit27": {
+        "unitName":      "Hammerhead Gunship",
         "stats": {
-            "move":       5,
-            "toughness":  6,
-            "save":       2,
-            "wounds":     8,
+            "move":       10,
+            "toughness":  10,
+            "save":       3,
+            "wounds":     14,
+            "leadership": 7,
+            "oc":         3,
+            "invulnSave": 0
+        }
+    },
+    "unit28": {
+        "unitName":      "Sky Ray Gunship",
+        "stats": {
+            "move":       10,
+            "toughness":  10,
+            "save":       3,
+            "wounds":     14,
+            "leadership": 7,
+            "oc":         3,
+            "invulnSave": 0
+        }
+    },
+    "unit29": {
+        "unitName":      "Devilfish",
+        "stats": {
+            "move":       12,
+            "toughness":  9,
+            "save":       3,
+            "wounds":     13,
             "leadership": 7,
             "oc":         2,
-            "invulnSave": 0 
+            "invulnSave": 0
+        }
+    },
+    "unit30": {
+        "unitName":      "Razorshark Strike Fighter",
+        "stats": {
+            "move":       20,
+            "toughness":  10,
+            "save":       3,
+            "wounds":     12,
+            "leadership": 7,
+            "oc":         0,
+            "invulnSave": 0
+        }
+    },
+    "unit31": {
+        "unitName":      "Sun Shark Bomber",
+        "stats": {
+            "move":       20,
+            "toughness":  9,
+            "save":       3,
+            "wounds":     12,
+            "leadership": 7,
+            "oc":         0,
+            "invulnSave": 0
+        }
+    },
+    "unit32": {
+        "unitName":      "Stormsurge",
+        "stats": {
+            "move":       8,
+            "toughness":  11,
+            "save":       2,
+            "wounds":     20,
+            "leadership": 7,
+            "oc":         6,
+            "invulnSave": 4
         }
     }
 }
