@@ -166,10 +166,6 @@ img {
     display: block;
 }
 
-img[type="svg"] {
-    /* width: 1.5rem; */
-}
-
 .justify-content-center {
     justify-content: center;
 }
