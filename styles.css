@@ -32,6 +32,10 @@ p {
     text-align: center;
 }
 
+.text-align-left {
+    text-align: left;
+}
+
 body {
     width: 100%;
     background-color: var(--dark-grey-1);
@@ -75,19 +79,20 @@ body {
 h1 {
     text-transform: uppercase;
     color: var(--white);
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-family: Teko, Arial, Helvetica, sans-serif;
     font-weight: 600;
     margin-bottom: -1rem;
 }
 
 h2 {
-    font-weight: 800;
-    font-size: 2rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
 }
 
 h3 {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.25rem;
     text-transform: uppercase;
 }
@@ -197,8 +202,6 @@ img[type="svg"] {
 #output-question {
     width: 100%;
     height: 8rem;
-    /* max-width: 410px; */
-    /* margin: auto; */
 }
 
 .question-emphasis {
@@ -234,6 +237,10 @@ input,
     width: 4rem;
     height: 3rem;
     border: none;
+}
+
+.no-bg {
+    background: none;
 }
 
 .score-container {
@@ -315,9 +322,13 @@ input,
     border: none;
     font-weight: 700;
     letter-spacing: 1px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     cursor: pointer;
     text-decoration: none;
+}
+
+.min-w-8 {
+    min-width: 8rem;
 }
 
 .btn-steel-grey {
@@ -362,11 +373,6 @@ input,
 .container {
     display: flex;
     flex-direction: column;
-    /* width: 100%; */
-}
-
-.w-100 {
-    width: 100%;
 }
 
 .slider-wrapper {
@@ -480,6 +486,14 @@ input,
     padding-right: 2rem;
 }
 
+.w-100pc {
+    width: 100%;
+}
+
+.w-360px {
+    max-width: 22.5rem;
+}
+
 .border-bottom {
     border-bottom: 1px solid var(--dark-grey-2);
 }
@@ -503,13 +517,16 @@ footer {
     bottom: 0;
 }
 
-footer > p > a {
-    font-weight: bold;
+a {
+    color: var(--steel-grey);
+    font-weight: bold;  
 }
 
-footer > p > a:visited {
-    font-weight: bold;
+footer > p > a,
+footer > p > a:visited,
+footer > p > a:active {
     color: var(--steel-grey);
+    font-weight: bold;
 }
 
 .weapon-stats {
@@ -579,4 +596,8 @@ footer > p > a:visited {
 .no-content {
     display: flex;
     justify-content: center;
+}
+
+.image-frame {
+    border: 2px solid var(--white);
 }

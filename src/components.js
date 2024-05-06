@@ -55,6 +55,6 @@ if (backButton = document.getElementById("back-button")) {
 
 if (footer = document.querySelector("footer")) {
     footer.innerHTML = `
-        <p class="dark-grey-2 p-sm">Coded by <a href="https://benhoath.com" target="_blank" rel="noreferrer noopener">Ben Hoath</a>, developed with <span class="red">♥</span></p>
+        <p class="dark-grey-2 p-sm">Developed with <span class="red">♥</span> by <a href="https://benhoath.com" target="_blank" rel="noreferrer noopener">Ben Hoath</a> • 2024</p>
     `;
 }

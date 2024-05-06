@@ -3,7 +3,6 @@
         "select" : "Select...",
         "units" : "Units",
         "weapons" : "Weapons",
-        "special-rules" : "Special Rules",
-        "points" : "Points"
+        "special-rules" : "Special Rules"
     }
 }

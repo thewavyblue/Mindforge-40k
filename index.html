@@ -11,31 +11,6 @@
     <!-- game selection v2 -->
     <section class="overflow">
         <div class="row slider-wrapper" id="game-option-wrapper">
-            
-            <!-- FREE PLAY -->
-            <div class="col game-option-card align-items-center pt-8 px-8 gap-4 full-width">
-                <img src="imgs/icon-free-play-white.svg" type="svg" alt="Free Play icon">
-                <h1>Free Play</h1>
-                <p class="white menu-desc">How many can you correctly guess?</p>
-                <a href="/free-play.html" class="button btn-steel-grey" id="btn-setup-free-play" data-button="free-play">PLAY</a>
-            </div>
-
-            <!-- TIMED MODE -->
-            <div class="col game-option-card align-items-center pt-8 px-8 gap-4 full-width">
-                <img src="imgs/icon-timed-mode-white.svg" type="svg" alt="Timed Mode icon">
-                <h1>Timed Mode</h1>
-                <p class="white menu-desc">Guess as many correct answers
-                    <br>within the time limit!</p>
-                <a href="/timed-mode.html" class="button btn-steel-grey" id="btn-setup-timed-mode" data-load="app" data-button="timed-mode">PLAY</a>
-            </div>
-
-            <!-- SUDDEN DEATH -->
-            <div class="col game-option-card align-items-center pt-8 px-8 gap-4 full-width">
-                <img src="imgs/icon-sudden-death-white.svg" type="svg" alt="Sudden Death icon">
-                <h1>Sudden Death</h1>
-                <p class="white menu-desc">Guess incorrectly and end the game. <br>How many can you score?</p>
-                <button class="button btn-disabled" id="btn-setup-sudden-death">PLAY</button>
-            </div>
 
         </div>
         <div class="row justify-content-center pt-4 pb-8">
@@ -46,6 +21,19 @@
             </div>
         </div>
     </section>
+
+    <section>
+        <div class="row justify-content-center gap-4 py-8">
+            <div class="col">
+                <img src="/imgs/icon-help.svg" type="svg" alt="Help icon">
+            </div>
+            <div class="col">
+                <p class="white">First time playing?</p>
+                <a href="/learn-to-play.html">Learn how to play</a>
+            </div>
+        </div>
+    </section>
+
 
     <!-- High score -->
     <!-- <section class="justify-content-center overflow">
@@ -121,9 +109,9 @@
     </section> -->
 
     <footer class="justify-content-center bg-dark fixed">
-        <p class="dark-grey-2 p-sm">Coded by <a href="https://benhoath.com" target="_blank" rel="noreferrer noopener">Ben Hoath</a>, developed with <span class="red">♥</span></p>
     </footer>
     <script src="/src/index.js" type="module"></script>
     <script src="/src/components.js" type="module"></script>
+    <script src="/src/gameOptions.js" type="module"></script>
 </body>
 </html>

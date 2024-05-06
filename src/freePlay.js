@@ -1,108 +1,152 @@
-//import objects from external 
-import { armyStats } from "./armyStats.js";
-import { questions } from "./questions.js";
+//import objects from external
+import { questions as unitQuestions } from "./unitQuestions.js";
+import { questions as weaponQuestions } from "./weaponQuestions.js";
 
 // Get DOM elements
-const questionLabel = document.getElementById("question-label");
 const unitName = document.getElementById("unit-name");
 const answerInput = document.getElementById("input-answer");
 const answerOutput = document.getElementById("output-answer");
-const btnSubmit = document.getElementById("btn-submit");
-const btnSkip = document.getElementById("btn-skip");
 const scoreMessage = document.getElementById("score-message");
-const loadedArmy = document.getElementById("loaded-army");
 let scoreDisplay = document.getElementById("score-tracker");
 let questionsTotal = document.getElementById("questions-total");
 const answerInputPath = document.getElementById("input-answer-path");
 const inputSection = document.getElementById("input-section");
-export let questionCounter;
-export let score = 0;
-
-let questionIndex = randomNum();
-let randomUnit;
+const selectedArmy = sessionStorage.getItem("armyName");
+const selectedCategory = sessionStorage.getItem("category");
+let questionCounter;
+let score = 0;
+export let timerDisplay = document.getElementById("timer");
+export let timerInterval;
+let randomUnitArray;
 let answer;
-// Event listener for submit button
-btnSubmit.addEventListener("click", submitAnswer);
+const questionsArrayLength = 7;
+
+
+// BUTTONS //
+
+document.getElementById("btn-submit").addEventListener("click", submitAnswer);
+
 document.addEventListener("keypress", function(KeyboardEvent) {
     if (KeyboardEvent.keyCode == 13) {
-        submitAnswer();
+        submitAnswer(randomUnitArray);
     }
 });
 
-// Event listener for skip button
-btnSkip.addEventListener("click", skipQuestion);
+document.getElementById("btn-skip").addEventListener("click", skipQuestion);
 
 function init() {
-    loadedArmy.innerHTML = `Current army: <strong>${armyStats.armyName}</strong>`;
+    // From sessionStorage:
+    console.log(`Selected army: ${selectedArmy}\nSelected category: ${selectedCategory}`);
+
+    fetchArmyStats(selectedArmy)
+    .then(data => {
+        generateNewQuestion(data);
+    })
+    .catch(error => {
+        // Handle error loading data
+        console.error('Error initializing:', error);
+    });
+
     questionCounter = 0;
     questionsTotal.innerText = questionCounter;
     score = 0;
-    scoreDisplay.innerText = score;// Generate initial question when the page loads
-    generateNewQuestion();
+    scoreDisplay.innerText = score;
 }
 
-// Function to randomly select a unit and its stats
-function selectRandomUnit(unit) {
-    // Get keys of the units
-    const unitKeys = Object.keys(unit).filter(key => key.startsWith('unit'));
-    // Randomly select a unit key
-    const randomUnitKey = unitKeys[Math.floor(Math.random() * unitKeys.length)];
-    // Get the selected unit object
-    const selectedUnit = unit[randomUnitKey];
-    // Return the selected unit and its stats
-    return {
-        unitName: selectedUnit.unitName,
-        stats: selectedUnit.stats
-    };
+function fetchArmyStats(selectedArmy) {
+    const selectedArmyAddr = "/json/" + selectedArmy + ".json";
+    return fetch(selectedArmyAddr)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("loaded-army").innerHTML = `Current army: <strong>${data.armyName}</strong>`;
+            
+            // Assign the random unit array to the global variable
+            randomUnitArray = data;
+            return data;
+        })
+        .catch(error => {
+            console.error('Error loading data:', error);
+            throw error; // Rethrow the error to be caught by the caller
+        }
+    );
 }
 
-// Set up the question
-// Create a random number based on the length of the stats array
+// Create a random number based on the length of the stats array to choose the question
 function randomNum() {
-    return Math.floor(Math.random() * 7);
+    return Math.floor(Math.random() * questionsArrayLength);
 }
 
 // Function to generate a new question
-function generateNewQuestion() {
-    // Generate a new unit
-    randomUnit = selectRandomUnit(armyStats); // Assign the random unit to a global variable
-    // Update the question index
-    questionIndex = randomNum();
-    // Get the question text from the questions array
-    const question = Object.values(questions)[questionIndex];
-    // Display the new question
-    questionLabel.innerHTML = `${question}`;
-    // Display the unit name
-    unitName.innerHTML = `${randomUnit.unitName}`;
+function generateNewQuestion(data) {
+
+    const unitKeys = Object.keys(data)
+    .filter(key => key.startsWith('unit'))
+    .map((key) => key);
+    // console.log(data);
     
-    console.log("Randomly selected unit:", randomUnit.unitName);
-    console.log("Corresponding stats:", randomUnit.stats);
+    // Randomly select a unit key
+    const randomUnitKey = unitKeys[Math.floor(Math.random() * unitKeys.length)];
+    console.log(`Randomly select a unit key (from selectRandomUnit):\n${randomUnitKey}`);  // i.e. unit12
+
+    // Get the selected unit object. Return the selected unit and its stats
+    const selectedUnit = data[randomUnitKey];
+    console.log(`Get and return unit name (from selectRandomUnit):\n${selectedUnit.unitName}`); // i.e. Dialogus
+
+    // Update the question index
+    const questionIndex = randomNum(); // i.e. 1 (this is question 1 from unitQuestions.js)
+
+    // Get the question text from the questions array
+    const question = Object.values(unitQuestions)[questionIndex];
+    console.log(question); // i.e IndexOf "How far can models in this unit <span class="question-emphasis">Move</span>?" = 1
+
+    // Display the new question
+    document.getElementById("question-label").innerHTML = question; // the above in a div
+
+    // Display the unit name
+    unitName.innerHTML = `${selectedUnit.unitName}`;
+
+    // Function to get a random stat value from a random unit
+    function getAnswer() {
+        // Get the keys of the stats object
+        const statKeys = Object.keys(selectedUnit.stats);
+        // Randomly select a stat key
+        const randomStatKey = statKeys[questionIndex];
+        // Return the selected stat value
+        return selectedUnit.stats[randomStatKey];
+    }
+
+    // The answer:
+    answer = getAnswer();
+    console.log(`the answer is:\n${answer}`);
 }
 
 // Function to handle answer submission
 function submitAnswer() {
+
     // Default colour
     defaultColour();
-    // Get the answer corresponding to the current question index
-    answer = Object.values(randomUnit.stats)[questionIndex];
+
+    //! Get the answer corresponding to the current question index
+    
     // Check if the submitted answer matches the correct answer
     if (answerInput.value == answer) {
         scoreMessage.innerHTML = `${answerInput.value} is correct!`;
         setGreen();
-        updateAnswerOutput();
+        answerOutput.innerText = answer;
         score++;
     } else {
         setRed();
-        updateAnswerOutput();
+        answerOutput.innerText = answer;
         scoreMessage.innerHTML = `Incorrect. The answer is ${answer}.`;  
     }
 
     setTimeout(() => {
+
         // Update score
         updateScore();
         updateQuestionCounter();
         clearScoreMessage();
-        generateNewQuestion();
+        generateNewQuestion(randomUnitArray);
         clearInputValue();
         clearAnswerOutput();
     }, 1000);
@@ -110,18 +154,18 @@ function submitAnswer() {
 
 // Function to handle skipping a question
 function skipQuestion() {
+
     scoreMessage.innerHTML = "Question skipped";
         setTimeout(() => {
             clearScoreMessage();
-            generateNewQuestion();
+            generateNewQuestion(randomUnitArray);
         }, 1000);
+
     // Clear input value
     clearInputValue();
+
     // Update question counter
     updateQuestionCounter();
-}
-function updateAnswerOutput() {
-    answerOutput.innerText = answer;
 }
 
 function updateQuestionCounter() {
@@ -156,10 +200,13 @@ function setGreen() {
 }
 
 function setRed() {
+
     // New colours
     answerInputPath.style.stroke = "#B11F1F";
     inputSection.style.background = "#5B1010";
+
     setTimeout(() => {
+
         // Default colours after 1sec
         defaultColour();
     }, 1000);

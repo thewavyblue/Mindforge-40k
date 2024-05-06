@@ -24,7 +24,7 @@ function loadCategorySelectorOptions(){
                 option.value = key; // Set the key to the key
                 categorySelector.appendChild(option);
                 
-                if (key !== "units" && key !== "weapons" ){
+                if (key !== "units"){
                     option.disabled = "true";
                 }
             }
@@ -55,16 +55,27 @@ function loadArmySelectorOptions(){
     });
 }
 
-btnStart.addEventListener("click", function(e) {
-    // e.preventDefault();
-    armySelectionKey = armySelector.options[armySelector.selectedIndex].value; // Get the value of the selected option
-    categorySelectionValue = categorySelector.value;
-    console.log(`Chosen army: ${armySelectionKey}\nChosen category: ${categorySelectionValue}`);
+document.getElementById("game-options").addEventListener('input', () => {
+    
+    if (armySelector.value !== 'select' && categorySelector.value !== 'select') {
+        
+        btnStart.disabled = false;
+        btnStart.classList.remove("btn-disabled");
+        console.log(armySelector.value);
 
-    sessionStorage.setItem("armyName", armySelectionKey);
-    sessionStorage.setItem("category", categorySelectionValue);
+        btnStart.addEventListener("click", function(e) {
+            // e.preventDefault();
+            armySelectionKey = armySelector.options[armySelector.selectedIndex].value; // Get the value of the selected option
+            categorySelectionValue = categorySelector.value;
+            console.log(`Chosen army: ${armySelectionKey}\nChosen category: ${categorySelectionValue}`);
+        
+            sessionStorage.setItem("armyName", armySelectionKey);
+            sessionStorage.setItem("category", categorySelectionValue);
+        });
 
-    // const pageURL = e.target.dataset.button + ".html";
+    } else {
+        btnStart.disabled = true;
+    }
 });
 
 loadArmySelectorOptions();

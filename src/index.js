@@ -1,12 +1,38 @@
+import { gameOptionsArray } from "./gameOptions.js";
+
 document.addEventListener("DOMContentLoaded", function () {
     const sliderWrapper = document.querySelector(".slider-wrapper");
     const slides = document.querySelectorAll(".game-option-card");
-    const totalSlides = slides.length;
+    const totalSlides = gameOptionsArray.length;
     let currentIndex = 0;
     let touchStartX = 0;
     const width = innerWidth;
     const sliderMove = innerWidth / totalSlides;
     let gameMode;
+    
+    const gameOptions = gameOptionsArray.map(function(option){
+        if(option.title === "Sudden Death") {
+            return `
+            <div class="col game-option-card align-items-center py-8 px-8 gap-4 full-width">
+                <img src="${option.icon}" type="svg" alt="Free Play icon">
+                <h1>${option.title}</h1>
+                <p class="white menu-desc pb-8">${option.description}</p>
+                <a href="${option.link}" class="button btn-steel-grey min-w-8 justify-content-center btn-disabled" disabled>COMING SOON</a>
+            </div>
+        `
+        } else {
+        return `
+            <div class="col game-option-card align-items-center py-8 px-8 gap-4 full-width">
+                <img src="${option.icon}" type="svg" alt="Free Play icon">
+                <h1>${option.title}</h1>
+                <p class="white menu-desc pb-8">${option.description}</p>
+                <a href="${option.link}" class="button btn-steel-grey min-w-8 justify-content-center">PLAY</a>
+            </div>
+        `
+        }
+
+    }).join('');
+    const x = document.getElementById("game-option-wrapper").innerHTML = gameOptions;
 
     // Function to move slider to a specific card
     function moveSlider(direction) {
