@@ -122,7 +122,7 @@ function generateNewQuestion(data) {
         // }
         
         // // Return the selected stat value
-        // return selectedUnit.stats[randomStatValue];
+        return selectedUnit.stats[randomStatValue];
     }
 
     // The answer:
