@@ -21,6 +21,7 @@ timerDisplay.innerText = timerCount;
 let randomUnitArray;
 let answer;
 const questionsArrayLength = 7;
+// let prevQuestionMemory;
 
 
 // BUTTONS //
@@ -116,12 +117,10 @@ function generateNewQuestion(data) {
         // console.log(randomStatValue);
         // console.log(selectedUnit.stats[randomStatValue]);
 
-        //! Experimental code 
-        // if(selectedUnit.stats[randomStatValue] === 0){
-        //     console.log("invuln save = 0");
-        // }
-        
-        // // Return the selected stat value
+        // if the value of the stat is 0, generate a new question.
+        if(selectedUnit.stats[randomStatValue] === 0){
+            generateNewQuestion(randomUnitArray);
+        }
         return selectedUnit.stats[randomStatValue];
     }
 
