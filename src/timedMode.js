@@ -96,11 +96,10 @@ function generateNewQuestion(data) {
 
     // Update the question index
     const questionIndex = randomNum(); // i.e. 1 (this is question 1 from unitQuestions.js)
-
     // Get the question text from the questions array
     const question = Object.values(unitQuestions)[questionIndex];
     console.log(question); // i.e IndexOf "How far can models in this unit <span class="question-emphasis">Move</span>?" = 1
-
+    
     // Display the new question
     document.getElementById("question-label").innerHTML = question; // the above in a div
 
@@ -111,10 +110,19 @@ function generateNewQuestion(data) {
     function getAnswer() {
         // Get the keys of the stats object
         const statKeys = Object.keys(selectedUnit.stats);
+        console.log(statKeys);
         // Randomly select a stat key
-        const randomStatKey = statKeys[questionIndex];
-        // Return the selected stat value
-        return selectedUnit.stats[randomStatKey];
+        const randomStatValue = statKeys[questionIndex];
+        // console.log(randomStatValue);
+        // console.log(selectedUnit.stats[randomStatValue]);
+
+        //! Experimental code 
+        // if(selectedUnit.stats[randomStatValue] === 0){
+        //     console.log("invuln save = 0");
+        // }
+        
+        // // Return the selected stat value
+        // return selectedUnit.stats[randomStatValue];
     }
 
     // The answer:

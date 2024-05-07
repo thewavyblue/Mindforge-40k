@@ -1,0 +1,723 @@
+{
+    "armyName" : "Astra Militarum",
+    "unit1": {
+        "unitName":      "Aegis Defence Line",
+        "stats": {
+            "move":       0,
+            "toughness":  12,
+            "save":       2,
+            "wounds":     10,
+            "leadership": 7,
+            "oc":         0,
+            "invulnSave": 0
+        }
+    },
+    "unit2": {
+        "unitName":      "Armoured Sentinels",
+        "stats": {
+            "move":       8,
+            "toughness":  8,
+            "save":       2,
+            "wounds":     7,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit3": {
+        "unitName":      "Attilan Rough Riders",
+        "stats": {
+            "move":       12,
+            "toughness":  4,
+            "save":       4,
+            "wounds":     2,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit4": {
+        "unitName":      "Baneblade",
+        "stats": {
+            "move":       9,
+            "toughness":  13,
+            "save":       2,
+            "wounds":     24,
+            "leadership": 7,
+            "oc":         8,
+            "invulnSave": 0
+        }
+    },
+    "unit5": {
+        "unitName":      "Banehammer",
+        "stats": {
+            "move":       9,
+            "toughness":  13,
+            "save":       2,
+            "wounds":     24,
+            "leadership": 7,
+            "oc":         8,
+            "invulnSave": 0
+        }
+    },
+    "unit6": {
+        "unitName":      "Banesword",
+        "stats": {
+            "move":       9,
+            "toughness":  13,
+            "save":       2,
+            "wounds":     24,
+            "leadership": 7,
+            "oc":         8,
+            "invulnSave": 0
+        }
+    },
+    "unit7": {
+        "unitName":      "Basilisk",
+        "stats": {
+            "move":       10,
+            "toughness":  9,
+            "save":       3,
+            "wounds":     11,
+            "leadership": 7,
+            "oc":         3,
+            "invulnSave": 0
+        }
+    },
+    "unit8": {
+        "unitName":      "Bullgryn Squad",
+        "stats": {
+            "move":       6,
+            "toughness":  6,
+            "save":       4,
+            "wounds":     3,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit9": {
+        "unitName":      "Cadian Castellan",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     4,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 5
+        }
+    },
+    "unit10": {
+        "unitName":      "Cadian Command Squad Commander",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     3,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit11": {
+        "unitName":      "Cadian Command Squad Guardsman",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit12": {
+        "unitName":      "Cadian Shock Troops",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit13": {
+        "unitName":      "Catachan Jungle Fighters",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit14": {
+        "unitName":      "Chimera",
+        "stats": {
+            "move":       10,
+            "toughness":  9,
+            "save":       3,
+            "wounds":     11,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit15": {
+        "unitName":      "Commissar",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     3,
+            "leadership": 6,
+            "oc":         1,
+            "invulnSave": 5
+        }
+    },
+    "unit16": {
+        "unitName":      "Death Korps of Krieg",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit17": {
+        "unitName":      "Deathstrike",
+        "stats": {
+            "move":       10,
+            "toughness":  10,
+            "save":       3,
+            "wounds":     11,
+            "leadership": 7,
+            "oc":         3,
+            "invulnSave": 0
+        }
+    },
+    "unit18": {
+        "unitName":      "Doomhammer",
+        "stats": {
+            "move":       9,
+            "toughness":  13,
+            "save":       2,
+            "wounds":     24,
+            "leadership": 7,
+            "oc":         8,
+            "invulnSave": 0
+        }
+    },
+    "unit19": {
+        "unitName":      "Field Ordnance Battery",
+        "stats": {
+            "move":       4,
+            "toughness":  5,
+            "save":       4,
+            "wounds":     6,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit20": {
+        "unitName":      "Gaunt's Ghosts: Ibram Gaunt",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       4,
+            "wounds":     3,
+            "leadership": 6,
+            "oc":         1,
+            "invulnSave": 5
+        }
+    },
+    "unit21": {
+        "unitName":      "Gaunt's Ghosts",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     2,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit22": {
+        "unitName":      "Heavy Weapons Squad",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     2,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit23": {
+        "unitName":      "Hellhammer",
+        "stats": {
+            "move":       9,
+            "toughness":  13,
+            "save":       2,
+            "wounds":     24,
+            "leadership": 7,
+            "oc":         8,
+            "invulnSave": 0
+        }
+    },
+    "unit24": {
+        "unitName":      "Hellhound",
+        "stats": {
+            "move":       10,
+            "toughness":  10,
+            "save":       2,
+            "wounds":     11,
+            "leadership": 7,
+            "oc":         3,
+            "invulnSave": 0
+        }
+    },
+    "unit25": {
+        "unitName":      "Hydra",
+        "stats": {
+            "move":       10,
+            "toughness":  9,
+            "save":       3,
+            "wounds":     11,
+            "leadership": 7,
+            "oc":         3,
+            "invulnSave": 0
+        }
+    },
+    "unit26": {
+        "unitName":      "Infantry Squad: Sergeant & Guardsman",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit27": {
+        "unitName":      "Infantry Squad: Heavy Weapons Team",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     2,
+            "leadership": 7,
+            "oc":         4,
+            "invulnSave": 0
+        }
+    },
+    "unit28": {
+        "unitName":      "'Iron Hand' Straken",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       3,
+            "wounds":     4,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 4
+        }
+    },
+    "unit29": {
+        "unitName":      "Kasrkin",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       4,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit30": {
+        "unitName":      "Leman Russ Tank",
+        "stats": {
+            "move":       10,
+            "toughness":  11,
+            "save":       2,
+            "wounds":     13,
+            "leadership": 7,
+            "oc":         3,
+            "invulnSave": 0
+        }
+    },
+    "unit31": {
+        "unitName":      "Lord Solar Leontus",
+        "stats": {
+            "move":       12,
+            "toughness":  4,
+            "save":       3,
+            "wounds":     8,
+            "leadership": 6,
+            "oc":         2,
+            "invulnSave": 4
+        }
+    },
+    "unit32": {
+        "unitName":      "Manticore",
+        "stats": {
+            "move":       10,
+            "toughness":  10,
+            "save":       3,
+            "wounds":     11,
+            "leadership": 7,
+            "oc":         3,
+            "invulnSave": 0
+        }
+    },
+    "unit33": {
+        "unitName":      "Militarum Tempestus Command Squad: Tempestor Prime",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       4,
+            "wounds":     3,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit34": {
+        "unitName":      "Militarum Tempestus Command Squad: Tempestus Scion",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       4,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit35": {
+        "unitName":      "Munitorum Servitors",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       4,
+            "wounds":     1,
+            "leadership": 8,
+            "oc":         0,
+            "invulnSave": 6
+        }
+    },
+    "unit36": {
+        "unitName":      "Nork Deddog",
+        "stats": {
+            "move":       6,
+            "toughness":  6,
+            "save":       4,
+            "wounds":     6,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit37": {
+        "unitName":      "Ogryn Bodyguard",
+        "stats": {
+            "move":       6,
+            "toughness":  6,
+            "save":       5,
+            "wounds":     6,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit38": {
+        "unitName":      "Ogryn Squad",
+        "stats": {
+            "move":       6,
+            "toughness":  6,
+            "save":       5,
+            "wounds":     3,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit39": {
+        "unitName":      "Platoon Command Squad: Commander",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     3,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit40": {
+        "unitName":      "Platoon Command Squad: Veteran Guardsman",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit41": {
+        "unitName":      "Platoon Command Squad: Heavy Weapons Team",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     2,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit42": {
+        "unitName":      "Primaris Psyker",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     3,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit43": {
+        "unitName":      "Ratling Snipers",
+        "stats": {
+            "move":       6,
+            "toughness":  2,
+            "save":       6,
+            "wounds":     1,
+            "leadership": 8,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit44": {
+        "unitName":      "Regimental Attachés",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit45": {
+        "unitName":      "Regimental Enginseer",
+        "stats": {
+            "move":       6,
+            "toughness":  4,
+            "save":       3,
+            "wounds":     3,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 5
+        }
+    },
+    "unit46": {
+        "unitName":      "Regimental Preacher",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       6,
+            "wounds":     3,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 4
+        }
+    },
+    "unit47": {
+        "unitName":      "Rogal Dorn Battle Tank",
+        "stats": {
+            "move":       10,
+            "toughness":  12,
+            "save":       2,
+            "wounds":     18,
+            "leadership": 7,
+            "oc":         5,
+            "invulnSave": 0
+        }
+    },
+    "unit48": {
+        "unitName":      "Scout Sentinels",
+        "stats": {
+            "move":       10,
+            "toughness":  7,
+            "save":       3,
+            "wounds":     7,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit49": {
+        "unitName":      "Sergeant Harker",
+        "stats": {
+            "move":       6,
+            "toughness":  4,
+            "save":       5,
+            "wounds":     3,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit50": {
+        "unitName":      "Shadowsword",
+        "stats": {
+            "move":       9,
+            "toughness":  13,
+            "save":       2,
+            "wounds":     24,
+            "leadership": 7,
+            "oc":         8,
+            "invulnSave": 0
+        }
+    },
+    "unit51": {
+        "unitName":      "Sly Marbo",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       5,
+            "wounds":     4,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit52": {
+        "unitName":      "Stormlord",
+        "stats": {
+            "move":       9,
+            "toughness":  13,
+            "save":       2,
+            "wounds":     24,
+            "leadership": 7,
+            "oc":         8,
+            "invulnSave": 0
+        }
+    },
+    "unit53": {
+        "unitName":      "Stormsword",
+        "stats": {
+            "move":       9,
+            "toughness":  13,
+            "save":       2,
+            "wounds":     24,
+            "leadership": 7,
+            "oc":         8,
+            "invulnSave": 0
+        }
+    },
+    "unit54": {
+        "unitName":      "Tank Commander",
+        "stats": {
+            "move":       10,
+            "toughness":  11,
+            "save":       2,
+            "wounds":     13,
+            "leadership": 7,
+            "oc":         3,
+            "invulnSave": 0
+        }
+    },
+    "unit55": {
+        "unitName":      "Taurox",
+        "stats": {
+            "move":       12,
+            "toughness":  8,
+            "save":       3,
+            "wounds":     10,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit56": {
+        "unitName":      "Taurox Prime",
+        "stats": {
+            "move":       12,
+            "toughness":  8,
+            "save":       3,
+            "wounds":     10,
+            "leadership": 7,
+            "oc":         2,
+            "invulnSave": 0
+        }
+    },
+    "unit57": {
+        "unitName":      "Tempestus Scions",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       4,
+            "wounds":     1,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 0
+        }
+    },
+    "unit58": {
+        "unitName":      "Ursula Creed",
+        "stats": {
+            "move":       6,
+            "toughness":  3,
+            "save":       4,
+            "wounds":     4,
+            "leadership": 7,
+            "oc":         1,
+            "invulnSave": 5
+        }
+    },
+    "unit59": {
+        "unitName":      "Valkyrie",
+        "stats": {
+            "move":       20,
+            "toughness":  10,
+            "save":       2,
+            "wounds":     14,
+            "leadership": 7,
+            "oc":         0,
+            "invulnSave": 0
+        }
+    },
+    "unit60": {
+        "unitName":      "Wyvern",
+        "stats": {
+            "move":       10,
+            "toughness":  9,
+            "save":       3,
+            "wounds":     11,
+            "leadership": 7,
+            "oc":         3,
+            "invulnSave": 0
+        }
+    }
+}
