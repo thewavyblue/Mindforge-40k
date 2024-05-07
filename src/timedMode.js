@@ -17,11 +17,10 @@ export let score = 0;
 export let timerDisplay = document.getElementById("timer");
 export let timerInterval;
 timerDisplay.innerText = timerCount;
-// let questionIndex = randomNum();
 let randomUnitArray;
 let answer;
 const questionsArrayLength = 7;
-
+let prevQuestionMemory = null;
 
 // BUTTONS //
 
@@ -75,30 +74,46 @@ function fetchArmyStats(selectedArmy) {
 
 // Create a random number based on the length of the stats array to choose the question
 function randomNum() {
-    return Math.floor(Math.random() * questionsArrayLength);
+    //! return Math.floor(Math.random() * questionsArrayLength);
+    let randomNumValue;
+    do {
+        randomNumValue = Math.floor(Math.random() * questionsArrayLength);
+    } while (randomNumValue === prevQuestionMemory);
+
+    // Update the last generated number
+    prevQuestionMemory = randomNumValue;
+
+    return randomNumValue;
 }
 
 // Function to generate a new question
 function generateNewQuestion(data) {
-
+    
     const unitKeys = Object.keys(data)
     .filter(key => key.startsWith('unit'))
     .map((key) => key);
-    // console.log(data);
     
     // Randomly select a unit key
     const randomUnitKey = unitKeys[Math.floor(Math.random() * unitKeys.length)];
-    console.log(`Randomly select a unit key (from selectRandomUnit):\n${randomUnitKey}`);  // i.e. unit12
-
+    //* console.log(`Randomly select a unit key (from selectRandomUnit):\n${randomUnitKey}`);  // i.e. unit12
+    
     // Get the selected unit object. Return the selected unit and its stats
     const selectedUnit = data[randomUnitKey];
-    console.log(`Get and return unit name (from selectRandomUnit):\n${selectedUnit.unitName}`); // i.e. Dialogus
+    //* console.log(`Get and return unit name (from selectRandomUnit):\n${selectedUnit.unitName}`); // i.e. Dialogus  
 
     // Update the question index
-    const questionIndex = randomNum(); // i.e. 1 (this is question 1 from unitQuestions.js)
+    const questionIndex = randomNum(); // i.e. 0 (this is question 1 from unitQuestions.js)    
+    // if the same question is being asked as the previous question, generate a new question
+    // if (questionIndex === prevQuestionMemory) {
+    //     generateNewQuestion(randomUnitArray);
+    // } else {
+    //     prevQuestionMemory = questionIndex;
+    //     console.log(`The previous qIndex: ${prevQuestionMemory}\nThe new qIndex: ${questionIndex}`);
+    // }
+
     // Get the question text from the questions array
     const question = Object.values(unitQuestions)[questionIndex];
-    console.log(question); // i.e IndexOf "How far can models in this unit <span class="question-emphasis">Move</span>?" = 1
+    //* console.log(question); // i.e IndexOf "How far can models in this unit <span class="question-emphasis">Move</span>?" = 1
     
     // Display the new question
     document.getElementById("question-label").innerHTML = question; // the above in a div
@@ -110,24 +125,23 @@ function generateNewQuestion(data) {
     function getAnswer() {
         // Get the keys of the stats object
         const statKeys = Object.keys(selectedUnit.stats);
-        console.log(statKeys);
+        //* console.log(statKeys);
         // Randomly select a stat key
         const randomStatValue = statKeys[questionIndex];
-        // console.log(randomStatValue);
-        // console.log(selectedUnit.stats[randomStatValue]);
+        //* console.log(randomStatValue);
+        //* console.log(selectedUnit.stats[randomStatValue]);
 
-        //! Experimental code 
-        // if(selectedUnit.stats[randomStatValue] === 0){
-        //     console.log("invuln save = 0");
-        // }
-        
-        // // Return the selected stat value
+        // if the value of the stat is 0, generate a new question.
+        if(selectedUnit.stats[randomStatValue] === 0){
+            generateNewQuestion(randomUnitArray);
+        }
+
         return selectedUnit.stats[randomStatValue];
     }
 
     // The answer:
     answer = getAnswer();
-    console.log(`the answer is:\n${answer}`);
+    //* console.log(`the answer is:\n${answer}`);
 }
 
 // Function to handle answer submission
