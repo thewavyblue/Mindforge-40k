@@ -4,8 +4,8 @@ import { timerDisplay, timerInterval, score, questionCounter, skipCounter, selec
 // Set the interval for the timer in milliseconds
 export let interval = 1000; // 1000 milliseconds = 1 second
 
-// Initialize a counter
-export let timerCount = 1;
+// Initialize a counter //! Remember to reset this after testing!
+export let timerCount = 60; 
 
 // Function to be executed at each interval
 export function timerTick() {
@@ -31,7 +31,6 @@ function loadPage(pageUrl) {
         } else {
             document.getElementById("skip-total").innerHTML = `You skipped <span class="strong">${skipCounter}</span> times!`;
         }
-        
         
         document.getElementById("selected-army").innerText = selectedArmy;
         document.getElementById("selected-category").innerText = selectedCategory;
