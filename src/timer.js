@@ -1,5 +1,5 @@
 // Timer is used to count down from X
-import { timerDisplay, timerInterval, score } from "./timedMode.js";
+import { timerDisplay, timerInterval, score, questionCounter, skipCounter, selectedArmy, selectedCategory } from "./timedMode.js";
 
 // Set the interval for the timer in milliseconds
 export let interval = 1000; // 1000 milliseconds = 1 second
@@ -23,7 +23,12 @@ function loadPage(pageUrl) {
     .then(response => response.text())
     .then(html => {
         document.getElementById("main").innerHTML = html;
-        document.getElementById("final-score").innerHTML = score;
+        document.getElementById("final-score").innerText = score;
+        document.getElementById("questions-total").innerText = questionCounter;
+        document.getElementById("skip-total").innerText = skipCounter;
+        document.getElementById("selected-title").innerText = selectedArmy;
+        document.getElementById("selected-category").innerText = selectedCategory;
     })
     .catch(error => console.error('Error loading page:', error));
 }
+

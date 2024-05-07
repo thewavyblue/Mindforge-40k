@@ -10,9 +10,10 @@ const answerOutput = document.getElementById("output-answer");
 const scoreMessage = document.getElementById("score-message");
 const answerInputPath = document.getElementById("input-answer-path");
 const inputSection = document.getElementById("input-section");
-const selectedArmy = sessionStorage.getItem("armyName");
-const selectedCategory = sessionStorage.getItem("category");
+export const selectedArmy = sessionStorage.getItem("armyName");
+export const selectedCategory = sessionStorage.getItem("category");
 export let questionCounter;
+export let skipCounter = 0;
 export let score = 0;
 export let timerDisplay = document.getElementById("timer");
 export let timerInterval;
@@ -181,6 +182,7 @@ function skipQuestion() {
 
     scoreMessage.innerHTML = "Question skipped";
         setTimeout(() => {
+            skipCounter++;
             clearScoreMessage();
             generateNewQuestion(randomUnitArray);
         }, 1000);

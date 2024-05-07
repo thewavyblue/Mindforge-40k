@@ -1,6 +1,6 @@
 <!-- GAME MODE HEADING -->
-<section class="row justify-content-center pb-8">
-    <div class="col align-items-center">
+<section class="row justify-content-center">
+    <div class="col align-items-center pb-8">
         <h1 class="white">
             TIMED MODE
         </h1>
@@ -9,37 +9,53 @@
 
 <!-- PAGE HEADING -->
 <section class="row justify-content-center">
-    <div class="col align-items-center">
-        <h2 class="white pb-8">
+    <div class="col align-items-center pb-8">
+        <h2 class="white">
             GAME OVER
         </h2>
     </div>
 </section>
 
+<section class="row justify-content-center">
+    <div class="col pb-4">
+        <h3 class="white" id="selected-army">
+        </h3>
+        <h3 class="white" id="selected-category">
+        </h3>
+    </div>
+</section>
 
 <section class="row justify-content-center">
-    <div class="col">
-        <p class="white menu-desc pb-4">
-            Number of questions you<br>have correctly answered:
+    <div class="col pb-4">
+        <p class="white menu-desc">
+            Number of questions you<br>have answered correctly:
         </p>
     </div>
 </section>
 
 <!-- SCORE -->
-<section class="row justify-content-center py-4">
-    <div class="col" id="input-container">
-        <div class="m-auto">
-            <div id="final-score">
-                0
-            </div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 36" fill="none"><path id="output-answer-path" d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="#FFF" stroke="#4D778C"/>
-            </svg>
-        </div>
+<section class="row final-score justify-content-center gap-4">
+    <span class="" id="final-score">
+        0
+    </span>
+    /
+    <span class="" id="questions-total">
+        0
+    </span>
+</section>
+
+<!-- SKIPS -->
+<section class="row justify-content-center gap-2 pb-8">
+    <div class="col justify-content-center">
+        <img src="/imgs/icon-skip-white.svg" alt="" class="icon-sm">
     </div>
+    <p class="white menu-desc">
+        You skipped <span class="strong" id="skip-total">0</span> times!
+    </p>
 </section>
 
 <!-- HIGHSCORES -->
-<section class="row justify-content-center overflow">
+<!-- <section class="row justify-content-center overflow">
     <div class="col px-8 py-8 gap-4 full-width highscores-slide" id="highscores-timed-mode">
         <h3 class="white text-center pb-4 border-bottom">
             High scores: Timed Mode
@@ -59,7 +75,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- BUTTONS -->
 <section class="row justify-content-center">
