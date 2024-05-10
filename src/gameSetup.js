@@ -47,7 +47,7 @@ function loadArmySelectorOptions(){
                 option.text = army;
                 option.value = key; // Set the key to the key
                 armySelector.appendChild(option);
-                if (key !== "tau" && key !== "adeptas-sororitas" && key !== "astra-militarum"){
+                if (key !== "tau" && key !== "adeptas-sororitas" && key !== "astra-militarum" && key !== "orks"){
                     option.disabled = "true";
                 }
             }
