@@ -1,7 +1,7 @@
 {
     "armyName" : {
         "select" : "Select...", 
-        "adeptas-sororitas" : "Adeptas Sororitas",
+        "adepta-sororitas" : "Adepta Sororitas",
         "adeptus-custodes" : "Adeptus Custodes", 
         "adeptus-mechanicus" : "Adeptus Mechanicus",
         "astra-militarum" : "Astra Militarum",

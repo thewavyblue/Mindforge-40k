@@ -32,7 +32,7 @@ function loadPage(pageUrl) {
             document.getElementById("skip-total").innerHTML = `You skipped <span class="strong">${skipCounter}</span> times!`;
         }
         
-        document.getElementById("selected-army").innerText = selectedArmy;
+        document.getElementById("selected-army").innerText = selectedArmy.replace("-", " ");
         document.getElementById("selected-category").innerText = selectedCategory;
     })
     .catch(error => console.error('Error loading page:', error));
