@@ -613,5 +613,336 @@
         "oc": "12",
         "invulnSave": "0"
         }
+    },
+    "unit63": {
+        "unitName": "Grot Bomm Launcha",
+        "stats" : { "move": "12",
+        "toughness": "6",
+        "save": "4",
+        "wounds": "6",
+        "leadership": "7",
+        "oc": "2",
+        "invulnSave": "6"
+    }},
+    "unit64": {
+        "unitName": "Attack Fighta",
+        "stats" : { "move": "20",
+        "toughness": "9",
+        "save": "3",
+        "wounds": "10",
+        "leadership": "7",
+        "oc": "0",
+        "invulnSave": "6"
+    }},
+    "unit65": {
+        "unitName": "Fighta0bommer",
+        "stats" : { "move": "20",
+        "toughness": "9",
+        "save": "3",
+        "wounds": "12",
+        "leadership": "7",
+        "oc": "0",
+        "invulnSave": "6"
+    }},
+    "unit66": {
+        "unitName": "Deff Rolla Battle Fortress",
+        "stats" : { "move": "10",
+        "toughness": "12",
+        "save": "3",
+        "wounds": "22",
+        "leadership": "7",
+        "oc": "8",
+        "invulnSave": "6"
+    }},
+    "unit67": {
+        "unitName": "Kill Krusha",
+        "stats" : { "move": "10",
+        "toughness": "12",
+        "save": "3",
+        "wounds": "22",
+        "leadership": "7",
+        "oc": "8",
+        "invulnSave": "6"
+    }},
+    "unit68": {
+        "unitName": "Big Mek With Shokk Attack Gun",
+        "stats" : { "move": "6",
+        "toughness": "5",
+        "save": "4",
+        "wounds": "5",
+        "leadership": "7",
+        "oc": "1",
+        "invulnSave": "0"
+    }},
+    "unit69": {
+        "unitName": "Deffkilla Wartrike",
+        "stats" : { "move": "12",
+        "toughness": "6",
+        "save": "4",
+        "wounds": "9",
+        "leadership": "6",
+        "oc": "3",
+        "invulnSave": "5"
+    }},
+    "unit70": {
+        "unitName": "Kustom Boosta0blasta",
+        "stats" : { "move": "12",
+        "toughness": "7",
+        "save": "4",
+        "wounds": "9",
+        "leadership": "7",
+        "oc": "3",
+        "invulnSave": "6"
+    }},
+    "unit71": {
+        "unitName": "Shokkjump Dragsta",
+        "stats" : { "move": "12",
+        "toughness": "7",
+        "save": "4",
+        "wounds": "9",
+        "leadership": "7",
+        "oc": "3",
+        "invulnSave": "6"
+    }},
+    "unit72": {
+        "unitName": "Boomdakka Snazzwagon",
+        "stats" : { "move": "12",
+        "toughness": "7",
+        "save": "4",
+        "wounds": "9",
+        "leadership": "7",
+        "oc": "3",
+        "invulnSave": "6"
+    }},
+    "unit73": {
+        "unitName": "Megatrakk Scrapjet",
+        "stats" : { "move": "12",
+        "toughness": "7",
+        "save": "4",
+        "wounds": "9",
+        "leadership": "7",
+        "oc": "3",
+        "invulnSave": "6"
+    }},
+    "unit74": {
+        "unitName": "Rukkatrukk Squigbuggy",
+        "stats" : { "move": "12",
+        "toughness": "7",
+        "save": "4",
+        "wounds": "9",
+        "leadership": "7",
+        "oc": "3",
+        "invulnSave": "6"
+    }},
+    "unit75": {
+        "unitName": "Mekboy Workshop",
+        "stats" : { "move": "0",
+        "toughness": "9",
+        "save": "4",
+        "wounds": "10",
+        "leadership": "7",
+        "oc": "0",
+        "invulnSave": "0"
+    }},
+    "unit76": {
+        "unitName": "Da Red Gobbo with Icon of da Revolushun",
+        "stats" : { "move": "6",
+        "toughness": "2",
+        "save": "5",
+        "wounds": "3",
+        "leadership": "7",
+        "oc": "1",
+        "invulnSave": "0"
+    }},
+    "unit77": {
+        "unitName": "Big Mek With Kustom Force Field",
+        "stats" : { "move": "6",
+        "toughness": "5",
+        "save": "4",
+        "wounds": "4",
+        "leadership": "7",
+        "oc": "1",
+        "invulnSave": "0"
+    }},
+    "unit78": {
+        "unitName": "Mega Dread",
+        "stats" : { "move": "8",
+        "toughness": "10",
+        "save": "2",
+        "wounds": "16",
+        "leadership": "7",
+        "oc": "5",
+        "invulnSave": "6"
+    }},
+    "unit79": {
+        "unitName": "Zodgrod Wortsnagga",
+        "stats" : { "move": "6",
+        "toughness": "5",
+        "save": "5",
+        "wounds": "5",
+        "leadership": "7",
+        "oc": "1",
+        "invulnSave": "0"
+    }},
+    "unit80": {
+        "unitName": "Beastboss",
+        "stats" : { "move": "6",
+        "toughness": "5",
+        "save": "4",
+        "wounds": "6",
+        "leadership": "6",
+        "oc": "1",
+        "invulnSave": "5"
+    }},
+    "unit81": {
+        "unitName": "Beastboss On Squigosaur",
+        "stats" : { "move": "10",
+        "toughness": "8",
+        "save": "3",
+        "wounds": "8",
+        "leadership": "6",
+        "oc": "3",
+        "invulnSave": "5"
+    }},
+    "unit82": {
+        "unitName": "Painboss",
+        "stats" : { "move": "6",
+        "toughness": "5",
+        "save": "4",
+        "wounds": "4",
+        "leadership": "7",
+        "oc": "1",
+        "invulnSave": "0"
+    }},
+    "unit83": {
+        "unitName": "Wurrboy",
+        "stats" : { "move": "6",
+        "toughness": "5",
+        "save": "5",
+        "wounds": "4",
+        "leadership": "7",
+        "oc": "1",
+        "invulnSave": "0"
+    }},
+    "unit84": {
+        "unitName": "Mozrog Skragbad",
+        "stats" : { "move": "10",
+        "toughness": "8",
+        "save": "3",
+        "wounds": "8",
+        "leadership": "6",
+        "oc": "3",
+        "invulnSave": "4"
+    }},
+    "unit85": {
+        "unitName": "Beast Snagga Boyz",
+        "stats" : { "move": "6",
+        "toughness": "5",
+        "save": "5",
+        "wounds": "1",
+        "leadership": "7",
+        "oc": "2",
+        "invulnSave": "0"
+    }},
+    "unit86": {
+        "unitName": "Beast Snagga Nob",
+        "stats" : { "move": "6",
+        "toughness": "5",
+        "save": "5",
+        "wounds": "2",
+        "leadership": "7",
+        "oc": "2",
+        "invulnSave": "0"
+    }},
+    "unit87": {
+        "unitName": "Nob On Smasha Squig",
+        "stats" : { "move": "10",
+        "toughness": "7",
+        "save": "4",
+        "wounds": "5",
+        "leadership": "7",
+        "oc": "2",
+        "invulnSave": "0"
+    }},
+    "unit88": {
+        "unitName": "Squighog Boyz",
+        "stats" : { "move": "10",
+        "toughness": "7",
+        "save": "4",
+        "wounds": "3",
+        "leadership": "7",
+        "oc": "2",
+        "invulnSave": "0"
+    }},
+    "unit89": {
+        "unitName": "Kill Rig",
+        "stats" : { "move": "10",
+        "toughness": "10",
+        "save": "3",
+        "wounds": "16",
+        "leadership": "7",
+        "oc": "5",
+        "invulnSave": "0"
+    }},
+    "unit90": {
+        "unitName": "Hunta Rig",
+        "stats" : { "move": "10",
+        "toughness": "10",
+        "save": "3",
+        "wounds": "16",
+        "leadership": "7",
+        "oc": "5",
+        "invulnSave": "0"
+    }},
+    "unit91": {
+        "unitName": "Big’ed Bossbunka",
+        "stats" : { "move": "0",
+        "toughness": "10",
+        "save": "3",
+        "wounds": "12",
+        "leadership": "7",
+        "oc": "0",
+        "invulnSave": "0"
+    }},
+    "unit92": {
+        "unitName": "Deffkoptas With Big Shootas",
+        "stats" : { "move": "12",
+        "toughness": "6",
+        "save": "4",
+        "wounds": "4",
+        "leadership": "7",
+        "oc": "2",
+        "invulnSave": "6"
+    }},
+    "unit93": {
+        "unitName": "Da Red Gobbo’s Surprise",
+        "stats" : { "move": "6",
+        "toughness": "2",
+        "save": "5",
+        "wounds": "3",
+        "leadership": "7",
+        "oc": "1",
+        "invulnSave": "4"
+    }},
+    "unit94": {
+        "unitName": "Grotmas Gitz",
+        "stats" : { "move": "10",
+        "toughness": "3",
+        "save": "4",
+        "wounds": "5",
+        "leadership": "7",
+        "oc": "2",
+        "invulnSave": "0"
+    }},
+    "unit95": {
+        "unitName": "Big Mek",
+        "stats" : { "move": "6",
+        "toughness": "5",
+        "save": "3",
+        "wounds": "6",
+        "leadership": "7",
+        "oc": "1",
+        "invulnSave": "0"
     }
+}
 }
