@@ -42,8 +42,11 @@ body {
     min-height: 100vh;
 }
 
-#main {
-    padding-bottom: 6rem;
+#main,
+main {
+    padding-bottom: 3.25rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .sticky {
@@ -224,7 +227,7 @@ img {
     position: relative;
 }
 
-input,
+#input-answer,
 #output-answer {
     font-size: 2rem;
     font-weight: 900;
@@ -238,7 +241,7 @@ input,
     margin: auto;
     left: 0;
     right: 0;
-    width: 4rem;
+    width: clamp(3rem, 3rem, 4rem);
     height: 3rem;
     border: none;
 }
@@ -604,4 +607,8 @@ footer > p > a:active {
 
 .image-frame {
     border: 2px solid var(--white);
+}
+
+.fill {
+    flex-grow: 1;
 }

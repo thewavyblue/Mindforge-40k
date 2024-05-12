@@ -9,7 +9,18 @@
     <header class="row justify-content-center" id="masthead">
     </header>
 
-    <section id="main">
+    <main class="h-100vh">
+        <!-- Back button -->
+        <section class="row">
+            <div class="col pb-4">
+                <a class="row gap-2 px-4" href="/setup-free-play.html">
+                    <img class="inline-block" src="/imgs/arrow-back.svg" alt="">
+                    <p class="dark-grey-2 p-sm inline-block">
+                        Go back
+                    </p>
+                </a>
+            </div>
+        </section>
         <!-- Title and scoring -->
         <section class="container gap-2 cont-steel-grey white py-4">
             <div class="row justify-content-center">
@@ -54,36 +65,32 @@
         </section>
 
         <!-- Input answer + output section -->
-        <section class="row px-8 py-8 full-width justify-content-center align-items-center" id="input-section">
-            
-                <div class="col" id="input-container">
-                    <div class="m-auto">
-                        <input class="" type="number" placeholder="#" class="no-bg" id="input-answer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 36" fill="none"><path id="input-answer-path" d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="white" stroke="#4D778C"/>
-                        </svg>
+        <section class="row px-8 py-8 full-width justify-content-center align-items-center gap-4" id="input-section">    
+            <div class="col" id="input-container">
+                <div class="m-auto">
+                    <input class="" type="number" placeholder="#" class="no-bg" id="input-answer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 36" fill="none"><path id="input-answer-path" d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="white" stroke="#4D778C"/>
+                    </svg>
+                </div>
+            </div>
+                <button class="button btn-steel-grey" id="btn-submit">
+                    SUBMIT
+                </button>
+            <div class="col" id="input-container">
+                <div class="m-auto">
+                    <div class="" id="output-answer">
                     </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 36" fill="none"><path id="output-answer-path" d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="#DDD" stroke="#4D778C"/>
+                    </svg>
                 </div>
-                <div class="row gap-4 justify-content-center px-4 h-100pc">
-                    <button class="button btn-steel-grey" id="btn-submit">
-                        SUBMIT
-                    </button>
-                </div>
-                <div class="col" id="input-container">
-                    <div class="m-auto">
-                        <div class="" id="output-answer">
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 36 36" fill="none"><path id="output-answer-path" d="M1 34.5L1 3.20712L3.70711 0.5L35 0.500006L35 31.7929L32.2929 34.5L1 34.5Z" fill="#DDD" stroke="#4D778C"/>
-                        </svg>
-                    </div>
-                </div>
-                
-            </section>
+            </div>
+        </section>
             
             <!-- Answer message renders here -->
-        <section class="score-container text-align-center pt-4 h-100vh">
+        <section class="score-container text-align-center pt-4 fill">
             <h3 class="" id="score-message"></h3>
         </section>
-    </section>
+    </main>
 
     <!-- FOOTER from components.js -->
     <footer class="justify-content-center bg-dark fixed">
@@ -92,6 +99,5 @@
     <script src="/src/timedMode.js" type="module"></script>
     <script src="/src/timer.js" type="module"></script>
     <script src="/src/components.js" type="module"></script>
-    <!-- <script src="/src/score.js" type="module"></script> -->
 </body>
 </html>
